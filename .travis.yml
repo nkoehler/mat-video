@@ -11,6 +11,9 @@ branches:
   only:
   - master
 
+notifications:
+  email: false
+
 install:
   - npm install
 
@@ -24,7 +27,9 @@ cache:
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: GIT_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  local-dir: mat-video
+  github-token: $GIT_TOKEN  # Set in travis-ci.org dashboard, marked secure
   keep-history: true
+  repo: nkoehler/nkoehler.github.io
   on:
     branch: master
