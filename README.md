@@ -31,12 +31,12 @@ npm i mat-video --save
 ## Usage
 A minimal example is quite simple:
 
-```javascript
+```js
     <mat-video [src]="localOrRemoteVideo.mp4"></mat-video>
 ```
 A slightly more customized example:
 
-```javascript
+```js
     <mat-video [src]="tutorial.mp4" [title]="My Tutorial Title" [width]="400" [height]="400" [autoplay]="true" [preload]="true" [fullscreen]="true"
     [download]="false"></mat-video>
 ```
