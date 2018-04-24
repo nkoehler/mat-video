@@ -30,7 +30,7 @@ npm i mat-video --save
 
 Add the following to your module file:
 
-```typscript
+```typescript
 // Normal Angular + Material imports
 ...
 import { MatVideoModule } from './video/video.module';
@@ -41,7 +41,6 @@ import { MatVideoModule } from './video/video.module';
     MatVideoModule
   ],
 })
-
 ```
 
 ## Usage
