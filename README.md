@@ -29,11 +29,11 @@ To use mat-video in your project install it via [npm](https://www.npmjs.com/pack
 
 ## Usage
 A minimal example is quite simple:
-	```js
+    ```javascript
     <mat-video [src]="localOrRemoteVideo.mp4"></mat-video>
-	```
+    ```
 A slightly more customized example:
-    ```js
+    ```javascript
     <mat-video [src]="tutorial.mp4" [title]="My Tutorial Title" [width]="400" [height]="400" [autoplay]="true" [preload]="true" [fullscreen]="true"
     [download]="false"></mat-video>
     ```
