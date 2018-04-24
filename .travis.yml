@@ -30,7 +30,7 @@ deploy:
   local-dir: dist
   github-token: $GIT_TOKEN  # Set in travis-ci.org dashboard, marked secure
   keep-history: false
-  repo: nkoehler/nkoehler.github.io
-  target-branch: master
+  repo: nkoehler/mat-video
+  target-branch: gh-pages
   on:
     branch: master
