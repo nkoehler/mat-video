@@ -23,20 +23,23 @@ See the [changelog](https://github.com/nkoehler/mat-video/blob/master/CHANGELOG.
 
 ## Installation
 To use mat-video in your project install it via [npm](https://www.npmjs.com/package/mat-video):
-    ```
-    npm i mat-video --save
-    ```
+
+```
+npm i mat-video --save
+```
 
 ## Usage
 A minimal example is quite simple:
-    ```javascript
+
+```javascript
     <mat-video [src]="localOrRemoteVideo.mp4"></mat-video>
-    ```
+```
 A slightly more customized example:
-    ```javascript
+
+```javascript
     <mat-video [src]="tutorial.mp4" [title]="My Tutorial Title" [width]="400" [height]="400" [autoplay]="true" [preload]="true" [fullscreen]="true"
     [download]="false"></mat-video>
-    ```
+```
 
 ## Credits
 `mat-video` is an open-source project developed by Nicholas Koehler.
