@@ -62,7 +62,7 @@ A slightly more customized example, in your HTML file:
 
 Attribute | Type | Description | Default
 --- | --- | --- | ---
-*src* | **string** | A path or URL to an .mp4 file | Empty string
+*src* | **string** | A path or URL to an .mp4 file (**Required**) | Empty string
 *title* | **string** | A title for the video | Empty string
 *width* | **number** | A number in pixels or null for video width | null
 *height* | **number** | A number in pixels or null for video height | null
