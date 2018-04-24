@@ -1,0 +1,32 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="centered">
+  <h1>MatVideo for Angular {{version}}</h1>
+  <mat-video [src]="src" [title]="title" [width]="width" [height]="height" [autoplay]="autoplay" [preload]="preload" [fullscreen]="fullscreen"
+    [download]="download"></mat-video>
+</div>
+
+<div>
+  <h3>Customize</h3>
+  <div fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="start stretch">
+    <div fxLayout="column" fxFlex>
+      <mat-form-field>
+        <input matInput type="url" [(ngModel)]="src" placeholder="src">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="text" [(ngModel)]="title" placeholder="title">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" [(ngModel)]="width" placeholder="width">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" [(ngModel)]="height" placeholder="height">
+      </mat-form-field>
+    </div>
+    <div fxLayout="column" fxLayoutGap="50px" fxFlex>
+      <mat-slide-toggle [(ngModel)]="autoplay" (change)="reloadVideo()">autoplay</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="preload" (change)="reloadVideo()">preload</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="fullscreen">fullscreen</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="download">download</mat-slide-toggle>
+    </div>
+  </div>
+</div>

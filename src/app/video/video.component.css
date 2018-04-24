@@ -1,0 +1,49 @@
+.videoplayer {
+    font-family: 'Open Sans', sans-serif;
+    background-color: transparent;
+}
+
+.header {
+    color: white;
+}
+
+.controls, .controls a {
+    color: white;
+}
+
+.controls .progress {
+    position: relative;
+    top: 26px;
+}
+
+.controls .progress .slider-progress {
+    width: 100%;
+}
+
+.controls .menu {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 48px;
+}
+
+.controls .menu .left {
+    justify-content: flex-start;
+}
+
+.controls .menu .right {
+    justify-content: flex-end;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s linear;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
