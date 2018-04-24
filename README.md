@@ -53,8 +53,7 @@ A minimal example is quite simple, in your HTML file:
 A slightly more customized example, in your HTML file:
 
 ```html
-    <mat-video [src]="tutorial.mp4" [title]="My Tutorial Title" [width]="400" [height]="400" [autoplay]="true" [preload]="true" [fullscreen]="true"
-    [download]="false"></mat-video>
+    <mat-video [src]="tutorial.mp4" [title]="My Tutorial Title" [width]="400" [height]="400" [autoplay]="true" [preload]="true" [fullscreen]="true" [download]="false"></mat-video>
 ```
 
 ## API
