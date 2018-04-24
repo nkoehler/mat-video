@@ -10,7 +10,7 @@ export class MatFullscreenButtonComponent implements OnInit {
   @Input() isFullscreen = false;
   @Output() fullscreenChanged = new EventEmitter();
 
-  private canFullscreen: boolean = false;
+  canFullscreen: boolean = false;
 
   constructor(private fscreen: BigScreenService) { }
 

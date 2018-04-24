@@ -20,6 +20,19 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() fullscreen: boolean = true;
     @Input() download: boolean = false;
 
+    playing: boolean = false;
+    duration: number;
+    currentTime: number;
+    currentTimePercentage: number = 0;
+    bufferedTime: number;
+    bufferedTimePercentage: number = 0;
+    volume: number = 1;
+    muted: boolean = false;
+    isFullscreen: boolean = false;
+
+    videoWidth: number;
+    videoHeight: number;
+
     private evLoadedMetadata: () => void;
     private evPlay: () => void;
     private evPause: () => void;
@@ -33,22 +46,9 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
     private evContextMenu: () => void;
     private evMouseMove: () => void;
 
-    private playing: boolean = false;
-    private duration: number;
-    private currentTime: number;
-    private currentTimePercentage: number = 0;
-    private bufferedTime: number;
-    private bufferedTimePercentage: number = 0;
-    private volume: number = 1;
-    private muted: boolean = false;
-    private isFullscreen: boolean = false;
-
     private isMouseMoving: boolean = false;
     private isMouseMovingTimer: NodeJS.Timer;
     private isMouseMovingTimeout: number = 1500;
-
-    private videoWidth: number;
-    private videoHeight: number;
 
     constructor(
         private renderer: Renderer2,
@@ -210,11 +210,11 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
         return res;
     }
 
-    private getOverlayClass(): any {
+    getOverlayClass(): any {
         return { 'visible': !this.playing || this.isMouseMoving, 'hidden': this.playing && !this.isMouseMoving };
     }
 
-    private getHeaderStyle(): any {
+    getHeaderStyle(): any {
         const heightPadding = 30;
         if (this.isFullscreen) {
             const res: VideoSize = this.calculateAspectRatioFit(this.videoWidth, this.videoHeight, screen.width, screen.height);
@@ -235,7 +235,7 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    private getControlsStyle(): any {
+    getControlsStyle(): any {
         const heightPadding = 96;
         if (this.isFullscreen) {
             const res: VideoSize = this.calculateAspectRatioFit(this.videoWidth, this.videoHeight, screen.width, screen.height);
@@ -256,7 +256,7 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    private getVideoStyle(): any {
+    getVideoStyle(): any {
         if (this.isFullscreen) {
             const res: VideoSize = this.calculateAspectRatioFit(this.videoWidth, this.videoHeight, screen.width, screen.height);
             const style = {
