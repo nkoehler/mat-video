@@ -1,6 +1,8 @@
 # mat-video for Angular 5+ and Material
+[![npm version](https://badge.fury.io/js/mat-video.svg)](https://badge.fury.io/js/mat-video)
+[![Maintainability](https://api.codeclimate.com/v1/badges/46fb1a751d60d0f8b316/maintainability)](https://codeclimate.com/github/nkoehler/mat-video/maintainability)
 
-**mat-video** is an Angular component for playing videos.  It has all the features you would expect from standard video player, all in an extremely light package. The video player is designed to be flexible and easy to use; you can be up and running in less than 5 minutes!
+**mat-video** is an Angular component for playing videos.  It has all the features you would expect from a standard video player, all in an extremely light package. The video player is designed to be flexible and easy to use; you can be up and running in less than 5 minutes!
 
 It was built for modern browsers using _TypeScript_, _CSS3_ and _HTML5_ with _Angular/Material 5.0.0+_.
 
@@ -25,19 +27,18 @@ See the [changelog](https://github.com/nkoehler/mat-video/blob/master/CHANGELOG.
 To use mat-video in your project install it via [npm](https://www.npmjs.com/package/mat-video):
 
 ```
-npm i mat-video --save
+npm install mat-video --save
 ```
 
 Add the following to your module file:
 
 ```typescript
 // Normal Angular + Material imports
-...
-import { MatVideoModule } from './video/video.module';
+
+import { MatVideoModule } from 'mat-video';
 
 @NgModule({
   imports: [
-    ...
     MatVideoModule
   ],
 })

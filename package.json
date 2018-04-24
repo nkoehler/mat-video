@@ -13,6 +13,24 @@
     "packagr": "ng-packagr -p ng-package.json"
   },
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkoehler/mat-video.git"
+  },
+  "keywords": [
+    "angular",
+    "material",
+    "javascript",
+    "angular5+",
+    "video",
+    "playback",
+    "mp4"
+  ],
+  "author": "Nicholas Koehler",
+  "bugs": {
+    "url": "https://github.com/nkoehler/mat-video/issues"
+  },
+  "homepage": "https://github.com/nkoehler/mat-video",
   "peerDependencies": {
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
