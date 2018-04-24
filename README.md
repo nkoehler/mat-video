@@ -41,5 +41,18 @@ A slightly more customized example:
     [download]="false"></mat-video>
 ```
 
+## API
+
+Attribute | Type | Description | Default
+--- | --- | --- | ---
+*src* | **string** | A path or URL to an .mp4 file | Empty string
+*title* | **string** | A title for the video | Empty string
+*width* | **number** | A number in pixels or null for video width | null
+*height* | **number** | A number in pixels or null for video height | null
+*autoplay* | **boolean** | A boolean for whether the video should autoplay | false
+*preload* | **boolean** | A boolean for whether the video should preload | true
+*fullscreen* | **boolean** | A boolean for whether the video will have a fullscreen option | true
+*download* | **boolean** | A boolean for whether the video will have a download option | false
+
 ## Credits
 `mat-video` is an open-source project developed by Nicholas Koehler.
