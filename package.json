@@ -24,7 +24,12 @@
     "angular5+",
     "video",
     "playback",
-    "mp4"
+    "mp4",
+    "mat",
+    "mat-video",
+    "material-video",
+    "player",
+    "html5"
   ],
   "author": "Nicholas Koehler",
   "bugs": {
