@@ -11,8 +11,8 @@
 
 - **demo:** removed unnecessary font dependency that was unused
 - **demo:** corrected demo page title
-- **style** updated master stylesheet with reduced body tag margins
-- **style** fixed multiple fonts being used
+- **style:** updated master stylesheet with reduced body tag margins
+- **style:** fixed multiple fonts being used
 
 
 
