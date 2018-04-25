@@ -1,3 +1,7 @@
+div {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 .content {
     margin: 8px;
 }
@@ -44,8 +48,9 @@
 }
 
 .footer .badges {
-    margin: auto;
-    padding-top: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .footer .icon {
@@ -70,4 +75,15 @@
 
 .mat-drawer-container {
     background-color: white;
+}
+
+.item-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 40px;
+}
+  
+.item-margin {
+    margin: 0 10px;
 }

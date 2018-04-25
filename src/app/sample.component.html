@@ -6,23 +6,53 @@
       </span>
     </mat-toolbar>
     <div class="content options">
-      <mat-form-field>
+      <mat-form-field class="item-margin">
         <input matInput type="url" [(ngModel)]="src" placeholder="src">
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="item-margin">
         <input matInput type="text" [(ngModel)]="title" placeholder="title">
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="item-margin">
         <input matInput type="number" [(ngModel)]="width" placeholder="width">
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="item-margin">
         <input matInput type="number" [(ngModel)]="height" placeholder="height">
       </mat-form-field>
 
-      <mat-slide-toggle [(ngModel)]="autoplay" (change)="reloadVideo()">autoplay</mat-slide-toggle>
-      <mat-slide-toggle [(ngModel)]="preload" (change)="reloadVideo()">preload</mat-slide-toggle>
-      <mat-slide-toggle [(ngModel)]="fullscreen">fullscreen</mat-slide-toggle>
-      <mat-slide-toggle [(ngModel)]="download">download</mat-slide-toggle>
+      <div class="item-section">
+        <div class="item-margin">Autoplay</div>
+        <mat-slide-toggle [(ngModel)]="autoplay" (change)="reloadVideo()"></mat-slide-toggle>
+      </div>
+
+      <div class="item-section">
+        <div class="item-margin">Preload</div>
+        <mat-slide-toggle [(ngModel)]="preload" (change)="reloadVideo()"></mat-slide-toggle>
+      </div>
+
+      <div class="item-section">
+        <div class="item-margin">Fullscreen</div>
+        <mat-slide-toggle [(ngModel)]="fullscreen"></mat-slide-toggle>
+      </div>
+
+      <div class="item-section">
+        <div class="item-margin">Download</div>
+        <mat-slide-toggle [(ngModel)]="download"></mat-slide-toggle>
+      </div>
+
+      <div class="item-section">
+        <div class="item-margin">Color:</div>
+        <mat-radio-group [(ngModel)]="color">
+          <mat-radio-button class="item-margin" value="primary">
+            Primary
+          </mat-radio-button>
+          <mat-radio-button class="item-margin" value="accent">
+            Accent
+          </mat-radio-button>
+          <mat-radio-button class="item-margin" value="warn">
+            Warn
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
     </div>
     <div class="mat-toolbar mat-primary mat-toolbar-single-row footer">
       <div class="badges">
@@ -52,7 +82,7 @@
 
     <div class="content video">
       <mat-video [src]="src" [title]="title" [width]="width" [height]="height" [autoplay]="autoplay" [preload]="preload" [fullscreen]="fullscreen"
-        [download]="download"></mat-video>
+        [download]="download" [color]="color"></mat-video>
     </div>
 
     <div class="mat-toolbar mat-primary mat-toolbar-single-row footer">

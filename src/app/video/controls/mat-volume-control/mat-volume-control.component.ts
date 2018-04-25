@@ -6,6 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./mat-volume-control.component.css']
 })
 export class MatVolumeControlComponent {
+  @Input() color = "primary";
   @Input() volume = 1;
   @Input() muted = false;
   @Output() volumeChanged = new EventEmitter<number>();

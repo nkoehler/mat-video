@@ -17,6 +17,7 @@ export class SampleComponent {
   preload = true;
   fullscreen = true;
   download = true;
+  color = "primary";
 
   reloadVideo(): void {
     const tmp = this.src;

@@ -6,6 +6,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
+  MatRadioModule,
   MatSidenavModule,
   MatSlideToggleModule,
   MatToolbarModule,
@@ -34,6 +35,7 @@ import { MatVideoModule } from './video/video.module';
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
+    MatRadioModule,
     MatVideoModule
   ],
   providers: [],

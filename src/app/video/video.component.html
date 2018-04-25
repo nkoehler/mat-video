@@ -9,7 +9,7 @@
 
     <div class="controls" [ngClass]="getOverlayClass()" [ngStyle]="getControlsStyle()">
         <div class="progress">
-            <mat-slider-progress-bar color="primary" class="slider-progress" mode="buffer" step="0.01" [value]="currentTimePercentage"
+            <mat-slider-progress-bar [color]="color" class="slider-progress" mode="buffer" step="0.01" [value]="currentTimePercentage"
                 [bufferValue]="bufferedTimePercentage" (input)="seekVideo($event)"></mat-slider-progress-bar>
         </div>
 
@@ -23,7 +23,7 @@
             <div class="right">
                 <mat-quality-control [resolution]="videoHeight"></mat-quality-control>
 
-                <mat-volume-control [volume]="volume" [muted]="muted" (volumeChanged)="updateVolume($event)" (mutedChanged)="toggleVolumeMute()"></mat-volume-control>
+                <mat-volume-control [color]="color" [volume]="volume" [muted]="muted" (volumeChanged)="updateVolume($event)" (mutedChanged)="toggleVolumeMute()"></mat-volume-control>
 
                 <mat-download-button *ngIf="download" [src]="src" [title]="title"></mat-download-button>
 

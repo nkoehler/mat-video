@@ -19,6 +19,7 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() preload: boolean = true;
     @Input() fullscreen: boolean = true;
     @Input() download: boolean = false;
+    @Input() color: string = "primary";
 
     playing: boolean = false;
     duration: number;
