@@ -6,49 +6,49 @@
       </span>
     </mat-toolbar>
     <div class="content options">
-      <mat-form-field class="item-margin">
+      <mat-form-field class="item-margin" [color]="color">
         <input matInput type="url" [(ngModel)]="src" placeholder="src">
       </mat-form-field>
-      <mat-form-field class="item-margin">
+      <mat-form-field class="item-margin" [color]="color">
         <input matInput type="text" [(ngModel)]="title" placeholder="title">
       </mat-form-field>
-      <mat-form-field class="item-margin">
+      <mat-form-field class="item-margin" [color]="color">
         <input matInput type="number" [(ngModel)]="width" placeholder="width">
       </mat-form-field>
-      <mat-form-field class="item-margin">
+      <mat-form-field class="item-margin" [color]="color">
         <input matInput type="number" [(ngModel)]="height" placeholder="height">
       </mat-form-field>
 
       <div class="item-section">
         <div class="item-margin">Autoplay</div>
-        <mat-slide-toggle [(ngModel)]="autoplay" (change)="reloadVideo()"></mat-slide-toggle>
+        <mat-slide-toggle [(ngModel)]="autoplay" (change)="reloadVideo()" [color]="color"></mat-slide-toggle>
       </div>
 
       <div class="item-section">
         <div class="item-margin">Preload</div>
-        <mat-slide-toggle [(ngModel)]="preload" (change)="reloadVideo()"></mat-slide-toggle>
+        <mat-slide-toggle [(ngModel)]="preload" (change)="reloadVideo()" [color]="color"></mat-slide-toggle>
       </div>
 
       <div class="item-section">
         <div class="item-margin">Fullscreen</div>
-        <mat-slide-toggle [(ngModel)]="fullscreen"></mat-slide-toggle>
+        <mat-slide-toggle [(ngModel)]="fullscreen" [color]="color"></mat-slide-toggle>
       </div>
 
       <div class="item-section">
         <div class="item-margin">Download</div>
-        <mat-slide-toggle [(ngModel)]="download"></mat-slide-toggle>
+        <mat-slide-toggle [(ngModel)]="download" [color]="color"></mat-slide-toggle>
       </div>
 
       <div class="item-section">
         <div class="item-margin">Color:</div>
         <mat-radio-group [(ngModel)]="color">
-          <mat-radio-button class="item-margin" value="primary">
+          <mat-radio-button class="item-margin" value="primary" [color]="color">
             Primary
           </mat-radio-button>
-          <mat-radio-button class="item-margin" value="accent">
+          <mat-radio-button class="item-margin" value="accent" [color]="color">
             Accent
           </mat-radio-button>
-          <mat-radio-button class="item-margin" value="warn">
+          <mat-radio-button class="item-margin" value="warn" [color]="color">
             Warn
           </mat-radio-button>
         </mat-radio-group>
