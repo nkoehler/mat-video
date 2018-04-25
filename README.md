@@ -7,7 +7,9 @@
 
 It was built for modern browsers using _TypeScript_, _CSS3_ and _HTML5_ with _Angular/Material 5.0.0+_.
 
-See the [changelog](https://github.com/nkoehler/mat-video/blob/master/CHANGELOG.md) for recent changes.
+See the [changelog](https://github.com/nkoehler/mat-video/blob/master/CHANGELOG.md) for recent changes.  
+
+If you wish to contribute, please fill out the [pull request template](https://github.com/nkoehler/mat-video/blob/master/CONTRIBUTING.md).  For issues, please fill out the [issue template](https://github.com/nkoehler/mat-video/blob/master/ISSUE_TEMPLATE.md) before submitting.
 
 ## Features
 - Native _HTML5_ video player
@@ -19,9 +21,9 @@ See the [changelog](https://github.com/nkoehler/mat-video/blob/master/CHANGELOG.
 - Preload
 - Scaling
 - Fullscreen
-- Download (work-in-progress)
+- Download
 - Customizable controls
-- Built using Material for theming potential
+- Material theming
 - Supports Chrome, Firefox, Safari, Edge, and IE11
 
 ## Installation
@@ -55,21 +57,22 @@ A minimal example is quite simple, in your HTML file:
 A slightly more customized example, in your HTML file:
 
 ```html
-    <mat-video [src]="tutorial.mp4" [title]="My Tutorial Title" [width]="400" [height]="400" [autoplay]="true" [preload]="true" [fullscreen]="true" [download]="false"></mat-video>
+    <mat-video [src]="tutorial.mp4" [title]="My Tutorial Title" [width]="400" [height]="400" [autoplay]="true" [preload]="true" [fullscreen]="true" [download]="false" [color]="accent"></mat-video>
 ```
 
 ## API
 
 Attribute | Type | Description | Default
 --- | --- | --- | ---
-*src* | **string** | A path or URL to an .mp4 file (**required**) | Empty string
-*title* | **string** | A title for the video | Empty string
-*width* | **number** | A number in pixels or null for video width | null
-*height* | **number** | A number in pixels or null for video height | null
-*autoplay* | **boolean** | A boolean for whether the video should autoplay | false
-*preload* | **boolean** | A boolean for whether the video should preload | true
-*fullscreen* | **boolean** | A boolean for whether the video will have a fullscreen option | true
-*download* | **boolean** | A boolean for whether the video will have a download option | false
+*src* | **string** | Path or URL to an .mp4 file (**required**) | Empty string
+*title* | **string** | Title for the video | Empty string
+*width* | **number** | Number in pixels or null for video width | null
+*height* | **number** | Number in pixels or null for video height | null
+*autoplay* | **boolean** | Whether the video should autoplay | false
+*preload* | **boolean** | Whether the video should preload | true
+*fullscreen* | **boolean** | Whether the video will have a fullscreen option | true
+*download* | **boolean** | Whether the video will have a download option | false
+*color* | **ThemePalette** | Material theme color palette for the sliders | primary
 
 ## Credits
 **mat-video** is an open-source project developed by Nicholas Koehler.

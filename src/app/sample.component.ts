@@ -9,8 +9,8 @@ export class SampleComponent {
   version = VERSION.full;
   appversion: string = require('../../package.json').version;
 
-  src = "https://media.w3.org/2010/05/sintel/trailer.mp4";
-  title = "Trailer for something cool!";
+  src = "/assets/WinterTimelapse.mp4";
+  title = "Timelapse of a Cold Winter Day";
   width = 600;
   height = 400;
   autoplay = false;
