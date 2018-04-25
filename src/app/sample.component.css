@@ -1,6 +1,73 @@
-.centered {
+.content {
+    margin: 8px;
+}
+
+.video {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.sidenav-container {
+    height: 100vh;
+}
+
+.sidenav {
+    width: 500px;
+}
+
+.github {
+    fill: white;
+}
+
+.title {
+    font-weight: bold;
+    margin: auto;
+}
+
+.title .name {
+    font-style: italic;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 48px;
+    font-size: 12px;
+}
+
+.footer .badges {
+    margin: auto;
+    padding-top: 12px;
+}
+
+.footer .icon {
+    width: 12px;
+    height: 12px;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.footer .version {
+    text-align: left;
+}
+
+.footer .copyright {
+    text-align: center;
+    margin: auto;
+}
+
+.footer .license {
+    text-align: right;
+}
+
+.mat-drawer-container {
+    background-color: white;
 }

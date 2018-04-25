@@ -7,6 +7,7 @@ import { Component, VERSION } from '@angular/core';
 })
 export class SampleComponent {
   version = VERSION.full;
+  appversion: string = require('../../package.json').version;
 
   src = "https://media.w3.org/2010/05/sintel/trailer.mp4";
   title = "Trailer for something cool!";

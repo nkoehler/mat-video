@@ -1,7 +1,16 @@
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatInputModule, MatSlideToggleModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatSidenavModule,
+  MatSlideToggleModule,
+  MatToolbarModule,
+  MatTooltipModule,
+} from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -20,6 +29,11 @@ import { MatVideoModule } from './video/video.module';
     MatFormFieldModule,
     MatInputModule,
     MatSlideToggleModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule,
     MatVideoModule
   ],
   providers: [],
