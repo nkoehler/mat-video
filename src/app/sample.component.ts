@@ -9,7 +9,7 @@ export class SampleComponent {
   version = VERSION.full;
   appversion: string = require('../../package.json').version;
 
-  src = "/assets/WinterTimelapse.mp4";
+  src = "https://nkoehler.github.io/mat-video/assets/WinterTimelapse.mp4";
   title = "Timelapse of a Cold Winter Day";
   width = 600;
   height = 400;
