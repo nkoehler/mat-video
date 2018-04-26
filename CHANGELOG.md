@@ -1,3 +1,15 @@
+# 1.1.1 (2018-04-26)
+
+### Bug Fixes:
+
+- **maintenance:** removed unnecessary @angular/flex-layout dependency
+- **maintenance:** removed unnecessary angular-bigscreen dependency
+- **maintenance:** updated peer dependencies for clearer compatability
+- **maintenance:** improved maintainability score by rewriting event listeners
+- **maintenance:** improved npm package installation
+
+
+
 # 1.1.0 (2018-04-25)
 
 ### Features:
