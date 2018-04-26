@@ -9,7 +9,7 @@
       <mat-form-field class="item-margin" [color]="color">
         <input matInput type="url" [(ngModel)]="src" placeholder="src">
         <mat-hint align="end">Download button will only work for
-          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">
+          <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy" target="_blank">
             same-origin URLs
           </a>
         </mat-hint>
@@ -25,22 +25,22 @@
       </mat-form-field>
 
       <div class="item-section">
-        <div class="item-margin">Autoplay</div>
+        <div class="item-margin">Autoplay:</div>
         <mat-slide-toggle [(ngModel)]="autoplay" (change)="reloadVideo()" [color]="color"></mat-slide-toggle>
       </div>
 
       <div class="item-section">
-        <div class="item-margin">Preload</div>
+        <div class="item-margin">Preload:</div>
         <mat-slide-toggle [(ngModel)]="preload" (change)="reloadVideo()" [color]="color"></mat-slide-toggle>
       </div>
 
       <div class="item-section">
-        <div class="item-margin">Fullscreen</div>
+        <div class="item-margin">Fullscreen:</div>
         <mat-slide-toggle [(ngModel)]="fullscreen" [color]="color"></mat-slide-toggle>
       </div>
 
       <div class="item-section">
-        <div class="item-margin">Download</div>
+        <div class="item-margin">Download:</div>
         <mat-slide-toggle [(ngModel)]="download" [color]="color"></mat-slide-toggle>
       </div>
 
@@ -61,9 +61,15 @@
     </div>
     <div class="mat-toolbar mat-primary mat-toolbar-single-row footer">
       <div class="badges">
-        <img alt="npm version" src="https://badge.fury.io/js/mat-video.svg">
-        <img alt="Build Status" src="https://travis-ci.org/nkoehler/mat-video.svg?branch=master">
-        <img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/46fb1a751d60d0f8b316/maintainability">
+        <a href="https://badge.fury.io/js/mat-video" target="_blank">
+          <img alt="npm version" src="https://badge.fury.io/js/mat-video.svg">
+        </a>
+        <a href="https://travis-ci.org/nkoehler/mat-video" target="_blank">
+          <img alt="Build Status" src="https://travis-ci.org/nkoehler/mat-video.svg?branch=master">
+        </a>
+        <a href="https://codeclimate.com/github/nkoehler/mat-video/maintainability" target="_blank">
+          <img alt="Maintainability" src="https://api.codeclimate.com/v1/badges/46fb1a751d60d0f8b316/maintainability">
+        </a>
       </div>
     </div>
   </mat-sidenav>

@@ -51,6 +51,7 @@ div {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+    padding-top: 12px;
 }
 
 .footer .icon {
