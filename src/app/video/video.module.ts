@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule, MatIconModule, MatSliderModule } from '@angular/material';
 
 import { MatDownloadButtonComponent } from './controls/mat-download-button/mat-download-button.component';
@@ -28,7 +27,6 @@ import { MatVideoComponent } from './video.component';
     ],
     imports: [
         CommonModule,
-        FlexLayoutModule,
         MatIconModule,
         MatButtonModule,
         MatSliderModule

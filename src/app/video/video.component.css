@@ -5,6 +5,9 @@
 
 .header {
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .controls, .controls a {

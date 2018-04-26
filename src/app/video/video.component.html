@@ -1,5 +1,5 @@
 <div #player class="videoplayer">
-    <div class="header" *ngIf="title" fxLayout="row" fxLayoutAlign="center center" [ngClass]="getOverlayClass()" [ngStyle]="getHeaderStyle()">
+    <div class="header" *ngIf="title" [ngClass]="getOverlayClass()" [ngStyle]="getHeaderStyle()">
         {{title}}
     </div>
 

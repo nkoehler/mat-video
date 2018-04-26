@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import {
   MatButtonModule,
@@ -25,7 +24,6 @@ import { MatVideoModule } from './video/video.module';
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
-    FlexLayoutModule,
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
