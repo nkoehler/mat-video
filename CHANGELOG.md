@@ -1,7 +1,8 @@
-# 1.1.1 (2018-04-26)
+# 1.1.1 - 1.1.2 (2018-04-26)
 
 ### Bug Fixes:
 
+- **player:** updated component to include icon css
 - **maintenance:** removed unnecessary @angular/flex-layout dependency
 - **maintenance:** removed unnecessary angular-bigscreen dependency
 - **maintenance:** updated peer dependencies for clearer compatability
