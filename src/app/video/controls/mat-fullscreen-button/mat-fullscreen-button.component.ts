@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { BigScreenService } from 'angular-bigscreen';
+import { FullscreenService } from '../../services/fullscreen.service';
 
 @Component({
   selector: 'mat-fullscreen-button',
@@ -12,7 +12,7 @@ export class MatFullscreenButtonComponent implements OnInit {
 
   canFullscreen: boolean = false;
 
-  constructor(private fscreen: BigScreenService) { }
+  constructor(private fscreen: FullscreenService) { }
 
   ngOnInit(): void {
     if (this.fscreen.isEnabled())

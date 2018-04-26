@@ -66,7 +66,6 @@
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "^6.0.106",
-    "angular-bigscreen": "^2.0.0",
     "classlist.js": "^1.1.20150312",
     "codelyzer": "^4.3.0",
     "core-js": "^2.5.5",

@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef, Renderer2, AfterViewInit, OnDestroy, OnInit, Input, HostListener } from '@angular/core';
-import { BigScreenService } from 'angular-bigscreen';
+
 import { VideoSize } from './interfaces/video-size.interface';
+import { FullscreenService } from './services/fullscreen.service';
 
 @Component({
     selector: 'mat-video',
@@ -53,7 +54,7 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
     constructor(
         private renderer: Renderer2,
-        private fscreen: BigScreenService
+        private fscreen: FullscreenService
     ) { }
 
     ngOnInit(): void {
