@@ -1,7 +1,7 @@
 {
   "name": "mat-video",
   "version": "1.1.0",
-  "description": "mat-video is an Angular 5+ video player component using Material",
+  "description": "mat-video is an Angular 5+ video player using Material",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -43,6 +43,7 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/material": "^5.0.0",
+    "@angular/cdk": "^5.0.0",
     "core-js": "^2.4.0",
     "rxjs": "^5.0.0"
   },
@@ -62,7 +63,6 @@
     "@angular/platform-browser": "^5.2.10",
     "@angular/platform-browser-dynamic": "^5.2.10",
     "@angular/router": "^5.2.10",
-    "@types/fscreen": "^1.0.0",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "^6.0.106",
