@@ -8,6 +8,11 @@
     <div class="content options">
       <mat-form-field class="item-margin" [color]="color">
         <input matInput type="url" [(ngModel)]="src" placeholder="src">
+        <mat-hint align="end">Download button will only work for
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">
+            same-origin URLs
+          </a>
+        </mat-hint>
       </mat-form-field>
       <mat-form-field class="item-margin" [color]="color">
         <input matInput type="text" [(ngModel)]="title" placeholder="title">

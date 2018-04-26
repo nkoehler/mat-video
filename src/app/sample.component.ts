@@ -1,4 +1,5 @@
 import { Component, VERSION } from '@angular/core';
+import * as buildInfo from './../../package.json';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component, VERSION } from '@angular/core';
 })
 export class SampleComponent {
   version = VERSION.full;
-  appversion: string = require('../../package.json').version;
+  appversion: string = (<any>buildInfo)['version'];
 
   src = "https://nkoehler.github.io/mat-video/assets/WinterTimelapse.mp4";
   title = "Timelapse of a Cold Winter Day";
