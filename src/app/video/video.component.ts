@@ -1,5 +1,6 @@
-import { Component, ViewChild, ElementRef, Renderer2, AfterViewInit, OnDestroy, OnInit, Input, HostListener } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 
+import { EventHandler } from './interfaces/event-handler.interface';
 import { VideoSize } from './interfaces/video-size.interface';
 import { FullscreenService } from './services/fullscreen.service';
 
@@ -35,22 +36,11 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
     videoWidth: number;
     videoHeight: number;
 
-    private evLoadedMetadata: () => void;
-    private evPlay: () => void;
-    private evPause: () => void;
-    private evCanPlayThrough: () => void;
-    private evDurationChange: () => void;
-    private evEnded: () => void;
-    private evError: () => void;
-    private evPlaying: () => void;
-    private evProgress: () => void;
-    private evTimeUpdate: () => void;
-    private evContextMenu: () => void;
-    private evMouseMove: () => void;
-
     private isMouseMoving: boolean = false;
     private isMouseMovingTimer: NodeJS.Timer;
     private isMouseMovingTimeout: number = 1500;
+
+    private events: EventHandler[];
 
     constructor(
         private renderer: Renderer2,
@@ -62,83 +52,61 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit(): void {
-        this.evLoadedMetadata = this.renderer.listen(this.video.nativeElement, 'loadedmetadata', event => {
-            this.videoWidth = this.video.nativeElement.videoWidth;
-            this.videoHeight = this.video.nativeElement.videoHeight;
-        })
+        this.events = [
+            { element: this.video, name: 'loadedmetadata', callback: event => this.evLoadedMetadata(event), dispose: null },
+            { element: this.video, name: 'play', callback: event => this.playing = true, dispose: null },
+            { element: this.video, name: 'pause', callback: event => this.playing = false, dispose: null },
+            { element: this.video, name: 'canplaythrough', callback: event => this.evCanPlayThrough(event), dispose: null },
+            { element: this.video, name: 'durationchange', callback: event => this.duration = this.video.nativeElement.duration, dispose: null },
+            { element: this.video, name: 'ended', callback: event => this.playing = false, dispose: null },
+            { element: this.video, name: 'error', callback: event => console.error('Unhandled Video Error'), dispose: null },
+            { element: this.video, name: 'playing', callback: event => event, dispose: null },
+            { element: this.video, name: 'progress', callback: event => this.updateBuffer(), dispose: null },
+            { element: this.video, name: 'timeupdate', callback: event => this.evTimeUpdate(event), dispose: null },
+            { element: this.video, name: 'contextmenu', callback: event => event.preventDefault(), dispose: null },
+            { element: this.player, name: 'mousemove', callback: event => this.evMouseMove(event), dispose: null }
+        ];
 
-        this.evPlay = this.renderer.listen(this.video.nativeElement, 'play', event => {
-            this.playing = true;
-        });
+        this.addEvents();
 
-        this.evPause = this.renderer.listen(this.video.nativeElement, 'pause', event => {
-            this.playing = false;
-        });
-
-        this.evCanPlayThrough = this.renderer.listen(this.video.nativeElement, 'canplaythrough', event => {
-            this.updateBuffer();
-        });
-
-        this.evDurationChange = this.renderer.listen(this.video.nativeElement, 'durationchange', event => {
-            this.duration = this.video.nativeElement.duration;
-        });
-
-        this.evEnded = this.renderer.listen(this.video.nativeElement, 'ended', event => {
-            this.playing = false;
-        });
-
-        this.evError = this.renderer.listen(this.video.nativeElement, 'error', event => {
-            console.error("Unknown Video Error");
-        });
-
-        this.evPlaying = this.renderer.listen(this.video.nativeElement, 'playing', event => {
-            // console.log("Playing");
-        });
-
-        this.evProgress = this.renderer.listen(this.video.nativeElement, 'progress', event => {
-            this.updateBuffer();
-        });
-
-        this.evTimeUpdate = this.renderer.listen(this.video.nativeElement, 'timeupdate', event => {
-            this.currentTime = this.video.nativeElement.currentTime;
-            this.currentTimePercentage = this.currentTime / this.duration * 100;
-        });
-
-        this.evContextMenu = this.renderer.listen(this.video.nativeElement, 'contextmenu', event => {
-            event.preventDefault();
-        });
-
-        this.evMouseMove = this.renderer.listen(this.player.nativeElement, 'mousemove', event => {
-            this.isMouseMoving = true;
-            clearTimeout(this.isMouseMovingTimer);
-            this.isMouseMovingTimer = setTimeout(() => {
-                this.isMouseMoving = false;
-            }, this.isMouseMovingTimeout);
-        });
-
-        this.fscreen.onChange(event => {
-            if (this.fscreen.isFullscreen()) {
-                this.isFullscreen = true;
-            } else {
-                this.isFullscreen = false;
-            }
-        });
-
+        this.fscreen.onChange(event => this.fscreen.isFullscreen() ? this.isFullscreen = true : this.isFullscreen = false);
     }
 
     ngOnDestroy(): void {
-        if (this.evLoadedMetadata) this.evLoadedMetadata();
-        if (this.evPlay) this.evPlay();
-        if (this.evPause) this.evPause();
-        if (this.evCanPlayThrough) this.evCanPlayThrough();
-        if (this.evDurationChange) this.evDurationChange();
-        if (this.evEnded) this.evEnded();
-        if (this.evError) this.evError();
-        if (this.evPlaying) this.evPlaying();
-        if (this.evProgress) this.evProgress();
-        if (this.evTimeUpdate) this.evTimeUpdate();
-        if (this.evContextMenu) this.evContextMenu();
-        if (this.evMouseMove) this.evMouseMove();
+        this.removeEvents();
+    }
+
+    addEvents(): void {
+        for (const event of this.events)
+            event.dispose = this.renderer.listen(event.element.nativeElement, event.name, newEvent => event.callback(newEvent));
+    }
+
+    removeEvents(): void {
+        for (const event of this.events)
+            if (event.dispose)
+                event.dispose();
+    }
+
+    evLoadedMetadata(event: any): void {
+        this.videoWidth = this.video.nativeElement.videoWidth;
+        this.videoHeight = this.video.nativeElement.videoHeight;
+    }
+
+    evCanPlayThrough(event: any): void {
+        this.updateBuffer();
+    }
+
+    evTimeUpdate(event: any): void {
+        this.currentTime = this.video.nativeElement.currentTime;
+        this.currentTimePercentage = this.currentTime / this.duration * 100;
+    }
+
+    evMouseMove(event: any): void {
+        this.isMouseMoving = true;
+        clearTimeout(this.isMouseMovingTimer);
+        this.isMouseMovingTimer = setTimeout(() => {
+            this.isMouseMoving = false;
+        }, this.isMouseMovingTimeout);
     }
 
     toggleFullscreen(): void {
