@@ -33,9 +33,9 @@ If you wish to contribute, please fill out the [pull request template](https://g
 npm install --save @angular/material @angular/cdk @angular/animations hammerjs
 ```
 
-If you wish to support older browsers, you will need a [polyfill](https://github.com/web-animations/web-animations-js).
+_If you wish to support older browsers, you will need a [polyfill](https://github.com/web-animations/web-animations-js)._
 
-Add the following import to your `src/polyfills.ts`:
+Add the following import to `src/polyfills.ts`:
 
 ```typescript
 import 'hammerjs';
@@ -62,7 +62,7 @@ import { MatVideoModule } from 'mat-video';
 export class AppModule { }
 ```
 
-Finally, include an [Angular Material theme](https://material.angular.io/guide/theming) in your `styles.css`, or via a `<link>` element in your `index.html`.
+Finally, include an [Angular Material theme](https://material.angular.io/guide/theming) in `styles.css`, or via a `<link>` element in `index.html`.
 
 ```css
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
