@@ -7,7 +7,7 @@ import { FullscreenService } from './services/fullscreen.service';
 @Component({
     selector: 'mat-video',
     templateUrl: './video.component.html',
-    styleUrls: ['./video.component.css', './fonts/icons.css']
+    styleUrls: ['./video.component.css', './styles/icons.css']
 })
 export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
     @ViewChild('player') private player: ElementRef;
