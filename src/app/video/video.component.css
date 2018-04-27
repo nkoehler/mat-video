@@ -1,6 +1,7 @@
 .videoplayer {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: transparent;
+    position: relative;
 }
 
 .header {
@@ -8,19 +9,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    left: 0px;
+    top: 14px;
+    width: 100%;
+    z-index: 1;
 }
 
-.controls, .controls a {
+.video {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: 0;
+}
+
+.controls {
     color: white;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    z-index: 1;
 }
 
 .controls .progress {
     position: relative;
-    top: 26px;
-}
-
-.controls .progress .slider-progress {
-    width: 100%;
+    top: 22px;
 }
 
 .controls .menu {

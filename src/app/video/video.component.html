@@ -1,16 +1,17 @@
-<div #player class="videoplayer">
+<div #player class="videoplayer" [ngStyle]="getVideoPlayerStyle()">
     <div class="header" *ngIf="title" [ngClass]="getOverlayClass()" [ngStyle]="getHeaderStyle()">
         {{title}}
     </div>
 
-    <video #video [src]="src" [attr.autoplay]="autoplay ? true : null" [preload]="preload ? 'auto' : 'metadata'" [ngStyle]="getVideoStyle()">
+    <video #video class="video" [src]="src" [attr.autoplay]="autoplay ? true : null" [preload]="preload ? 'auto' : 'metadata'"
+        [ngStyle]="getVideoStyle()">
         This browser does not support HTML5 video.
     </video>
 
     <div class="controls" [ngClass]="getOverlayClass()" [ngStyle]="getControlsStyle()">
         <div class="progress">
-            <mat-slider-progress-bar [color]="color" class="slider-progress" mode="buffer" step="0.01" [value]="currentTimePercentage"
-                [bufferValue]="bufferedTimePercentage" (input)="seekVideo($event)"></mat-slider-progress-bar>
+            <mat-slider-progress-bar [color]="color" mode="buffer" step="0.01" [value]="currentTimePercentage" [bufferValue]="bufferedTimePercentage"
+                (input)="seekVideo($event)"></mat-slider-progress-bar>
         </div>
 
         <div class="menu">

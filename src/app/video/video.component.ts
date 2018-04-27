@@ -184,57 +184,11 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
         return { 'visible': !this.playing || this.isMouseMoving, 'hidden': this.playing && !this.isMouseMoving };
     }
 
-    getHeaderStyle(): any {
-        const heightPadding = 30;
+    getVideoPlayerStyle(): any {
         if (this.isFullscreen) {
-            const res: VideoSize = this.calculateAspectRatioFit(this.videoWidth, this.videoHeight, screen.width, screen.height);
             const style = {
-                position: `absolute`,
-                left: `0px`,
-                top: `${heightPadding}px`,
-                width: `${screen.width}px`,
-                'z-index': 1
-            };
-            return style;
-        } else {
-            const style = {
-                position: `relative`,
-                top: `${heightPadding}px`,
-            }
-            return style;
-        }
-    }
-
-    getControlsStyle(): any {
-        const heightPadding = 96;
-        if (this.isFullscreen) {
-            const res: VideoSize = this.calculateAspectRatioFit(this.videoWidth, this.videoHeight, screen.width, screen.height);
-            const style = {
-                position: `absolute`,
-                left: `0px`,
-                top: `${screen.height - heightPadding}px`,
-                width: `${screen.width}px`,
-                'z-index': 1
-            };
-            return style;
-        } else {
-            const style = {
-                position: `relative`,
-                bottom: `${heightPadding}px`,
-            }
-            return style;
-        }
-    }
-
-    getVideoStyle(): any {
-        if (this.isFullscreen) {
-            const res: VideoSize = this.calculateAspectRatioFit(this.videoWidth, this.videoHeight, screen.width, screen.height);
-            const style = {
-                position: `absolute`,
-                left: `${res.left}px`,
-                top: `${res.top}px`,
-                width: `${res.width}px`,
-                height: `${res.height}px`,
+                width: '100%',
+                height: '100%'
             };
             return style;
         } else {
@@ -252,6 +206,25 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
                 }
                 return style;
             }
+        }
+    }
+
+    getHeaderStyle(): any {
+
+    }
+
+    getControlsStyle(): any {
+
+    }
+
+    getVideoStyle(): any {
+        if (this.isFullscreen) {
+            const res: VideoSize = this.calculateAspectRatioFit(this.videoWidth, this.videoHeight, this.player.nativeElement.clientWidth, this.player.nativeElement.clientHeight);
+            const style = {
+                left: `${res.left}px`,
+                top: `${res.top}px`,
+            };
+            return style;
         }
     }
 }
