@@ -27,24 +27,45 @@ If you wish to contribute, please fill out the [pull request template](https://g
 - Supports Chrome, Firefox, Safari, Edge, and IE11
 
 ## Installation
-To use mat-video in your project install it via [npm](https://www.npmjs.com/package/mat-video):
+**mat-video** requires [Angular Material](https://material.angular.io/guide/getting-started) as a peer dependency, including animations.
+
+```
+npm install --save @angular/material @angular/cdk @angular/animations hammerjs
+```
+
+If you wish to support older browsers, you will need a [polyfill](https://github.com/web-animations/web-animations-js).
+
+Add the following import to your `src/polyfills.ts`:
+
+```typescript
+import 'hammerjs';
+```
+
+To use **mat-video** in your project install it via [npm](https://www.npmjs.com/package/mat-video):
 
 ```
 npm install mat-video --save
 ```
 
-Add the following to your module file:
+Add the following to your module:
 
 ```typescript
-// Normal Angular + Material imports
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatVideoModule } from 'mat-video';
 
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     MatVideoModule
   ],
 })
+export class AppModule { }
+```
+
+Finally, include an [Angular Material theme](https://material.angular.io/guide/theming) in your `styles.css`, or via a `<link>` element in your `index.html`.
+
+```css
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 ```
 
 ## Usage
