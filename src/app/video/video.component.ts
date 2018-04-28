@@ -225,22 +225,4 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    getHeaderStyle(): any {
-
-    }
-
-    getControlsStyle(): any {
-
-    }
-
-    getVideoStyle(): any {
-        if (this.isFullscreen) {
-            const res: VideoSize = this.calculateAspectRatioFit(this.videoWidth, this.videoHeight, this.player.nativeElement.clientWidth, this.player.nativeElement.clientHeight);
-            const style = {
-                left: `${res.left}px`,
-                top: `${res.top}px`,
-            };
-            return style;
-        }
-    }
 }
