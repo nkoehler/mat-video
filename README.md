@@ -26,6 +26,7 @@ If you wish to contribute, please fill out the [pull request template](https://g
 - Poster image
 - Customizable controls
 - Material theming
+- Keyboard shortcuts
 - Supports Chrome, Firefox, Safari, and Edge
 
 ## Installation
