@@ -1,4 +1,4 @@
-# 1.2.0 (2018-04-27)
+# 1.2.0 - 1.2.1 (2018-04-27)
 
 ### Features:
 
@@ -21,6 +21,7 @@
 - **player:** fixed the video buffer incorrectly displaying the wrong value during certain scenarios
 - **player:** fixed the play button not being reset when changing the video source
 - **player:** video controls are now hidden while video metadata is being loaded
+- **player:** fixed a bug where videos with a greater height than width did not appear right in fullscreen
 - **npm:** updated peer dependencies for clearer compatability
 - **npm:** improved npm package installation
 
