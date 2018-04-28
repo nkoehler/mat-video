@@ -22,6 +22,8 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() fullscreen: boolean = true;
     @Input() download: boolean = false;
     @Input() color: string = "primary";
+    @Input() spinner: string = "spin";
+    @Input() poster: string = null;
 
     playing: boolean = false;
     duration: number;
@@ -35,6 +37,9 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
     videoWidth: number;
     videoHeight: number;
+
+    videoLoaded = false;
+    videoBuffering = true;
 
     private isMouseMoving: boolean = false;
     private isMouseMovingTimer: NodeJS.Timer;
@@ -53,17 +58,22 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         this.events = [
+            { element: this.video, name: 'loadstart', callback: event => this.videoLoaded = false, dispose: null },
             { element: this.video, name: 'loadedmetadata', callback: event => this.evLoadedMetadata(event), dispose: null },
             { element: this.video, name: 'play', callback: event => this.playing = true, dispose: null },
             { element: this.video, name: 'pause', callback: event => this.playing = false, dispose: null },
+            { element: this.video, name: 'seeking', callback: event => this.evTimeUpdate(event), dispose: null },
+            { element: this.video, name: 'canplay', callback: event => this.videoBuffering = false, dispose: null },
             { element: this.video, name: 'canplaythrough', callback: event => this.evCanPlayThrough(event), dispose: null },
-            { element: this.video, name: 'durationchange', callback: event => this.duration = this.video.nativeElement.duration, dispose: null },
+            { element: this.video, name: 'durationchange', callback: event => this.evDurationChange(event), dispose: null },
             { element: this.video, name: 'ended', callback: event => this.playing = false, dispose: null },
-            { element: this.video, name: 'error', callback: event => console.error('Unhandled Video Error'), dispose: null },
+            { element: this.video, name: 'error', callback: event => console.error('Unhandled Video Error', event), dispose: null },
             { element: this.video, name: 'playing', callback: event => event, dispose: null },
             { element: this.video, name: 'progress', callback: event => this.updateBuffer(), dispose: null },
             { element: this.video, name: 'timeupdate', callback: event => this.evTimeUpdate(event), dispose: null },
+            { element: this.video, name: 'waiting', callback: event => this.videoBuffering = true, dispose: null },
             { element: this.video, name: 'contextmenu', callback: event => event.preventDefault(), dispose: null },
+            { element: this.video, name: 'click', callback: event => this.toggleVideoPlayback(), dispose: null },
             { element: this.player, name: 'mousemove', callback: event => this.evMouseMove(event), dispose: null }
         ];
 
@@ -90,6 +100,7 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
     evLoadedMetadata(event: any): void {
         this.videoWidth = this.video.nativeElement.videoWidth;
         this.videoHeight = this.video.nativeElement.videoHeight;
+        this.videoLoaded = true;
     }
 
     evCanPlayThrough(event: any): void {
@@ -99,6 +110,12 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
     evTimeUpdate(event: any): void {
         this.currentTime = this.video.nativeElement.currentTime;
         this.currentTimePercentage = this.currentTime / this.duration * 100;
+    }
+
+    evDurationChange(event: any): void {
+        this.duration = this.video.nativeElement.duration
+        this.playing = false;
+        this.videoBuffering = true;
     }
 
     evMouseMove(event: any): void {
@@ -118,8 +135,7 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
     toggleVideoPlayback(): void {
         this.playing = !this.playing;
-        if (this.playing) this.video.nativeElement.play();
-        else this.video.nativeElement.pause();
+        this.playing ? this.video.nativeElement.play() : this.video.nativeElement.pause();
     }
 
     toggleVolumeMute(): void {
@@ -150,7 +166,7 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
                 const cur = this.video.nativeElement.currentTime;
                 const start = this.video.nativeElement.buffered.start(i);
                 const end = this.video.nativeElement.buffered.end(i);
-                if (end > largestBufferValue && start <= cur && end > cur)
+                if (start <= cur && end > cur && (end - start) > largestBufferValue)
                     largestBufferValue = end;
             }
             this.bufferedTime = largestBufferValue;

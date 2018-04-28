@@ -1,6 +1,13 @@
 <div class="mat-slider-wrapper" #sliderWrapper>
     <div class="mat-slider-track-wrapper">
-        <div class="mat-slider-track-background" [ngStyle]="_trackBackgroundStyles"></div>
+        <svg width="100%" height="2" focusable="false" class="mat-slider-progress-background">
+            <defs>
+                <pattern [id]="sliderprogressbarId" x="2.5" y="0" width="5" height="2.5" patternUnits="userSpaceOnUse">
+                    <circle cx="1.25" cy="1.25" r="1.25" />
+                </pattern>
+            </defs>
+            <rect [attr.fill]="'url(#' + sliderprogressbarId + ')'" width="100%" height="100%" />
+        </svg>
         <div class="mat-slider-track-fill mat-slider-track-buffer" [ngStyle]="_trackBufferStyles"></div>
         <div class="mat-slider-track-fill" [ngStyle]="_trackFillStyles"></div>
     </div>

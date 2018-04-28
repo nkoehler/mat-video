@@ -22,6 +22,8 @@ If you wish to contribute, please fill out the [pull request template](https://g
 - Scaling
 - Fullscreen
 - Download
+- Buffering spinners
+- Poster image
 - Customizable controls
 - Material theming
 - Supports Chrome, Firefox, Safari, Edge, and IE11
@@ -78,22 +80,24 @@ A minimal example is quite simple, in your HTML file:
 A slightly more customized example, in your HTML file:
 
 ```html
-    <mat-video [src]="tutorial.mp4" [title]="My Tutorial Title" [width]="400" [height]="400" [autoplay]="true" [preload]="true" [fullscreen]="true" [download]="false" [color]="accent"></mat-video>
+    <mat-video [src]="tutorial.mp4" title="My Tutorial Title" [width]="400" [height]="400" [autoplay]="true" [preload]="true" [fullscreen]="true" [download]="false" color="accent" spinner="spin" poster="image.jpg"></mat-video>
 ```
 
 ## API
 
 Attribute | Type | Description | Default
 --- | --- | --- | ---
-*src* | **string** | Path or URL to an .mp4 file (**required**) | Empty string
+*src* | **string** | Path or URL to a .mp4 file (**required**) | Empty string
 *title* | **string** | Title for the video | Empty string
 *width* | **number** | Number in pixels or null for video width | null
 *height* | **number** | Number in pixels or null for video height | null
 *autoplay* | **boolean** | Whether the video should autoplay | false
 *preload* | **boolean** | Whether the video should preload | true
-*fullscreen* | **boolean** | Whether the video will have a fullscreen option | true
 *download* | **boolean** | Whether the video will have a download option | false
+*fullscreen* | **boolean** | Whether the video will have a fullscreen option | true
 *color* | **ThemePalette** | Material theme color palette for the sliders | primary
+*spinner* | **string** | Use 'spin', 'dot', 'split-ring', 'hourglass', or pass your own buffering spinner class | 'spin'
+*poster* | **string** | Path or URL to a poster image | null
 
 ## Credits
 **mat-video** is an open-source project developed by Nicholas Koehler.

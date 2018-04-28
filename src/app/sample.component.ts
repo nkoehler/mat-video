@@ -10,15 +10,17 @@ export class SampleComponent {
   version = VERSION.full;
   appversion: string = (<any>buildInfo)['version'];
 
-  src = "https://nkoehler.github.io/mat-video/assets/WinterTimelapse.mp4";
-  title = "Timelapse of a Cold Winter Day";
+  src = "/assets/NASA.mp4";
+  title = "NASA Rocket Launch";
   width = 600;
   height = 400;
   autoplay = false;
   preload = true;
-  fullscreen = true;
   download = true;
+  fullscreen = true;
   color = "primary";
+  spinner = "spin";
+  poster = "/assets/NASA.jpg"
 
   reloadVideo(): void {
     const tmp = this.src;

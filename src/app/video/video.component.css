@@ -1,6 +1,6 @@
 .videoplayer {
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: transparent;
+    background-color: black;
     position: relative;
 }
 
@@ -34,8 +34,7 @@
 }
 
 .controls .progress {
-    position: relative;
-    top: 22px;
+    height: 26px;
 }
 
 .controls .menu {

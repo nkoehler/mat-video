@@ -11,6 +11,7 @@ import { MatSliderProgressBarComponent } from './controls/mat-slider-progress-ba
 import { MatVolumeControlComponent } from './controls/mat-volume-control/mat-volume-control.component';
 import { SecondsToTimePipe } from './pipes/seconds-to-time.pipe';
 import { FullscreenService } from './services/fullscreen.service';
+import { MatVideoSpinnerComponent } from './spinner/spinner.component';
 import { MatVideoComponent } from './video.component';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MatVideoComponent } from './video.component';
         MatDownloadButtonComponent,
         MatFullscreenButtonComponent,
         MatPlaytimeControlComponent,
-        MatQualityControlComponent
+        MatQualityControlComponent,
+        MatVideoSpinnerComponent
     ],
     imports: [
         CommonModule,

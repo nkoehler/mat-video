@@ -3,6 +3,9 @@ import { MatSlider, MAT_SLIDER_VALUE_ACCESSOR } from "@angular/material";
 import { FocusMonitor } from "@angular/cdk/a11y";
 import { Directionality } from "@angular/cdk/bidi";
 
+/** Counter used to generate unique IDs for progress bars. */
+let sliderprogressbarId = 0;
+
 @Component({
     selector: 'mat-slider-progress-bar',
     templateUrl: './mat-slider-progress-bar.component.html',
@@ -48,6 +51,9 @@ export class MatSliderProgressBarComponent extends MatSlider {
     get bufferValue(): number { return this._bufferValue; }
     set bufferValue(v: number) { this._bufferValue = clamp(v || 0); }
     private _bufferValue: number = 0;
+
+    /** The id of the progress bar. */
+    sliderprogressbarId = `mat-slider-progress-bar-${sliderprogressbarId++}`;
 
     constructor(
         elementRef: ElementRef,

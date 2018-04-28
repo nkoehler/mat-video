@@ -4,11 +4,11 @@
     </div>
 
     <video #video class="video" [src]="src" [attr.autoplay]="autoplay ? true : null" [preload]="preload ? 'auto' : 'metadata'"
-        [ngStyle]="getVideoStyle()">
+        [attr.poster]="poster ? poster : null" [ngStyle]="getVideoStyle()">
         This browser does not support HTML5 video.
     </video>
 
-    <div class="controls" [ngClass]="getOverlayClass()" [ngStyle]="getControlsStyle()">
+    <div class="controls" *ngIf="videoLoaded" [ngClass]="getOverlayClass()" [ngStyle]="getControlsStyle()">
         <div class="progress">
             <mat-slider-progress-bar [color]="color" mode="buffer" step="0.01" [value]="currentTimePercentage" [bufferValue]="bufferedTimePercentage"
                 (input)="seekVideo($event)"></mat-slider-progress-bar>
@@ -18,13 +18,13 @@
             <div class="left">
                 <mat-play-button [playing]="playing" (playbackChanged)="toggleVideoPlayback()"></mat-play-button>
 
+                <mat-volume-control [color]="color" [volume]="volume" [muted]="muted" (volumeChanged)="updateVolume($event)" (mutedChanged)="toggleVolumeMute()"></mat-volume-control>
+
                 <mat-playtime-control [time]="currentTime" [duration]="duration"></mat-playtime-control>
             </div>
 
             <div class="right">
                 <mat-quality-control [resolution]="videoHeight"></mat-quality-control>
-
-                <mat-volume-control [color]="color" [volume]="volume" [muted]="muted" (volumeChanged)="updateVolume($event)" (mutedChanged)="toggleVolumeMute()"></mat-volume-control>
 
                 <mat-download-button *ngIf="download" [src]="src" [title]="title"></mat-download-button>
 
@@ -32,4 +32,6 @@
             </div>
         </div>
     </div>
+
+    <mat-video-spinner *ngIf="!videoLoaded || videoBuffering" [spinner]="spinner"></mat-video-spinner>
 </div>

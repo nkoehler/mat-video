@@ -15,6 +15,9 @@
         </mat-hint>
       </mat-form-field>
       <mat-form-field class="item-margin" [color]="color">
+        <input matInput type="url" [(ngModel)]="poster" placeholder="poster">
+      </mat-form-field>
+      <mat-form-field class="item-margin" [color]="color">
         <input matInput type="text" [(ngModel)]="title" placeholder="title">
       </mat-form-field>
       <mat-form-field class="item-margin" [color]="color">
@@ -35,13 +38,13 @@
       </div>
 
       <div class="item-section">
-        <div class="item-margin">Fullscreen:</div>
-        <mat-slide-toggle [(ngModel)]="fullscreen" [color]="color"></mat-slide-toggle>
+        <div class="item-margin">Download:</div>
+        <mat-slide-toggle [(ngModel)]="download" [color]="color"></mat-slide-toggle>
       </div>
 
       <div class="item-section">
-        <div class="item-margin">Download:</div>
-        <mat-slide-toggle [(ngModel)]="download" [color]="color"></mat-slide-toggle>
+        <div class="item-margin">Fullscreen:</div>
+        <mat-slide-toggle [(ngModel)]="fullscreen" [color]="color"></mat-slide-toggle>
       </div>
 
       <div class="item-section">
@@ -58,7 +61,26 @@
           </mat-radio-button>
         </mat-radio-group>
       </div>
+
+      <div class="item-section">
+        <div class="item-margin">Spinner:</div>
+        <mat-radio-group [(ngModel)]="spinner">
+          <mat-radio-button class="item-margin" value="spin" [color]="color">
+            Spin
+          </mat-radio-button>
+          <mat-radio-button class="item-margin" value="dot" [color]="color">
+            Dot
+          </mat-radio-button>
+          <mat-radio-button class="item-margin" value="split-ring" [color]="color">
+            Split Ring
+          </mat-radio-button>
+          <mat-radio-button class="item-margin" value="hourglass" [color]="color">
+            Hourglass
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
     </div>
+
     <div class="mat-toolbar mat-primary mat-toolbar-single-row footer">
       <div class="badges">
         <a href="https://badge.fury.io/js/mat-video" target="_blank">
@@ -93,7 +115,7 @@
 
     <div class="content video">
       <mat-video [src]="src" [title]="title" [width]="width" [height]="height" [autoplay]="autoplay" [preload]="preload" [fullscreen]="fullscreen"
-        [download]="download" [color]="color"></mat-video>
+        [download]="download" [color]="color" [spinner]="spinner" [poster]="poster"></mat-video>
     </div>
 
     <div class="mat-toolbar mat-primary mat-toolbar-single-row footer">
