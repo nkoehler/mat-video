@@ -21,6 +21,7 @@
 - **player:** fixed the video buffer incorrectly displaying the wrong value during certain scenarios
 - **player:** fixed the play button not being reset when changing the video source
 - **player:** video controls are now hidden while video metadata is being loaded
+- **npm:** improved npm package installation
 
 
 
