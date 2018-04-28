@@ -10,7 +10,7 @@ export class SampleComponent {
   version = VERSION.full;
   appversion: string = (<any>buildInfo)['version'];
 
-  src = "/assets/NASA.mp4";
+  src = "assets/NASA.mp4";
   title = "NASA Rocket Launch";
   width = 600;
   height = 400;
@@ -20,7 +20,7 @@ export class SampleComponent {
   fullscreen = true;
   color = "primary";
   spinner = "spin";
-  poster = "/assets/NASA.jpg"
+  poster = "assets/NASA.jpg"
 
   reloadVideo(): void {
     const tmp = this.src;
