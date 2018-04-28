@@ -74,13 +74,13 @@ Finally, include an [Angular Material theme](https://material.angular.io/guide/t
 A minimal example is quite simple, in your HTML file:
 
 ```html
-    <mat-video [src]="localOrRemoteVideo.mp4"></mat-video>
+    <mat-video src="localOrRemoteVideo.mp4"></mat-video>
 ```
 
 A slightly more customized example, in your HTML file:
 
 ```html
-    <mat-video [src]="tutorial.mp4" title="My Tutorial Title" [width]="400" [height]="400" [autoplay]="true" [preload]="true" [fullscreen]="true" [download]="false" color="accent" spinner="spin" poster="image.jpg"></mat-video>
+    <mat-video src="tutorial.mp4" title="My Tutorial Title" width="400" height="400" [autoplay]="true" [preload]="true" [fullscreen]="true" [download]="false" color="accent" spinner="spin" poster="image.jpg"></mat-video>
 ```
 
 ## API

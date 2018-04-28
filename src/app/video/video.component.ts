@@ -43,7 +43,7 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private isMouseMoving: boolean = false;
     private isMouseMovingTimer: NodeJS.Timer;
-    private isMouseMovingTimeout: number = 1500;
+    private isMouseMovingTimeout: number = 2000;
 
     private events: EventHandler[];
 
@@ -194,6 +194,10 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         return res;
+    }
+
+    getMouseClass(): any {
+        return { 'show-mouse': !this.playing || this.isMouseMoving, 'hide-mouse': this.playing && !this.isMouseMoving };
     }
 
     getOverlayClass(): any {

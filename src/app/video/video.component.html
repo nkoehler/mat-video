@@ -1,4 +1,4 @@
-<div #player class="videoplayer" [ngStyle]="getVideoPlayerStyle()">
+<div #player class="videoplayer" [ngClass]="getMouseClass()" [ngStyle]="getVideoPlayerStyle()">
     <div class="header" *ngIf="title" [ngClass]="getOverlayClass()">
         {{title}}
     </div>
