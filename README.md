@@ -96,7 +96,7 @@ Attribute | Type | Description | Default
 *download* | **boolean** | Whether the video will have a download option | false
 *fullscreen* | **boolean** | Whether the video will have a fullscreen option | true
 *color* | **ThemePalette** | Material theme color palette for the sliders | primary
-*spinner* | **string** | Use 'spin', 'dot', 'split-ring', 'hourglass', or pass your own buffering spinner class | 'spin'
+*spinner* | **string** | Use 'spin', 'dot', 'split-ring', 'hourglass', or pass your own buffering spinner class | spin
 *poster* | **string** | Path or URL to a poster image | null
 
 ## Credits
