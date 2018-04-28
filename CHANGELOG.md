@@ -8,6 +8,8 @@
 - **player:** seeking the video now updates the time as you drag the slider
 - **player:** improved clarity for buffered progress
 - **player:** improved video and player scaling while in fullscreen
+- **demo:** added poster image support
+- **demo:** added buffering spinner support
 
 ### Code Refactor:
 
