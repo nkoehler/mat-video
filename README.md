@@ -46,7 +46,7 @@ import 'hammerjs';
 To use **mat-video** in your project install it via [npm](https://www.npmjs.com/package/mat-video):
 
 ```
-npm install mat-video --save
+npm install --save mat-video
 ```
 
 Add the following to your module:
