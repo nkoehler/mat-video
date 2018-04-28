@@ -26,7 +26,7 @@ If you wish to contribute, please fill out the [pull request template](https://g
 - Poster image
 - Customizable controls
 - Material theming
-- Supports Chrome, Firefox, Safari, Edge, and IE11
+- Supports Chrome, Firefox, Safari, and Edge
 
 ## Installation
 **mat-video** requires [Angular Material](https://material.angular.io/guide/getting-started) as a peer dependency, including animations.

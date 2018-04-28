@@ -1,3 +1,13 @@
+# 1.3.0 (2018-04-28)
+
+### Features:
+
+- **player:** keyboard can now be used to toggle fullscreen (f key), toggle mute (m key), and toggle playback (space key)
+- **player:** increased UI timeout from 1500ms to 2000ms
+- **player:** mouse pointer is now hidden when the UI fades away
+
+
+
 # 1.2.0 - 1.2.1 (2018-04-27)
 
 ### Features:

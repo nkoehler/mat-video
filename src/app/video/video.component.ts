@@ -1,4 +1,14 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {
+    AfterViewInit,
+    Component,
+    ElementRef,
+    HostListener,
+    Input,
+    OnDestroy,
+    OnInit,
+    Renderer2,
+    ViewChild,
+} from '@angular/core';
 
 import { EventHandler } from './interfaces/event-handler.interface';
 import { VideoSize } from './interfaces/video-size.interface';
@@ -227,6 +237,19 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
                 return style;
             }
         }
+    }
+
+    @HostListener('document:keyup', ['$event'])
+    onKeydownHandler(event: KeyboardEvent) {
+        if (event.defaultPrevented) return;
+
+        const key = event.key || event.keyCode;
+
+        if (key === 'f' || key === 70) this.toggleFullscreen();
+        else if (key === ' ' || key === 32) this.toggleVideoPlayback();
+        else if (key === 'm' || key === 77) this.toggleVolumeMute();
+
+        event.preventDefault();
     }
 
 }
