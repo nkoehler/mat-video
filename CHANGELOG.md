@@ -3,7 +3,7 @@
 ### Features:
 
 - **player:** added the option to specify a poster image for the video
-- **player:** added a buffering indicator, including 4 built in types, or you can add your own by using a global class
+- **player:** added a buffering indicator, including 4 built in types, and you can add your own by using a global class
 - **player:** added the option to play/pause the video by clicking it
 - **player:** seeking the video now updates the time as you drag the slider
 - **player:** improved clarity for buffered progress
