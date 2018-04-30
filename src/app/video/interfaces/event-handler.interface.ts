@@ -1,8 +1,8 @@
 import { ElementRef } from "@angular/core";
 
 export interface EventHandler {
-    element: ElementRef;
+    element: any;
     name: string;
-    callback: (event: any) => boolean | void;
+    callback: (event?: any) => boolean | void;
     dispose: () => void;
 }

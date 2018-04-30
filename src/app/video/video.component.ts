@@ -59,7 +59,6 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
     constructor(
         private renderer: Renderer2,
-        private fscreen: FullscreenService
     ) { }
 
     ngOnInit(): void {
@@ -69,27 +68,22 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
     ngAfterViewInit(): void {
         this.events = [
             { element: this.video, name: 'loadstart', callback: event => this.videoLoaded = false, dispose: null },
-            { element: this.video, name: 'loadedmetadata', callback: event => this.evLoadedMetadata(event), dispose: null },
+            { element: this.video, name: 'loadedmetadata', callback: event => this.videoLoaded = true, dispose: null },
             { element: this.video, name: 'play', callback: event => this.playing = true, dispose: null },
             { element: this.video, name: 'pause', callback: event => this.playing = false, dispose: null },
-            { element: this.video, name: 'seeking', callback: event => this.evTimeUpdate(event), dispose: null },
-            { element: this.video, name: 'canplay', callback: event => this.videoBuffering = false, dispose: null },
-            { element: this.video, name: 'canplaythrough', callback: event => this.evCanPlayThrough(event), dispose: null },
-            { element: this.video, name: 'durationchange', callback: event => this.evDurationChange(event), dispose: null },
+
             { element: this.video, name: 'ended', callback: event => this.playing = false, dispose: null },
             { element: this.video, name: 'error', callback: event => console.error('Unhandled Video Error', event), dispose: null },
-            { element: this.video, name: 'playing', callback: event => event, dispose: null },
-            { element: this.video, name: 'progress', callback: event => this.updateBuffer(), dispose: null },
-            { element: this.video, name: 'timeupdate', callback: event => this.evTimeUpdate(event), dispose: null },
+
+
             { element: this.video, name: 'waiting', callback: event => this.videoBuffering = true, dispose: null },
             { element: this.video, name: 'contextmenu', callback: event => event.preventDefault(), dispose: null },
-            { element: this.video, name: 'click', callback: event => this.toggleVideoPlayback(), dispose: null },
             { element: this.player, name: 'mousemove', callback: event => this.evMouseMove(event), dispose: null }
         ];
 
         this.addEvents();
 
-        this.fscreen.onChange(event => this.fscreen.isFullscreen() ? this.isFullscreen = true : this.isFullscreen = false);
+
     }
 
     ngOnDestroy(): void {
@@ -113,15 +107,6 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
         this.videoLoaded = true;
     }
 
-    evCanPlayThrough(event: any): void {
-        this.updateBuffer();
-    }
-
-    evTimeUpdate(event: any): void {
-        this.currentTime = this.video.nativeElement.currentTime;
-        this.currentTimePercentage = this.currentTime / this.duration * 100;
-    }
-
     evDurationChange(event: any): void {
         this.duration = this.video.nativeElement.duration
         this.playing = false;
@@ -134,54 +119,6 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
         this.isMouseMovingTimer = setTimeout(() => {
             this.isMouseMoving = false;
         }, this.isMouseMovingTimeout);
-    }
-
-    toggleFullscreen(): void {
-        if (!this.isFullscreen)
-            this.fscreen.request(this.player.nativeElement);
-        else
-            this.fscreen.exit();
-    }
-
-    toggleVideoPlayback(): void {
-        this.playing = !this.playing;
-        this.playing ? this.video.nativeElement.play() : this.video.nativeElement.pause();
-    }
-
-    toggleVolumeMute(): void {
-        this.muted = !this.muted;
-        this.video.nativeElement.muted = this.muted;
-    }
-
-    updateVolume(value: number): void {
-        this.volume = value;
-        this.video.nativeElement.volume = this.volume;
-
-        if (this.volume > 0) {
-            this.muted = false;
-            this.video.nativeElement.muted = this.muted;
-        }
-    }
-
-    seekVideo(event): void {
-        const percentage = event.value / 100;
-        const newTime = this.duration * percentage;
-        this.video.nativeElement.currentTime = newTime;
-    }
-
-    updateBuffer(): void {
-        if (this.video.nativeElement.buffered.length > 0) {
-            let largestBufferValue = 0;
-            for (let i = 0; i < this.video.nativeElement.buffered.length; i++) {
-                const cur = this.video.nativeElement.currentTime;
-                const start = this.video.nativeElement.buffered.start(i);
-                const end = this.video.nativeElement.buffered.end(i);
-                if (start <= cur && end > cur && (end - start) > largestBufferValue)
-                    largestBufferValue = end;
-            }
-            this.bufferedTime = largestBufferValue;
-            this.bufferedTimePercentage = this.bufferedTime / this.duration * 100;
-        }
     }
 
     calculateAspectRatioFit(srcWidth: number, srcHeight: number, maxWidth: number, maxHeight: number): VideoSize {
@@ -237,19 +174,6 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
                 return style;
             }
         }
-    }
-
-    @HostListener('document:keyup', ['$event'])
-    onKeydownHandler(event: KeyboardEvent) {
-        if (event.defaultPrevented) return;
-
-        const key = event.key || event.keyCode;
-
-        if (key === 'f' || key === 70) this.toggleFullscreen();
-        else if (key === ' ' || key === 32) this.toggleVideoPlayback();
-        else if (key === 'm' || key === 77) this.toggleVolumeMute();
-
-        event.preventDefault();
     }
 
 }
