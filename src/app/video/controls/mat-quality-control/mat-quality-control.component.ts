@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./mat-quality-control.component.css']
 })
 export class MatQualityControlComponent {
-  @Input() resolution: number;
+  @Input() video: HTMLVideoElement;
 
   constructor() { }
 
