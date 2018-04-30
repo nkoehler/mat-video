@@ -6,8 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./mat-playtime-control.component.css']
 })
 export class MatPlaytimeControlComponent {
-  @Input() time: number;
-  @Input() duration: number;
+  @Input() video: HTMLVideoElement;
 
   constructor() { }
 
