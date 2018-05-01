@@ -15,11 +15,11 @@
 
         <div class="menu">
             <div class="left">
-                <mat-play-button [video]="video"></mat-play-button>
+                <mat-play-button (playChanged)="playing = $event" [video]="video"></mat-play-button>
 
                 <mat-volume-control [color]="color" [video]="video"></mat-volume-control>
 
-                <mat-playtime-control [video]="video"></mat-playtime-control>
+                <mat-time-control [video]="video"></mat-time-control>
             </div>
 
             <div class="right">

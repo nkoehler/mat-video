@@ -1,4 +1,5 @@
-import { Component, EventEmitter, HostListener, Input, Output, Renderer2, AfterViewInit, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, HostListener, Input, OnDestroy, Output, Renderer2 } from '@angular/core';
+
 import { EventHandler } from '../../interfaces/event-handler.interface';
 import { EventService } from '../../services/event.service';
 

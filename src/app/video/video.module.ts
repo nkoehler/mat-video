@@ -9,9 +9,9 @@ import { FullscreenService } from './services/fullscreen.service';
 import { MatDownloadButtonComponent } from './ui/mat-download-button/mat-download-button.component';
 import { MatFullscreenButtonComponent } from './ui/mat-fullscreen-button/mat-fullscreen-button.component';
 import { MatPlayButtonComponent } from './ui/mat-play-button/mat-play-button.component';
-import { MatPlaytimeControlComponent } from './ui/mat-playtime-control/mat-playtime-control.component';
 import { MatQualityControlComponent } from './ui/mat-quality-control/mat-quality-control.component';
 import { MatSeekProgressControlComponent } from './ui/mat-seek-progress-control/mat-seek-progress-control.component';
+import { MatTimeControlComponent } from './ui/mat-time-control/mat-time-control.component';
 import { MatVideoSpinnerComponent } from './ui/mat-video-spinner/mat-video-spinner.component';
 import { MatVolumeControlComponent } from './ui/mat-volume-control/mat-volume-control.component';
 import { MatVideoComponent } from './video.component';
@@ -25,7 +25,7 @@ import { MatVideoComponent } from './video.component';
         MatVolumeControlComponent,
         MatDownloadButtonComponent,
         MatFullscreenButtonComponent,
-        MatPlaytimeControlComponent,
+        MatTimeControlComponent,
         MatQualityControlComponent,
         MatVideoSpinnerComponent,
         MatSeekProgressControlComponent

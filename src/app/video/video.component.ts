@@ -71,12 +71,7 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
         this.events = [
             { element: this.video.nativeElement, name: 'loadstart', callback: event => this.videoLoaded = false, dispose: null },
             { element: this.video.nativeElement, name: 'loadedmetadata', callback: event => this.evLoadedMetadata(event), dispose: null },
-            { element: this.video.nativeElement, name: 'play', callback: event => this.playing = true, dispose: null },
-            { element: this.video.nativeElement, name: 'pause', callback: event => this.playing = false, dispose: null },
-            { element: this.video.nativeElement, name: 'durationchange', callback: event => this.playing = false, dispose: null },
-            { element: this.video.nativeElement, name: 'ended', callback: event => this.playing = false, dispose: null },
             { element: this.video.nativeElement, name: 'error', callback: event => console.error('Unhandled Video Error', event), dispose: null },
-            { element: this.video.nativeElement, name: 'waiting', callback: event => this.videoBuffering = true, dispose: null },
             { element: this.video.nativeElement, name: 'contextmenu', callback: event => event.preventDefault(), dispose: null },
             { element: this.player.nativeElement, name: 'mousemove', callback: event => this.evMouseMove(event), dispose: null }
         ];
