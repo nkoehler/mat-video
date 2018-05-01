@@ -1,18 +1,7 @@
-import {
-    AfterViewInit,
-    Component,
-    ElementRef,
-    HostListener,
-    Input,
-    OnDestroy,
-    OnInit,
-    Renderer2,
-    ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, Renderer2, ViewChild } from '@angular/core';
 
 import { EventHandler } from './interfaces/event-handler.interface';
 import { VideoSize } from './interfaces/video-size.interface';
-import { FullscreenService } from './services/fullscreen.service';
 import { EventService } from './services/event.service';
 
 @Component({
@@ -20,7 +9,7 @@ import { EventService } from './services/event.service';
     templateUrl: './video.component.html',
     styleUrls: ['./video.component.css', './styles/icons.css']
 })
-export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
+export class MatVideoComponent implements AfterViewInit, OnDestroy {
     @ViewChild('player') private player: ElementRef;
     @ViewChild('video') private video: ElementRef;
 
@@ -37,20 +26,13 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() poster: string = null;
 
     playing: boolean = false;
-    duration: number;
-    currentTime: number;
-    currentTimePercentage: number = 0;
-    bufferedTime: number;
-    bufferedTimePercentage: number = 0;
-    volume: number = 1;
-    muted: boolean = false;
+
     isFullscreen: boolean = false;
 
     videoWidth: number;
     videoHeight: number;
 
     videoLoaded = false;
-    videoBuffering = true;
 
     private isMouseMoving: boolean = false;
     private isMouseMovingTimer: NodeJS.Timer;
@@ -62,10 +44,6 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
         private renderer: Renderer2,
         private evt: EventService
     ) { }
-
-    ngOnInit(): void {
-
-    }
 
     ngAfterViewInit(): void {
         this.events = [

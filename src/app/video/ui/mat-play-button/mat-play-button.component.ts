@@ -18,7 +18,7 @@ export class MatPlayButtonComponent implements AfterViewInit, OnDestroy {
 
   @Output() playChanged = new EventEmitter<boolean>();
 
-  private events: EventHandler[] = [];
+  private events: EventHandler[];
 
   constructor(
     private renderer: Renderer2,
