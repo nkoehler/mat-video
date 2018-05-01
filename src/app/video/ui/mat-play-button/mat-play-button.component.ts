@@ -9,12 +9,9 @@ import { EventService } from '../../services/event.service';
   styleUrls: ['./mat-play-button.component.css']
 })
 export class MatPlayButtonComponent implements AfterViewInit, OnDestroy {
-  playing: boolean = false;
-
   @Input() video: HTMLVideoElement;
 
-  @Input() get play() { return this.playing; }
-  set play(value: boolean) { this.setVideoPlayback(value); }
+  @Input() play: boolean = false;
 
   @Output() playChanged = new EventEmitter<boolean>();
 
@@ -42,27 +39,23 @@ export class MatPlayButtonComponent implements AfterViewInit, OnDestroy {
   }
 
   setVideoPlayback(value: boolean) {
-    if (this.playing !== value)
+    if (this.play !== value)
       this.toggleVideoPlayback();
   }
 
   toggleVideoPlayback(): void {
-    this.playing = !this.playing;
+    this.play = !this.play;
     this.updateVideoPlayback();
   }
 
   updateVideoPlayback(): void {
-    this.playing ? this.video.play() : this.video.pause();
-    this.playChanged.emit(this.playing);
+    this.play ? this.video.play() : this.video.pause();
+    this.playChanged.emit(this.play);
   }
 
   @HostListener('document:keyup', ['$event'])
   onKeydownHandler(event: KeyboardEvent) {
-    const key = event.key || event.keyCode;
-
-    if (key === ' ' || key === 32) this.toggleVideoPlayback();
-
-    event.preventDefault();
+    this.evt.keyboardEvent(event, ' ', 32, () => this.toggleVideoPlayback());
   }
 
 }

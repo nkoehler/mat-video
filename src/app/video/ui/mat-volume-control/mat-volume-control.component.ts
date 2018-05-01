@@ -1,61 +1,54 @@
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
+import { EventService } from '../../services/event.service';
+
 @Component({
   selector: 'mat-volume-control',
   templateUrl: './mat-volume-control.component.html',
   styleUrls: ['./mat-volume-control.component.css']
 })
 export class MatVolumeControlComponent {
-  vol: number = 1;
-  mute: boolean = false;
-
   @Input() video: HTMLVideoElement = null;
 
   @Input() color = "primary";
 
-  @Input() get volume() { return this.vol; }
-  set volume(value: number) { this.setVolume(value); }
+  @Input() volume: number = 1;
 
   @Output() volumeChanged = new EventEmitter<number>();
 
-  @Input() get muted() { return this.mute; }
-  set muted(value: boolean) { this.setMuted(value); }
+  @Input() muted: boolean = false;
 
   @Output() mutedChanged = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(private evt: EventService) { }
 
   setVolume(value: number): void {
-    this.vol = value;
-    this.video.volume = this.vol;
-    this.volumeChanged.emit(this.vol);
+    this.volume = value;
+    this.video.volume = this.volume;
+    this.volumeChanged.emit(this.volume);
 
-    if (this.vol > 0)
+    if (this.volume > 0)
       this.setMuted(false);
   }
 
   setMuted(value: boolean): void {
-    if (this.mute !== value)
+    if (this.muted !== value)
       this.toggleMuted();
   }
 
   toggleMuted(): void {
-    this.mute = !this.mute;
+    this.muted = !this.muted;
     this.updateMuted();
   }
 
   updateMuted(): void {
-    this.video.muted = this.mute;
-    this.mutedChanged.emit(this.mute);
+    this.video.muted = this.muted;
+    this.mutedChanged.emit(this.muted);
   }
 
   @HostListener('document:keyup', ['$event'])
   onKeydownHandler(event: KeyboardEvent) {
-    const key = event.key || event.keyCode;
-
-    if (key === 'm' || key === 77) this.toggleMuted();
-
-    event.preventDefault();
+    this.evt.keyboardEvent(event, 'm', 77, () => this.toggleMuted());
   }
 
 }

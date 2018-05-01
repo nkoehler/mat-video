@@ -97,12 +97,8 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
         return res;
     }
 
-    getMouseClass(): any {
-        return { 'show-mouse': !this.playing || this.isMouseMoving, 'hide-mouse': this.playing && !this.isMouseMoving };
-    }
-
-    getOverlayClass(): any {
-        return { 'visible': !this.playing || this.isMouseMoving, 'hidden': this.playing && !this.isMouseMoving };
+    getOverlayClass(activeClass: string, inactiveClass: string): any {
+        return (!this.playing || this.isMouseMoving) ? activeClass : inactiveClass;
     }
 
     getVideoPlayerStyle(): any {

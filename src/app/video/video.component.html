@@ -1,5 +1,5 @@
-<div #player class="videoplayer" [ngClass]="getMouseClass()" [ngStyle]="getVideoPlayerStyle()">
-    <div class="header" *ngIf="title" [ngClass]="getOverlayClass()">
+<div #player class="videoplayer" [ngClass]="getOverlayClass('show-mouse', 'hide-mouse')" [ngStyle]="getVideoPlayerStyle()">
+    <div class="header" *ngIf="title" [ngClass]="getOverlayClass('visible', 'hidden')">
         {{title}}
     </div>
 
@@ -8,7 +8,7 @@
         This browser does not support HTML5 video.
     </video>
 
-    <div class="controls" *ngIf="videoLoaded" [ngClass]="getOverlayClass()">
+    <div class="controls" *ngIf="videoLoaded" [ngClass]="getOverlayClass('visible', 'hidden')">
         <div class="progress">
             <mat-seek-progress-control [color]="color" [video]="video"></mat-seek-progress-control>
         </div>

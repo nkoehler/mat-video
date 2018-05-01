@@ -8,9 +8,6 @@ import { EventService } from '../../services/event.service';
   styleUrls: ['./mat-seek-progress-control.component.css']
 })
 export class MatSeekProgressControlComponent implements AfterViewInit, OnDestroy {
-  curTime: number = 0;
-  bufTime: number = 0;
-
   curTimePercent: number = 0;
   bufTimePercent: number = 0;
 
@@ -18,13 +15,11 @@ export class MatSeekProgressControlComponent implements AfterViewInit, OnDestroy
 
   @Input() color: string;
 
-  @Input() get currentTime() { return this.curTime; }
-  set currentTime(seconds: number) { this.setCurrentTime(seconds); }
+  @Input() currentTime: number = 0;
 
   @Output() currentTimeChanged = new EventEmitter<number>();
 
-  @Input() get bufferedTime() { return this.bufTime; }
-  set bufferedTime(seconds: number) { this.setBufferedTime(seconds); }
+  @Input() bufferedTime: number = 0;
 
   @Output() bufferedTimeChanged = new EventEmitter<number>();
 
@@ -57,9 +52,9 @@ export class MatSeekProgressControlComponent implements AfterViewInit, OnDestroy
   }
 
   setCurrentTime(time: number): void {
-    this.curTime = time;
-    this.curTimePercent = this.curTime / this.video.duration * 100;
-    this.currentTimeChanged.emit(this.curTime);
+    this.currentTime = time;
+    this.curTimePercent = this.currentTime / this.video.duration * 100;
+    this.currentTimeChanged.emit(this.currentTime);
   }
 
   updateBufferedTime(): void {
@@ -77,9 +72,9 @@ export class MatSeekProgressControlComponent implements AfterViewInit, OnDestroy
   }
 
   setBufferedTime(time: number): void {
-    this.bufTime = time;
-    this.bufTimePercent = this.bufTime / this.video.duration * 100;
-    this.bufferedTimeChanged.emit(this.bufTime);
+    this.bufferedTime = time;
+    this.bufTimePercent = this.bufferedTime / this.video.duration * 100;
+    this.bufferedTimeChanged.emit(this.bufferedTime);
   }
 
 }

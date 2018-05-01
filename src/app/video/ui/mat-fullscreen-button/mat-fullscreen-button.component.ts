@@ -1,5 +1,6 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 
+import { EventService } from '../../services/event.service';
 import { FullscreenService } from '../../services/fullscreen.service';
 
 @Component({
@@ -9,16 +10,17 @@ import { FullscreenService } from '../../services/fullscreen.service';
 })
 export class MatFullscreenButtonComponent implements OnInit {
   canFullscreen: boolean = false;
-  isFullscreen: boolean = false;
 
   @Input() player: HTMLVideoElement;
 
-  @Input() get fullscreen() { return this.isFullscreen; }
-  set fullscreen(value: boolean) { this.setFullscreen(value); }
+  @Input() fullscreen: boolean = false;
 
   @Output() fullscreenChanged = new EventEmitter<boolean>();
 
-  constructor(private fscreen: FullscreenService) { }
+  constructor(
+    private fscreen: FullscreenService,
+    private evt: EventService
+  ) { }
 
   ngOnInit(): void {
     if (this.fscreen.isEnabled())
@@ -28,32 +30,28 @@ export class MatFullscreenButtonComponent implements OnInit {
   }
 
   setFullscreen(value: boolean) {
-    if (this.canFullscreen && this.isFullscreen !== value)
+    if (this.canFullscreen && this.fullscreen !== value)
       this.toggleFullscreen();
   }
 
   toggleFullscreen(): void {
-    this.isFullscreen = !this.isFullscreen;
+    this.fullscreen = !this.fullscreen;
     this.updateFullscreen();
   }
 
   updateFullscreen(): void {
-    this.isFullscreen ? this.fscreen.request(this.player) : this.fscreen.exit();
-    this.fullscreenChanged.emit(this.isFullscreen);
+    this.fullscreen ? this.fscreen.request(this.player) : this.fscreen.exit();
+    this.fullscreenChanged.emit(this.fullscreen);
   }
 
   onChangesFullscreen(value: boolean): void {
-    this.isFullscreen = value;
-    this.fullscreenChanged.emit(this.isFullscreen);
+    this.fullscreen = value;
+    this.fullscreenChanged.emit(this.fullscreen);
   }
 
   @HostListener('document:keyup', ['$event'])
   onKeydownHandler(event: KeyboardEvent) {
-    const key = event.key || event.keyCode;
-
-    if (key === 'f' || key === 70) this.toggleFullscreen();
-
-    event.preventDefault();
+    this.evt.keyboardEvent(event, 'f', 70, () => this.toggleFullscreen());
   }
 
 }
