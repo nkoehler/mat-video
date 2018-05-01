@@ -37,9 +37,9 @@ export class MatSeekProgressControlComponent implements AfterViewInit, OnDestroy
 
   ngAfterViewInit(): void {
     this.events = [
-      //{ element: this.video, name: 'seeking', callback: event => this.getCurrentTime(), dispose: null },
+      { element: this.video, name: 'seeking', callback: event => this.setCurrentTime(this.video.currentTime), dispose: null },
       { element: this.video, name: 'canplaythrough', callback: event => this.updateBufferedTime(), dispose: null },
-      { element: this.video, name: 'timeupdate', callback: event => this.updateCurrentTime(), dispose: null },
+      { element: this.video, name: 'timeupdate', callback: event => this.setCurrentTime(this.video.currentTime), dispose: null },
       { element: this.video, name: 'progress', callback: event => this.updateBufferedTime(), dispose: null }
     ];
 
@@ -51,20 +51,14 @@ export class MatSeekProgressControlComponent implements AfterViewInit, OnDestroy
   }
 
   seekVideo(value: number): void {
-    const newTime = value / 100 * this.video.duration;
-    this.setCurrentTime(newTime);
-  }
-
-  updateCurrentTime(): void {
-    this.curTime = this.video.currentTime;
-    this.curTimePercent = this.curTime / this.video.duration * 100;
-    this.currentTimeChanged.emit(this.curTime);
+    const percentage = value / 100;
+    const newTime = this.video.duration * percentage;
+    this.video.currentTime = newTime;
   }
 
   setCurrentTime(time: number): void {
     this.curTime = time;
     this.curTimePercent = this.curTime / this.video.duration * 100;
-    this.video.currentTime = this.curTime;
     this.currentTimeChanged.emit(this.curTime);
   }
 
