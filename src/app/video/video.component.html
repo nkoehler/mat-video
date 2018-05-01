@@ -27,7 +27,7 @@
 
                 <mat-download-button *ngIf="download" [src]="src" [title]="title"></mat-download-button>
 
-                <mat-fullscreen-button *ngIf="fullscreen" [video]="video"></mat-fullscreen-button>
+                <mat-fullscreen-button *ngIf="fullscreen" (fullscreenChanged)="isFullscreen = $event" [player]="player"></mat-fullscreen-button>
             </div>
         </div>
     </div>

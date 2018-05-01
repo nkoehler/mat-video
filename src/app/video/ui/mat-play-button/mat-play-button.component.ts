@@ -1,4 +1,6 @@
 import { Component, EventEmitter, HostListener, Input, Output, Renderer2, AfterViewInit, OnDestroy } from '@angular/core';
+import { EventHandler } from '../../interfaces/event-handler.interface';
+import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'mat-play-button',
@@ -8,23 +10,34 @@ import { Component, EventEmitter, HostListener, Input, Output, Renderer2, AfterV
 export class MatPlayButtonComponent implements AfterViewInit, OnDestroy {
   playing: boolean = false;
 
-  @Input() video: HTMLVideoElement = null;
+  @Input() video: HTMLVideoElement;
 
   @Input() get play() { return this.playing; }
   set play(value: boolean) { this.setVideoPlayback(value); }
 
   @Output() playChanged = new EventEmitter<boolean>();
 
-  clickEvent: () => void;
+  private events: EventHandler[] = [];
 
-  constructor(private renderer: Renderer2) { }
+  constructor(
+    private renderer: Renderer2,
+    private evt: EventService
+  ) { }
 
   ngAfterViewInit(): void {
-    this.clickEvent = this.renderer.listen(this.video, 'click', () => this.toggleVideoPlayback());
+    this.events = [
+      { element: this.video, name: 'play', callback: event => this.setVideoPlayback(true), dispose: null },
+      { element: this.video, name: 'pause', callback: event => this.setVideoPlayback(false), dispose: null },
+      { element: this.video, name: 'durationchange', callback: event => this.setVideoPlayback(false), dispose: null },
+      { element: this.video, name: 'ended', callback: event => this.setVideoPlayback(false), dispose: null },
+      { element: this.video, name: 'click', callback: event => this.toggleVideoPlayback(), dispose: null }
+    ];
+
+    this.evt.addEvents(this.renderer, this.events);
   }
 
   ngOnDestroy(): void {
-    if (this.clickEvent) this.clickEvent();
+    this.evt.removeEvents(this.events);
   }
 
   setVideoPlayback(value: boolean) {
@@ -44,8 +57,6 @@ export class MatPlayButtonComponent implements AfterViewInit, OnDestroy {
 
   @HostListener('document:keyup', ['$event'])
   onKeydownHandler(event: KeyboardEvent) {
-    if (event.defaultPrevented) return;
-
     const key = event.key || event.keyCode;
 
     if (key === ' ' || key === 32) this.toggleVideoPlayback();

@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, Input, OnDestroy, Renderer2 } from '@angular/core';
 
 import { EventHandler } from '../../interfaces/event-handler.interface';
+import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'mat-video-spinner',
@@ -14,15 +15,20 @@ import { EventHandler } from '../../interfaces/event-handler.interface';
   ]
 })
 export class MatVideoSpinnerComponent implements AfterViewInit, OnDestroy {
-  @Input() video: HTMLVideoElement = null;
+  @Input() video: HTMLVideoElement;
   @Input() spinner: string = 'spin';
 
   videoBuffering = false;
   videoLoaded = false;
 
-  private events: EventHandler[];
+  private events: EventHandler[] = [];
 
-  constructor(private renderer: Renderer2) {
+  constructor(
+    private renderer: Renderer2,
+    private evt: EventService
+  ) { }
+
+  ngAfterViewInit(): void {
     this.events = [
       { element: this.video, name: 'loadstart', callback: event => this.videoLoaded = false, dispose: null },
       { element: this.video, name: 'loadedmetadata', callback: event => this.videoLoaded = true, dispose: null },
@@ -30,17 +36,12 @@ export class MatVideoSpinnerComponent implements AfterViewInit, OnDestroy {
       { element: this.video, name: 'waiting', callback: event => this.videoBuffering = true, dispose: null },
       { element: this.video, name: 'durationchange', callback: event => this.videoBuffering = true, dispose: null }
     ];
-  }
 
-  ngAfterViewInit(): void {
-    for (const event of this.events)
-      event.dispose = this.renderer.listen(this.video, event.name, newEvent => event.callback());
+    this.evt.addEvents(this.renderer, this.events);
   }
 
   ngOnDestroy(): void {
-    for (const event of this.events)
-      if (event.dispose)
-        event.dispose();
+    this.evt.removeEvents(this.events);
   }
 
 }

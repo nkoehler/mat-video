@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, Renderer2, OnInit, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
 import { EventHandler } from '../../interfaces/event-handler.interface';
+import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'mat-seek-progress-control',
@@ -29,24 +30,24 @@ export class MatSeekProgressControlComponent implements AfterViewInit, OnDestroy
 
   private events: EventHandler[];
 
-  constructor(private renderer: Renderer2) {
+  constructor(
+    private renderer: Renderer2,
+    private evt: EventService
+  ) { }
+
+  ngAfterViewInit(): void {
     this.events = [
       //{ element: this.video, name: 'seeking', callback: event => this.getCurrentTime(), dispose: null },
       { element: this.video, name: 'canplaythrough', callback: event => this.updateBufferedTime(), dispose: null },
       { element: this.video, name: 'timeupdate', callback: event => this.updateCurrentTime(), dispose: null },
       { element: this.video, name: 'progress', callback: event => this.updateBufferedTime(), dispose: null }
     ];
-  }
 
-  ngAfterViewInit(): void {
-    for (const event of this.events)
-      event.dispose = this.renderer.listen(this.video, event.name, newEvent => event.callback());
+    this.evt.addEvents(this.renderer, this.events);
   }
 
   ngOnDestroy(): void {
-    for (const event of this.events)
-      if (event.dispose)
-        event.dispose();
+    this.evt.removeEvents(this.events);
   }
 
   seekVideo(value: number): void {

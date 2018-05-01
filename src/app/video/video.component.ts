@@ -13,6 +13,7 @@ import {
 import { EventHandler } from './interfaces/event-handler.interface';
 import { VideoSize } from './interfaces/video-size.interface';
 import { FullscreenService } from './services/fullscreen.service';
+import { EventService } from './services/event.service';
 
 @Component({
     selector: 'mat-video',
@@ -59,6 +60,7 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
     constructor(
         private renderer: Renderer2,
+        private evt: EventService
     ) { }
 
     ngOnInit(): void {
@@ -67,50 +69,29 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         this.events = [
-            { element: this.video, name: 'loadstart', callback: event => this.videoLoaded = false, dispose: null },
-            { element: this.video, name: 'loadedmetadata', callback: event => this.videoLoaded = true, dispose: null },
-            { element: this.video, name: 'play', callback: event => this.playing = true, dispose: null },
-            { element: this.video, name: 'pause', callback: event => this.playing = false, dispose: null },
-
-            { element: this.video, name: 'ended', callback: event => this.playing = false, dispose: null },
-            { element: this.video, name: 'error', callback: event => console.error('Unhandled Video Error', event), dispose: null },
-
-
-            { element: this.video, name: 'waiting', callback: event => this.videoBuffering = true, dispose: null },
-            { element: this.video, name: 'contextmenu', callback: event => event.preventDefault(), dispose: null },
-            { element: this.player, name: 'mousemove', callback: event => this.evMouseMove(event), dispose: null }
+            { element: this.video.nativeElement, name: 'loadstart', callback: event => this.videoLoaded = false, dispose: null },
+            { element: this.video.nativeElement, name: 'loadedmetadata', callback: event => this.evLoadedMetadata(event), dispose: null },
+            { element: this.video.nativeElement, name: 'play', callback: event => this.playing = true, dispose: null },
+            { element: this.video.nativeElement, name: 'pause', callback: event => this.playing = false, dispose: null },
+            { element: this.video.nativeElement, name: 'durationchange', callback: event => this.playing = false, dispose: null },
+            { element: this.video.nativeElement, name: 'ended', callback: event => this.playing = false, dispose: null },
+            { element: this.video.nativeElement, name: 'error', callback: event => console.error('Unhandled Video Error', event), dispose: null },
+            { element: this.video.nativeElement, name: 'waiting', callback: event => this.videoBuffering = true, dispose: null },
+            { element: this.video.nativeElement, name: 'contextmenu', callback: event => event.preventDefault(), dispose: null },
+            { element: this.player.nativeElement, name: 'mousemove', callback: event => this.evMouseMove(event), dispose: null }
         ];
 
-        this.addEvents();
-
-
+        this.evt.addEvents(this.renderer, this.events);
     }
 
     ngOnDestroy(): void {
-        this.removeEvents();
-    }
-
-    addEvents(): void {
-        for (const event of this.events)
-            event.dispose = this.renderer.listen(event.element.nativeElement, event.name, newEvent => event.callback(newEvent));
-    }
-
-    removeEvents(): void {
-        for (const event of this.events)
-            if (event.dispose)
-                event.dispose();
+        this.evt.removeEvents(this.events);
     }
 
     evLoadedMetadata(event: any): void {
         this.videoWidth = this.video.nativeElement.videoWidth;
         this.videoHeight = this.video.nativeElement.videoHeight;
         this.videoLoaded = true;
-    }
-
-    evDurationChange(event: any): void {
-        this.duration = this.video.nativeElement.duration
-        this.playing = false;
-        this.videoBuffering = true;
     }
 
     evMouseMove(event: any): void {

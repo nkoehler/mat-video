@@ -51,8 +51,6 @@ export class MatVolumeControlComponent {
 
   @HostListener('document:keyup', ['$event'])
   onKeydownHandler(event: KeyboardEvent) {
-    if (event.defaultPrevented) return;
-
     const key = event.key || event.keyCode;
 
     if (key === 'm' || key === 77) this.toggleMuted();

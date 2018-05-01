@@ -11,7 +11,7 @@ export class MatFullscreenButtonComponent implements OnInit {
   canFullscreen: boolean = false;
   isFullscreen: boolean = false;
 
-  @Input() video: HTMLVideoElement = null;
+  @Input() player: HTMLVideoElement;
 
   @Input() get fullscreen() { return this.isFullscreen; }
   set fullscreen(value: boolean) { this.setFullscreen(value); }
@@ -38,7 +38,7 @@ export class MatFullscreenButtonComponent implements OnInit {
   }
 
   updateFullscreen(): void {
-    this.isFullscreen ? this.fscreen.exit() : this.fscreen.request(this.video);
+    this.isFullscreen ? this.fscreen.request(this.player) : this.fscreen.exit();
     this.fullscreenChanged.emit(this.isFullscreen);
   }
 
@@ -49,8 +49,6 @@ export class MatFullscreenButtonComponent implements OnInit {
 
   @HostListener('document:keyup', ['$event'])
   onKeydownHandler(event: KeyboardEvent) {
-    if (event.defaultPrevented) return;
-
     const key = event.key || event.keyCode;
 
     if (key === 'f' || key === 70) this.toggleFullscreen();
