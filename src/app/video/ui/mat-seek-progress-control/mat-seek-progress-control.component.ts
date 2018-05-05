@@ -1,4 +1,6 @@
-import { Component, Input, Output, EventEmitter, Renderer2, OnInit, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, Output, Renderer2 } from '@angular/core';
+import { ThemePalette } from '@angular/material';
+
 import { EventHandler } from '../../interfaces/event-handler.interface';
 import { EventService } from '../../services/event.service';
 
@@ -13,7 +15,7 @@ export class MatSeekProgressControlComponent implements AfterViewInit, OnDestroy
 
   @Input() video: HTMLVideoElement = null;
 
-  @Input() color: string;
+  @Input() color: ThemePalette = 'primary';
 
   @Input() currentTime: number = 0;
 

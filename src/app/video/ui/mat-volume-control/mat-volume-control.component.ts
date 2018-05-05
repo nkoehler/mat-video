@@ -1,4 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { ThemePalette } from '@angular/material';
 
 import { EventService } from '../../services/event.service';
 
@@ -10,7 +11,7 @@ import { EventService } from '../../services/event.service';
 export class MatVolumeControlComponent {
   @Input() video: HTMLVideoElement = null;
 
-  @Input() color = 'primary';
+  @Input() color: ThemePalette = 'primary';
 
   @Input() volume: number = 1;
 
