@@ -13,16 +13,16 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
     @ViewChild('player') private player: ElementRef;
     @ViewChild('video') private video: ElementRef;
 
-    @Input() src: string = "";
-    @Input() title: string = "";
+    @Input() src: string = '';
+    @Input() title: string = '';
     @Input() width: number = null;
     @Input() height: number = null;
     @Input() autoplay: boolean = false;
     @Input() preload: boolean = true;
     @Input() fullscreen: boolean = true;
     @Input() download: boolean = false;
-    @Input() color: string = "primary";
-    @Input() spinner: string = "spin";
+    @Input() color: string = 'primary';
+    @Input() spinner: string = 'spin';
     @Input() poster: string = null;
 
     playing: boolean = false;
@@ -92,7 +92,7 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
             top: newTop,
             width: newWidth,
             height: newHeight
-        }
+        };
 
         return res;
     }
@@ -114,13 +114,13 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
                 const style = {
                     width: `${res.width}px`,
                     height: `${res.height}px`,
-                }
+                };
                 return style;
             } else {
                 const style = {
                     width: `${this.videoWidth}px`,
                     height: `${this.videoHeight}px`,
-                }
+                };
                 return style;
             }
         }

@@ -1,7 +1,7 @@
-import { Component, Input, Output, EventEmitter, ElementRef, ChangeDetectorRef, ViewEncapsulation, ChangeDetectionStrategy, Optional, Attribute } from "@angular/core";
-import { MatSlider, MAT_SLIDER_VALUE_ACCESSOR } from "@angular/material";
-import { FocusMonitor } from "@angular/cdk/a11y";
-import { Directionality } from "@angular/cdk/bidi";
+import { Component, Input, Output, EventEmitter, ElementRef, ChangeDetectorRef, ViewEncapsulation, ChangeDetectionStrategy, Optional, Attribute } from '@angular/core';
+import { MatSlider, MAT_SLIDER_VALUE_ACCESSOR } from '@angular/material';
+import { FocusMonitor } from '@angular/cdk/a11y';
+import { Directionality } from '@angular/cdk/bidi';
 
 /** Counter used to generate unique IDs for progress bars. */
 let sliderprogressbarId = 0;
@@ -44,7 +44,7 @@ let sliderprogressbarId = 0;
 })
 
 export class MatSliderProgressBarComponent extends MatSlider {
-    @Input() mode: string = "buffer";
+    @Input() mode: string = 'buffer';
     @Input() value: number = 0;
     /** Buffer value of the progress bar. Defaults to zero. */
     @Input()
@@ -69,7 +69,7 @@ export class MatSliderProgressBarComponent extends MatSlider {
     /** CSS styles for the track fill element. */
     get _trackBufferStyles(): { [key: string]: string } {
         if (this.mode === 'buffer') {
-            let axis = this.vertical ? 'Y' : 'X';
+            const axis = this.vertical ? 'Y' : 'X';
             return {
                 'transform': `translate${axis}(0px) scale${axis}(${this._bufferValue / 100})`
             };

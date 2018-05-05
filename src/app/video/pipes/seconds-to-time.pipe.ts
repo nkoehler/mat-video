@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from "@angular/core";
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
     name: 'secondsToTime'
@@ -9,7 +9,7 @@ export class SecondsToTimePipe implements PipeTransform {
         month: 2629746,
         day: 86400,
         hour: 3600,
-    }
+    };
 
     transform(seconds: number) {
         if (!seconds)
@@ -24,7 +24,7 @@ export class SecondsToTimePipe implements PipeTransform {
             }
             time_string += Math.floor(seconds / 60).toString() + ':';
             seconds = seconds - 60 * Math.floor(seconds / 60);
-            if (Math.floor(seconds) < 10) time_string += "0";
+            if (Math.floor(seconds) < 10) time_string += '0';
             time_string += Math.floor(seconds).toString();
             return time_string;
         }

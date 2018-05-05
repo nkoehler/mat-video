@@ -10,7 +10,7 @@ import { EventService } from '../../services/event.service';
 export class MatVolumeControlComponent {
   @Input() video: HTMLVideoElement = null;
 
-  @Input() color = "primary";
+  @Input() color = 'primary';
 
   @Input() volume: number = 1;
 
@@ -47,7 +47,7 @@ export class MatVolumeControlComponent {
   }
 
   @HostListener('document:keyup', ['$event'])
-  onKeydownHandler(event: KeyboardEvent) {
+  onMuteKey(event: KeyboardEvent) {
     this.evt.keyboardEvent(event, 'm', 77, () => this.toggleMuted());
   }
 

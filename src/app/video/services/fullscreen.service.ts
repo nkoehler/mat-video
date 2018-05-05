@@ -1,5 +1,5 @@
-import { Injectable } from "@angular/core";
-import { FullscreenControls } from "../interfaces/fullscreen-controls.interface";
+import { Injectable } from '@angular/core';
+import { FullscreenControls } from '../interfaces/fullscreen-controls.interface';
 
 @Injectable()
 export class FullscreenService {
@@ -59,10 +59,10 @@ export class FullscreenService {
 
     constructor() {
         this.keyboardAllowed = typeof Element !== 'undefined' && 'ALLOW_KEYBOARD_INPUT' in Element;
-        var ret: any = {};
-        var val;
+        const ret: any = {};
+        let val;
 
-        for (var i = 0; i < this.fnMap.length; i++) {
+        for (let i = 0; i < this.fnMap.length; i++) {
             val = this.fnMap[i];
             if (val && val[1] in document) {
                 for (i = 0; i < val.length; i++) {
@@ -75,7 +75,7 @@ export class FullscreenService {
     }
 
     public request(elem: any) {
-        var request = this.fn.requestFullscreen;
+        const request = this.fn.requestFullscreen;
 
         elem = elem || document.documentElement;
 

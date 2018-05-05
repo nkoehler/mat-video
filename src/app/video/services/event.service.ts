@@ -1,5 +1,5 @@
-import { Injectable, Renderer2 } from "@angular/core";
-import { EventHandler } from "../interfaces/event-handler.interface";
+import { Injectable, Renderer2 } from '@angular/core';
+import { EventHandler } from '../interfaces/event-handler.interface';
 
 @Injectable()
 export class EventService {
