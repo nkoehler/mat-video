@@ -20,7 +20,7 @@ export class SampleComponent {
   fullscreen = true;
   color = 'primary';
   spinner = 'spin';
-  poster = 'assets/NASA.jpg'
+  poster = 'assets/NASA.jpg';
 
   reloadVideo(): void {
     const tmp = this.src;
