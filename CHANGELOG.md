@@ -1,3 +1,11 @@
+# 1.4.0 (2018-05-06)
+
+### Features:
+
+- **angular:** added Angular 6 support
+
+
+
 # 1.3.1 (2018-05-05)
 
 ### Code Refactor:
