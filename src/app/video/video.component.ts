@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnDestroy, Renderer2, ViewChild } from '@angular/core';
+import { ThemePalette } from '@angular/material';
 
 import { EventHandler } from './interfaces/event-handler.interface';
 import { VideoSize } from './interfaces/video-size.interface';
@@ -21,7 +22,7 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
     @Input() preload: boolean = true;
     @Input() fullscreen: boolean = true;
     @Input() download: boolean = false;
-    @Input() color: string = 'primary';
+    @Input() color: ThemePalette = 'primary';
     @Input() spinner: string = 'spin';
     @Input() poster: string = null;
 

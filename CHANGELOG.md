@@ -1,8 +1,24 @@
+# 1.3.1 (2018-05-05)
+
+### Code Refactor:
+
+- **player:** major refactor by moving all UI logic to their respective components
+- **seeking:** updated seeking component to use progress slider component
+- **internal:** updated progress slider component for easier reuse
+
+### Bug Fixes:
+
+- **player:** updated color attribute from string to ThemePalette
+- **style:** several CSS updates
+- **code:** several code style fixes
+
+
+
 # 1.3.0 (2018-04-28)
 
 ### Features:
 
-- **player:** keyboard can now be used to toggle fullscreen (f key), toggle mute (m key), and toggle playback (space key)
+- **keyboard:** keyboard can now be used to toggle fullscreen (f key), toggle mute (m key), and toggle playback (space key)
 - **player:** increased UI timeout from 1500ms to 2000ms
 - **player:** mouse pointer is now hidden when the UI fades away
 
@@ -12,12 +28,12 @@
 
 ### Features:
 
-- **player:** added the option to specify a poster image for the video
-- **player:** added a buffering indicator, including 4 built in types, and you can add your own by using a global class
-- **player:** added the option to play/pause the video by clicking it
-- **player:** seeking the video now updates the time as you drag the slider
-- **player:** improved clarity for buffered progress
-- **player:** improved video and player scaling while in fullscreen
+- **poster:** added the option to specify a poster image for the video
+- **buffering:** added a buffering indicator, including 4 built in types, and you can add your own by using a global class
+- **playback:** added the option to play/pause the video by clicking it
+- **seeking:** seeking the video now updates the time as you drag the slider
+- **buffering:** improved clarity for buffered progress
+- **fullscreen:** improved video and player scaling while in fullscreen
 - **demo:** added poster image support
 - **demo:** added buffering spinner support
 
@@ -29,7 +45,7 @@
 ### Bug Fixes:
 
 - **player:** fixed the video buffer incorrectly displaying the wrong value during certain scenarios
-- **player:** fixed the play button not being reset when changing the video source
+- **playback:** fixed the play button not being reset when changing the video source
 - **player:** video controls are now hidden while video metadata is being loaded
 - **player:** fixed a bug where videos with a greater height than width did not appear right in fullscreen
 - **npm:** updated peer dependencies for clearer compatability

@@ -88,17 +88,17 @@ A slightly more customized example, in your HTML file:
 
 Attribute | Type | Description | Default
 --- | --- | --- | ---
-*src* | **string** | Path or URL to a .mp4 file (**required**) | Empty string
-*title* | **string** | Title for the video | Empty string
-*width* | **number** | Number in pixels or null for video width | null
-*height* | **number** | Number in pixels or null for video height | null
-*autoplay* | **boolean** | Whether the video should autoplay | false
-*preload* | **boolean** | Whether the video should preload | true
-*download* | **boolean** | Whether the video will have a download option | false
-*fullscreen* | **boolean** | Whether the video will have a fullscreen option | true
-*color* | **ThemePalette** | Material theme color palette for the sliders | primary
-*spinner* | **string** | Use 'spin', 'dot', 'split-ring', 'hourglass', or pass your own buffering spinner class | spin
-*poster* | **string** | Path or URL to a poster image | null
+*src* | **string** | Path or URL to a .mp4 file (**required**) | *Empty string*
+*title* | **string** | Title for the video | *Empty string*
+*width* | **number** | Number in pixels or null for video width | *null*
+*height* | **number** | Number in pixels or null for video height | *null*
+*autoplay* | **boolean** | Whether the video should autoplay | *false*
+*preload* | **boolean** | Whether the video should preload | *true*
+*download* | **boolean** | Whether the video will have a download option | *false*
+*fullscreen* | **boolean** | Whether the video will have a fullscreen option | *true*
+*color* | **ThemePalette** | Material theme color palette for the sliders | *primary*
+*spinner* | **string** | Use 'spin', 'dot', 'split-ring', 'hourglass', or pass your own buffering spinner class | *spin*
+*poster* | **string** | Path or URL to a poster image | *null*
 
 ## Credits
 **mat-video** is an open-source project developed by Nicholas Koehler.
