@@ -23,7 +23,7 @@
             </div>
 
             <div class="right">
-                <mat-quality-control [video]="video"></mat-quality-control>
+                <mat-quality-control *ngIf="quality" [video]="video"></mat-quality-control>
 
                 <mat-download-button *ngIf="download" [src]="src" [title]="title"></mat-download-button>
 

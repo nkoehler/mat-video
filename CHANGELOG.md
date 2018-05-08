@@ -1,3 +1,30 @@
+# 2.0.0 (2018-05-08)
+
+### Breaking Changes:
+
+- **attribute:** removed width attribute, use CSS instead
+- **attribute:** removed height attribute, use CSS instead
+
+### Features:
+
+- **player:** video player is now responsive by default
+- **style:** CSS can now be used to control the video player size
+- **quality:** video quality indicator can now be toggled
+- **demo:** added responsive and fixed css options in place of width and height
+- **demo:** added the option to toggle the video quality indicator
+
+### Code Refactor:
+
+- **style:** removed unnecessary code and css related to styling the video player
+
+### Bug Fixes:
+
+- **quality:** fixed a bug where the quality indicator was incorrectly styled
+- **dependencies:** updated @angular/material to the latest version
+- **dependencies:** updated @angular/cdk to the latest version
+
+
+
 # 1.4.0 (2018-05-06)
 
 ### Features:

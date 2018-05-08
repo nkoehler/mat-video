@@ -18,6 +18,7 @@ export class SampleComponent {
   height = 337.5;
   autoplay = false;
   preload = true;
+  quality = true;
   download = true;
   fullscreen = true;
   color = 'primary';

@@ -32,6 +32,11 @@
       </div>
 
       <div class="item-section">
+        <div class="item-margin">Quality:</div>
+        <mat-slide-toggle [(ngModel)]="quality" [color]="color"></mat-slide-toggle>
+      </div>
+
+      <div class="item-section">
         <div class="item-margin">Download:</div>
         <mat-slide-toggle [(ngModel)]="download" [color]="color"></mat-slide-toggle>
       </div>
@@ -122,7 +127,7 @@
 
     <div class="content video">
       <mat-video [ngClass]="ngclass" [src]="src" [title]="title" [autoplay]="autoplay" [preload]="preload" [fullscreen]="fullscreen"
-        [download]="download" [color]="color" [spinner]="spinner" [poster]="poster"></mat-video>
+        [download]="download" [quality]="quality" [color]="color" [spinner]="spinner" [poster]="poster"></mat-video>
     </div>
 
     <div class="mat-toolbar mat-primary mat-toolbar-single-row footer">

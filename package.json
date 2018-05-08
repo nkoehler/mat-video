@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@angular/animations": "^6.0.0",
-    "@angular/cdk": "^6.0.0",
+    "@angular/cdk": "^6.0.1",
     "@angular/cli": "^6.0.0",
     "@angular/common": "^6.0.0",
     "@angular/compiler": "^6.0.0",
@@ -61,7 +61,7 @@
     "@angular/forms": "^6.0.0",
     "@angular/http": "^6.0.0",
     "@angular/language-service": "^6.0.0",
-    "@angular/material": "^6.0.0",
+    "@angular/material": "^6.0.1",
     "@angular/platform-browser": "^6.0.0",
     "@angular/platform-browser-dynamic": "^6.0.0",
     "@angular/router": "^6.0.0",
