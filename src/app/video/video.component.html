@@ -1,4 +1,4 @@
-<div #player class="videoplayer" [ngClass]="getOverlayClass('show-mouse', 'hide-mouse')" [class.fullscreen]="isFullscreen">
+<div #player class="videoplayer" [ngClass]="getOverlayClass('show-mouse', 'hide-mouse')">
     <div class="header" *ngIf="title" [ngClass]="getOverlayClass('visible', 'hidden')">
         {{title}}
     </div>

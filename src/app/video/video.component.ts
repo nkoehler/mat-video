@@ -7,8 +7,7 @@ import { EventService } from './services/event.service';
 @Component({
     selector: 'mat-video',
     templateUrl: './video.component.html',
-    styleUrls: ['./video.component.css', './styles/icons.css'],
-    host: { '[style.width]': '(!width && !height && responsive ? "100%" : (width || height ? width : videoWidth) + ((width || height) && responsive ? "%" : "px"))', '[style.height]': '(!width && !height && responsive ? "100%" : (width || height ? height : videoHeight) + ((width || height) && responsive ? "%" : "px"))' }
+    styleUrls: ['./video.component.css', './styles/icons.css']
 })
 export class MatVideoComponent implements AfterViewInit, OnDestroy {
     @ViewChild('player') private player: ElementRef;
@@ -16,8 +15,6 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
 
     @Input() src: string = '';
     @Input() title: string = '';
-    @Input() width: number = null;
-    @Input() height: number = null;
     @Input() autoplay: boolean = false;
     @Input() preload: boolean = true;
     @Input() fullscreen: boolean = true;
@@ -25,7 +22,6 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
     @Input() color: ThemePalette = 'primary';
     @Input() spinner: string = 'spin';
     @Input() poster: string = null;
-    @Input() responsive: boolean = false;
 
     playing: boolean = false;
 

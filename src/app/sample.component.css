@@ -13,6 +13,14 @@ div {
     align-items: center;
 }
 
+.mat-video-responsive {
+    width: 50%;
+}
+
+.mat-video-fixed {
+    width: 600px;
+}
+
 .sidenav-container {
     height: 100vh;
 }
