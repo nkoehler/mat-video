@@ -22,10 +22,17 @@
       </mat-form-field>
       <mat-form-field class="item-margin" [color]="color">
         <input matInput type="number" [(ngModel)]="width" placeholder="width">
+        <div matSuffix>{{responsive ? '%' : 'px'}}</div>
       </mat-form-field>
       <mat-form-field class="item-margin" [color]="color">
         <input matInput type="number" [(ngModel)]="height" placeholder="height">
+        <div matSuffix>{{responsive ? '%' : 'px'}}</div>
       </mat-form-field>
+
+      <div class="item-section">
+        <div class="item-margin">Responsive:</div>
+        <mat-slide-toggle [(ngModel)]="responsive" (change)="responsiveChanged()" [color]="color"></mat-slide-toggle>
+      </div>
 
       <div class="item-section">
         <div class="item-margin">Autoplay:</div>
@@ -114,8 +121,8 @@
     </mat-toolbar>
 
     <div class="content video">
-      <mat-video [src]="src" [title]="title" [width]="width" [height]="height" [autoplay]="autoplay" [preload]="preload" [fullscreen]="fullscreen"
-        [download]="download" [color]="color" [spinner]="spinner" [poster]="poster"></mat-video>
+      <mat-video [src]="src" [title]="title" [width]="width" [height]="height" [responsive]="responsive" [autoplay]="autoplay"
+        [preload]="preload" [fullscreen]="fullscreen" [download]="download" [color]="color" [spinner]="spinner" [poster]="poster"></mat-video>
     </div>
 
     <div class="mat-toolbar mat-primary mat-toolbar-single-row footer">

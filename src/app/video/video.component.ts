@@ -2,13 +2,13 @@ import { AfterViewInit, Component, ElementRef, Input, OnDestroy, Renderer2, View
 import { ThemePalette } from '@angular/material';
 
 import { EventHandler } from './interfaces/event-handler.interface';
-import { VideoSize } from './interfaces/video-size.interface';
 import { EventService } from './services/event.service';
 
 @Component({
     selector: 'mat-video',
     templateUrl: './video.component.html',
-    styleUrls: ['./video.component.css', './styles/icons.css']
+    styleUrls: ['./video.component.css', './styles/icons.css'],
+    host: { '[style.width]': '(!width && !height && responsive ? "100%" : (width || height ? width : videoWidth) + ((width || height) && responsive ? "%" : "px"))', '[style.height]': '(!width && !height && responsive ? "100%" : (width || height ? height : videoHeight) + ((width || height) && responsive ? "%" : "px"))' }
 })
 export class MatVideoComponent implements AfterViewInit, OnDestroy {
     @ViewChild('player') private player: ElementRef;
@@ -16,8 +16,8 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
 
     @Input() src: string = '';
     @Input() title: string = '';
-    @Input() width: number = null;
-    @Input() height: number = null;
+    @Input() width: string = null;
+    @Input() height: string = null;
     @Input() autoplay: boolean = false;
     @Input() preload: boolean = true;
     @Input() fullscreen: boolean = true;
@@ -25,6 +25,7 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
     @Input() color: ThemePalette = 'primary';
     @Input() spinner: string = 'spin';
     @Input() poster: string = null;
+    @Input() responsive: boolean = false;
 
     playing: boolean = false;
 
@@ -76,55 +77,8 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
         }, this.isMouseMovingTimeout);
     }
 
-    calculateAspectRatioFit(srcWidth: number, srcHeight: number, maxWidth: number, maxHeight: number): VideoSize {
-        if (!maxHeight) maxHeight = (srcHeight / srcWidth) * maxWidth;
-        if (!maxWidth) maxWidth = (srcWidth / srcHeight) * maxHeight;
-
-        const ratios = [maxWidth / srcWidth, maxHeight / srcHeight];
-        const ratio = Math.min(ratios[0], ratios[1]);
-
-        const newWidth = srcWidth * ratio;
-        const newHeight = srcHeight * ratio;
-        const newLeft = newWidth < maxWidth ? (maxWidth - newWidth) / 2 : 0;
-        const newTop = newHeight < maxHeight ? (maxHeight - newHeight) / 2 : 0;
-
-        const res: VideoSize = {
-            left: newLeft,
-            top: newTop,
-            width: newWidth,
-            height: newHeight
-        };
-
-        return res;
-    }
-
     getOverlayClass(activeClass: string, inactiveClass: string): any {
         return (!this.playing || this.isMouseMoving) ? activeClass : inactiveClass;
-    }
-
-    getVideoPlayerStyle(): any {
-        if (this.isFullscreen) {
-            const style = {
-                width: '100%',
-                height: '100%'
-            };
-            return style;
-        } else {
-            if (this.width || this.height) {
-                const res: VideoSize = this.calculateAspectRatioFit(this.videoWidth, this.videoHeight, this.width, this.height);
-                const style = {
-                    width: `${res.width}px`,
-                    height: `${res.height}px`,
-                };
-                return style;
-            } else {
-                const style = {
-                    width: `${this.videoWidth}px`,
-                    height: `${this.videoHeight}px`,
-                };
-                return style;
-            }
-        }
     }
 
 }

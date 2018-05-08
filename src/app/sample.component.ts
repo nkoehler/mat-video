@@ -13,7 +13,7 @@ export class SampleComponent {
   src = 'assets/NASA.mp4';
   title = 'NASA Rocket Launch';
   width = 600;
-  height = 400;
+  height = 337.5;
   autoplay = false;
   preload = true;
   download = true;
@@ -21,6 +21,7 @@ export class SampleComponent {
   color = 'primary';
   spinner = 'spin';
   poster = 'assets/NASA.jpg';
+  responsive = false;
 
   reloadVideo(): void {
     const tmp = this.src;
@@ -28,5 +29,15 @@ export class SampleComponent {
     setTimeout(() => {
       this.src = tmp;
     }, 200);
+  }
+
+  responsiveChanged(): void {
+    if (this.responsive) {
+      this.width = 50;
+      this.height = 50;
+    } else {
+      this.width = 600;
+      this.height = 337.5;
+    }
   }
 }

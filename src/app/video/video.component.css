@@ -1,7 +1,14 @@
+.fullscreen {
+    width: 100%;
+    height: 100%;
+}
+
 .videoplayer {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: black;
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .header {
@@ -17,9 +24,7 @@
 }
 
 .video {
-    position: absolute;
-    left: 0px;
-    top: 0px;
+    display: block;
     width: 100%;
     height: 100%;
     z-index: 0;
