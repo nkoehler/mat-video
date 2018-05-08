@@ -1,6 +1,6 @@
 .quality {
-    display: inline;
+    display: inline-block;
     font-size: 12px;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
