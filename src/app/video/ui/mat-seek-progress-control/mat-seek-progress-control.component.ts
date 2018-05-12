@@ -55,8 +55,7 @@ export class MatSeekProgressControlComponent implements AfterViewInit, OnDestroy
 
   setCurrentTime(time: number): void {
     this.currentTime = time;
-    this.curTimePercent = this.currentTime / this.video.duration * 100;
-    this.currentTimeChanged.emit(this.currentTime);
+    this.curTimePercent = this.updateTime(this.currentTimeChanged, this.currentTime);
   }
 
   updateBufferedTime(): void {
@@ -75,8 +74,12 @@ export class MatSeekProgressControlComponent implements AfterViewInit, OnDestroy
 
   setBufferedTime(time: number): void {
     this.bufferedTime = time;
-    this.bufTimePercent = this.bufferedTime / this.video.duration * 100;
-    this.bufferedTimeChanged.emit(this.bufferedTime);
+    this.bufTimePercent = this.updateTime(this.bufferedTimeChanged, this.bufferedTime);
+  }
+
+  updateTime(emitter: EventEmitter<number>, time: number): number {
+    emitter.emit(time);
+    return time / this.video.duration * 100;
   }
 
 }
