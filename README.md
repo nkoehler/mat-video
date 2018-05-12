@@ -19,6 +19,7 @@ If you wish to contribute, please fill out the [pull request template](https://g
 - Volume
 - Autoplay
 - Preload
+- Looping
 - Scaling
 - Fullscreen
 - Download
@@ -93,6 +94,7 @@ Attribute | Type | Description | Default
 *title* | **string** | Title for the video | *Empty string*
 *autoplay* | **boolean** | Whether the video should autoplay | *false*
 *preload* | **boolean** | Whether the video should preload | *true*
+*loop* | **boolean** | Whether the video should loop | *false*
 *quality* | **boolean** | Whether the video will have a quality indicator | *true*
 *download* | **boolean** | Whether the video will have a download option | *false*
 *fullscreen* | **boolean** | Whether the video will have a fullscreen option | *true*

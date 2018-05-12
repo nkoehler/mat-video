@@ -1,3 +1,20 @@
+# 2.1.0 (2018-05-12)
+
+### Features:
+
+- **looping:** added the ability to loop videos
+- **demo:** added the option to toggle the video looping
+
+### Code Refactor:
+
+- **seeking:** reduced repetitive code in the seeking control
+
+### Bug Fixes:
+
+- **dependencies:** updated all dependencies to their latest version
+
+
+
 # 2.0.0 (2018-05-08)
 
 ### Breaking Changes:
