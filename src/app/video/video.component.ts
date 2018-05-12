@@ -17,6 +17,7 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
     @Input() title: string = '';
     @Input() autoplay: boolean = false;
     @Input() preload: boolean = true;
+    @Input() loop: boolean = false;
     @Input() quality: boolean = true;
     @Input() fullscreen: boolean = true;
     @Input() download: boolean = false;
