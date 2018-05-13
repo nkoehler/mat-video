@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./mat-download-button.component.css']
 })
 export class MatDownloadButtonComponent {
-  @Input() src: string;
+  @Input() video: HTMLVideoElement;
   @Input() title: string;
 
   constructor() { }
