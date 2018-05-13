@@ -17,12 +17,4 @@ export class EventService {
                 event.dispose();
     }
 
-    keyboardEvent(event: KeyboardEvent, key: string, keyCode: number, callback: () => void): void {
-        const k = event.key || event.keyCode;
-
-        if (k === key || k === keyCode) callback();
-
-        event.preventDefault();
-    }
-
 }

@@ -53,9 +53,10 @@ export class MatPlayButtonComponent implements AfterViewInit, OnDestroy {
     this.playChanged.emit(this.play);
   }
 
-  @HostListener('document:keyup', ['$event'])
+  @HostListener('document:keyup.space', ['$event'])
   onPlayKey(event: KeyboardEvent) {
-    this.evt.keyboardEvent(event, ' ', 32, () => this.toggleVideoPlayback());
+    this.toggleVideoPlayback();
+    event.preventDefault();
   }
 
 }

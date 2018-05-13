@@ -47,9 +47,10 @@ export class MatVolumeControlComponent {
     this.mutedChanged.emit(this.muted);
   }
 
-  @HostListener('document:keyup', ['$event'])
+  @HostListener('document:keyup.m', ['$event'])
   onMuteKey(event: KeyboardEvent) {
-    this.evt.keyboardEvent(event, 'm', 77, () => this.toggleMuted());
+    this.toggleMuted();
+    event.preventDefault();
   }
 
 }

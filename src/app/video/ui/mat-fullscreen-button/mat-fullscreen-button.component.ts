@@ -49,9 +49,10 @@ export class MatFullscreenButtonComponent implements OnInit {
     this.fullscreenChanged.emit(this.fullscreen);
   }
 
-  @HostListener('document:keyup', ['$event'])
+  @HostListener('document:keyup.f', ['$event'])
   onFullscreenKey(event: KeyboardEvent) {
-    this.evt.keyboardEvent(event, 'f', 70, () => this.toggleFullscreen());
+    this.toggleFullscreen();
+    event.preventDefault();
   }
 
 }
