@@ -23,12 +23,12 @@
 
       <div class="item-section">
         <div class="item-margin">Autoplay:</div>
-        <mat-slide-toggle [(ngModel)]="autoplay" (change)="reloadVideo()" [color]="color"></mat-slide-toggle>
+        <mat-slide-toggle [(ngModel)]="autoplay" (change)="vid.load()" [color]="color"></mat-slide-toggle>
       </div>
 
       <div class="item-section">
         <div class="item-margin">Preload:</div>
-        <mat-slide-toggle [(ngModel)]="preload" (change)="reloadVideo()" [color]="color"></mat-slide-toggle>
+        <mat-slide-toggle [(ngModel)]="preload" (change)="vid.load()" [color]="color"></mat-slide-toggle>
       </div>
 
       <div class="item-section">
@@ -131,8 +131,9 @@
     </mat-toolbar>
 
     <div class="content video">
-      <mat-video [ngClass]="ngclass" [src]="src" [title]="title" [autoplay]="autoplay" [preload]="preload" [loop]="loop" [fullscreen]="fullscreen"
-        [download]="download" [quality]="quality" [color]="color" [spinner]="spinner" [poster]="poster"></mat-video>
+      <mat-video #vid [ngClass]="ngclass" [src]="src" [title]="title" [autoplay]="autoplay" [preload]="preload" [loop]="loop" [fullscreen]="fullscreen"
+        [download]="download" [quality]="quality" [color]="color" [spinner]="spinner" [poster]="poster">
+      </mat-video>
     </div>
 
     <div class="mat-toolbar mat-primary mat-toolbar-single-row footer">

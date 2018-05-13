@@ -25,10 +25,12 @@ If you wish to contribute, please fill out the [pull request template](https://g
 - Download
 - Buffering spinners
 - Poster image
+- Subtitles and text tracks
+- Multiple media sources
 - Customizable controls
 - Material theming
 - Keyboard shortcuts
-- Fixed or responsive sizing
+- Fixed and responsive sizing
 - Supports Chrome, Firefox, Safari, and Edge
 
 ## Installation
@@ -83,15 +85,20 @@ A minimal example is quite simple, in your HTML file:
 A slightly more customized example, in your HTML file:
 
 ```html
-    <mat-video src="tutorial.mp4" title="My Tutorial Title" [autoplay]="true" [preload]="true" [fullscreen]="true" [download]="false" color="accent" spinner="spin" poster="image.jpg"></mat-video>
+    <mat-video title="My Tutorial Title" [autoplay]="true" [preload]="true" [fullscreen]="true" [download]="false" color="accent" spinner="spin" poster="image.jpg">
+      <source matVideoSource src="tutorial.mp4" type="video/mp4">
+      <source src="tutorial.webm" type="video/webm">
+      <track matVideoTrack src="subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
+      <track src="subtitles_no.vtt" kind="subtitles" srclang="no" label="Norwegian">
+    </mat-video>
 ```
 
 ## API
 
 Attribute | Type | Description | Default
 --- | --- | --- | ---
-*src* | **string** | Path or URL to a .mp4 file (**required**) | *Empty string*
-*title* | **string** | Title for the video | *Empty string*
+*src* | **string** | Path or URL to a video | *null*
+*title* | **string** | Title for the video | *null*
 *autoplay* | **boolean** | Whether the video should autoplay | *false*
 *preload* | **boolean** | Whether the video should preload | *true*
 *loop* | **boolean** | Whether the video should loop | *false*
@@ -101,6 +108,12 @@ Attribute | Type | Description | Default
 *color* | **ThemePalette** | Material theme color palette for the sliders | *primary*
 *spinner* | **string** | Use 'spin', 'dot', 'split-ring', 'hourglass', or pass your own buffering spinner class | *spin*
 *poster* | **string** | Path or URL to a poster image | *null*
+
+In addition, [source](https://www.w3schools.com/tags/tag_source.asp) and [track](https://www.w3schools.com/tags/tag_track.asp) elements are supported by **mat-video**.
+
+The *matVideoSource* attribute can be used on the *source* tag to automatically reload the video when the source changes.
+
+The *matVideoTrack* attribute can be used on the *track* tag to automatically reload the video when the track changes.
 
 ## Credits
 **mat-video** is an open-source project developed by Nicholas Koehler.

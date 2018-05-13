@@ -61,6 +61,10 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
         this.evt.removeEvents(this.events);
     }
 
+    load(): void {
+        this.video.nativeElement.load();
+    }
+
     evLoadedMetadata(event: any): void {
         this.videoWidth = this.video.nativeElement.videoWidth;
         this.videoHeight = this.video.nativeElement.videoHeight;

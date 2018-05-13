@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule, MatIconModule, MatSliderModule } from '@angular/material';
 
+import { MatVideoSourceDirective } from './directives/mat-video-source.directive';
+import { MatVideoTrackDirective } from './directives/mat-video-track.directive';
 import { MatSliderProgressBarComponent } from './internal/mat-slider-progress-bar/mat-slider-progress-bar.component';
 import { SecondsToTimePipe } from './pipes/seconds-to-time.pipe';
 import { EventService } from './services/event.service';
@@ -28,7 +30,9 @@ import { MatVideoComponent } from './video.component';
         MatTimeControlComponent,
         MatQualityControlComponent,
         MatVideoSpinnerComponent,
-        MatSeekProgressControlComponent
+        MatSeekProgressControlComponent,
+        MatVideoSourceDirective,
+        MatVideoTrackDirective
     ],
     imports: [
         CommonModule,
@@ -37,7 +41,9 @@ import { MatVideoComponent } from './video.component';
         MatSliderModule
     ],
     exports: [
-        MatVideoComponent
+        MatVideoComponent,
+        MatVideoSourceDirective,
+        MatVideoTrackDirective
     ],
     providers: [
         FullscreenService,

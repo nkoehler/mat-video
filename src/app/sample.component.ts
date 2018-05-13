@@ -26,12 +26,4 @@ export class SampleComponent {
   spinner = 'spin';
   poster = 'assets/NASA.jpg';
 
-  reloadVideo(): void {
-    const tmp = this.src;
-    this.src = 'Reloading video...';
-    setTimeout(() => {
-      this.src = tmp;
-    }, 200);
-  }
-
 }
