@@ -13,8 +13,8 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
     @ViewChild('player') private player: ElementRef;
     @ViewChild('video') private video: ElementRef;
 
-    @Input() src: string = '';
-    @Input() title: string = '';
+    @Input() src: string = null;
+    @Input() title: string = null;
     @Input() autoplay: boolean = false;
     @Input() preload: boolean = true;
     @Input() loop: boolean = false;

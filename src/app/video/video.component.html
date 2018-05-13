@@ -3,8 +3,10 @@
         {{title}}
     </div>
 
-    <video #video class="video" [src]="src" [attr.autoplay]="autoplay ? true : null" [preload]="preload ? 'auto' : 'metadata'"
+    <video #video class="video" [attr.src]="src ? src : null" [attr.autoplay]="autoplay ? true : null" [preload]="preload ? 'auto' : 'metadata'"
         [attr.poster]="poster ? poster : null" [attr.loop]="loop ? loop : null">
+        <ng-content select="source"></ng-content>
+        <ng-content select="track"></ng-content>
         This browser does not support HTML5 video.
     </video>
 
@@ -25,7 +27,7 @@
             <div class="right">
                 <mat-quality-control *ngIf="quality" [video]="video"></mat-quality-control>
 
-                <mat-download-button *ngIf="download" [src]="src" [title]="title"></mat-download-button>
+                <mat-download-button *ngIf="download" [title]="title" [video]="video"></mat-download-button>
 
                 <mat-fullscreen-button *ngIf="fullscreen" (fullscreenChanged)="isFullscreen = $event" [player]="player"></mat-fullscreen-button>
             </div>
