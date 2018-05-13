@@ -34,9 +34,9 @@ export class MatSeekProgressControlComponent implements AfterViewInit, OnDestroy
 
   ngAfterViewInit(): void {
     this.events = [
-      { element: this.video, name: 'seeking', callback: event => this.setCurrentTime(this.video.currentTime), dispose: null },
+      { element: this.video, name: 'seeking', callback: event => this.updateCurrentTime(this.video.currentTime), dispose: null },
       { element: this.video, name: 'canplaythrough', callback: event => this.updateBufferedTime(), dispose: null },
-      { element: this.video, name: 'timeupdate', callback: event => this.setCurrentTime(this.video.currentTime), dispose: null },
+      { element: this.video, name: 'timeupdate', callback: event => this.updateCurrentTime(this.video.currentTime), dispose: null },
       { element: this.video, name: 'progress', callback: event => this.updateBufferedTime(), dispose: null }
     ];
 
@@ -53,7 +53,7 @@ export class MatSeekProgressControlComponent implements AfterViewInit, OnDestroy
     this.video.currentTime = newTime;
   }
 
-  setCurrentTime(time: number): void {
+  updateCurrentTime(time: number): void {
     this.currentTime = time;
     this.curTimePercent = this.updateTime(this.currentTimeChanged, this.currentTime);
   }
@@ -68,13 +68,9 @@ export class MatSeekProgressControlComponent implements AfterViewInit, OnDestroy
         if (start <= cur && end > cur && (end - start) > largestBufferValue)
           largestBufferValue = end;
       }
-      this.setBufferedTime(largestBufferValue);
+      this.bufferedTime = largestBufferValue;
+      this.bufTimePercent = this.updateTime(this.bufferedTimeChanged, this.bufferedTime);
     }
-  }
-
-  setBufferedTime(time: number): void {
-    this.bufferedTime = time;
-    this.bufTimePercent = this.updateTime(this.bufferedTimeChanged, this.bufferedTime);
   }
 
   updateTime(emitter: EventEmitter<number>, time: number): number {
