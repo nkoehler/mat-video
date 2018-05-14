@@ -1,3 +1,26 @@
+# 2.2.0 (2018-05-14)
+
+### Features:
+
+- **source:** added support for multiple video sources via the *source* tag ([feature request](https://github.com/nkoehler/mat-video/issues/3))
+- **track:** added support for subtitles and text tracks via the *track* tag ([feature request](https://github.com/nkoehler/mat-video/issues/3))
+- **download:** updated the download control to use the current video source
+- **source:** added *matVideoSource* directive for change detection on the *source* tag
+- **track:** added *matVideoTrack* directive for change detection on the *track* tag
+- **player:** added public load method for reloading the video
+- **demo:** updated demo to use player load method where needed
+
+### Code Refactor:
+
+- **seeking:** reduced repetitive code in the seeking control
+- **keyboard:** optimized keyboard event listeners
+
+### Bug Fixes:
+
+- **player:** fixed an issue where changing the video source would throw an *ExpressionChangedAfterItHasBeenChecked* error
+
+
+
 # 2.1.0 (2018-05-12)
 
 ### Features:
@@ -19,20 +42,20 @@
 
 ### Breaking Changes:
 
-- **attribute:** removed width attribute, use CSS instead
-- **attribute:** removed height attribute, use CSS instead
+- **attribute:** removed *width* attribute, use CSS instead
+- **attribute:** removed *height* attribute, use CSS instead
 
 ### Features:
 
-- **player:** video player is now responsive by default
+- **player:** video player is now responsive by default ([feature request](https://github.com/nkoehler/mat-video/issues/1))
 - **style:** CSS can now be used to control the video player size
 - **quality:** video quality indicator can now be toggled
-- **demo:** added responsive and fixed css options in place of width and height
+- **demo:** added responsive and fixed CSS options in place of *width* and *height* attributes
 - **demo:** added the option to toggle the video quality indicator
 
 ### Code Refactor:
 
-- **style:** removed unnecessary code and css related to styling the video player
+- **style:** removed unnecessary code and CSS related to styling the video player
 
 ### Bug Fixes:
 
@@ -91,7 +114,7 @@
 
 ### Code Refactor:
 
-- **player:** rewrote and improved video player css and styling code
+- **player:** rewrote and improved video player CSS and styling code
 - **player:** moved the volume control to the left side of the video player
 
 ### Bug Fixes:
