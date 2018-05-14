@@ -111,9 +111,9 @@ Attribute | Type | Description | Default
 
 In addition, [source](https://www.w3schools.com/tags/tag_source.asp) and [track](https://www.w3schools.com/tags/tag_track.asp) elements are supported by **mat-video**.
 
-The *matVideoSource* attribute can be used on the *source* tag to automatically reload the video when the source changes.
+The **_matVideoSource_** attribute can be used on the <source> tag to automatically reload the video when the source changes.
 
-The *matVideoTrack* attribute can be used on the *track* tag to automatically reload the video when the track changes.
+The **_matVideoTrack_** attribute can be used on the <track> tag to automatically reload the video when the track changes.
 
 ## Credits
 **mat-video** is an open-source project developed by Nicholas Koehler.
