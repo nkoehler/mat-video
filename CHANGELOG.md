@@ -18,6 +18,8 @@
 ### Bug Fixes:
 
 - **player:** fixed an issue where changing the video source would throw an *ExpressionChangedAfterItHasBeenChecked* error
+- **dependencies:** updated @angular/material to the latest version
+- **dependencies:** updated @angular/cdk to the latest version
 
 
 
