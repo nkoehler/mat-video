@@ -94,7 +94,6 @@ A slightly more customized example, in your HTML file:
 ```
 
 ## API
-
 Attribute | Type | Description | Default
 --- | --- | --- | ---
 *src* | **string** | Path or URL to a video | *null*
@@ -114,6 +113,37 @@ In addition, [source](https://www.w3schools.com/tags/tag_source.asp) and [track]
 The **_matVideoSource_** attribute can be used on the *source* tag to automatically reload the video when the source changes.
 
 The **_matVideoTrack_** attribute can be used on the *track* tag to automatically reload the video when the track changes.
+
+## Events
+Listening to video events can be accomplished by directly accessing the video tag within **mat-video**.
+
+In your HTML file:
+
+```html
+    <mat-video #video src="localOrRemoteVideo.mp4"></mat-video>
+```
+
+In your TS file:
+
+```typescript
+export class SampleComponent implements OnInit {
+  @ViewChild('video') matVideo: MatVideoComponent;
+  video: HTMLVideoElement;
+
+  constructor(private renderer: Renderer2) { }
+
+  ngOnInit(): void {
+    this.video = this.matVideo.getVideoTag();
+
+    // Use Angular renderer or addEventListener to listen for standard HTML5 video events
+    
+    this.renderer.listen(this.video, 'ended', () => console.log('video ended'));
+    this.video.addEventListener('ended', () => console.log('video ended'));
+  }
+}
+```
+
+This API feature is considered experimental, and is subject to change.
 
 ## Credits
 **mat-video** is an open-source project developed by Nicholas Koehler.

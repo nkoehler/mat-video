@@ -62,7 +62,12 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
     }
 
     load(): void {
-        this.video.nativeElement.load();
+        if (this.video && this.video.nativeElement)
+            this.video.nativeElement.load();
+    }
+
+    getVideoTag(): HTMLVideoElement | null {
+        return this.video && this.video.nativeElement ? this.video.nativeElement as HTMLVideoElement : null;
     }
 
     evLoadedMetadata(event: any): void {
