@@ -87,6 +87,10 @@ div {
     background-color: white;
 }
 
+.mat-drawer-side {
+    border-right: none;
+}
+
 .item-section {
     display: flex;
     align-content: center;

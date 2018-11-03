@@ -14,7 +14,7 @@ let sliderprogressbarId = 0;
     host: {
         '(focus)': '_onFocus()',
         '(blur)': '_onBlur()',
-        '(click)': '_onClick($event)',
+        '(mousedown)': '_onMousedown($event)',
         '(keydown)': '_onKeydown($event)',
         '(keyup)': '_onKeyup()',
         '(mouseenter)': '_onMouseenter()',

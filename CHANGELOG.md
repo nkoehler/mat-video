@@ -1,12 +1,25 @@
+# 2.4.0 (2018-11-03)
+
+### Features:
+
+- **angular:** added Angular 7 support ([feature request](https://github.com/nkoehler/mat-video/issues/5))
+
+### Bug Fixes:
+
+- **dependencies:** updated Angular to the latest version
+- **dependencies:** updated Angular Material to the latest version
+
+
+
 # 2.3.0 (2018-08-04)
 
 ### Features:
 
-- **events** added experimental support for listening to HTML5 video events
+- **events:** added experimental support for listening to HTML5 video events
 
 ### Bug Fixes:
 
-- **player** added null checks when manually reloading the video
+- **player:** added null checks when manually reloading the video
 - **dependencies:** updated Angular to the latest version
 - **dependencies:** updated Angular Material to the latest version
 
