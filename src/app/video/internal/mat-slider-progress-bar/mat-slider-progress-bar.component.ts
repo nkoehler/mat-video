@@ -14,7 +14,8 @@ let sliderprogressbarId = 0;
     host: {
         '(focus)': '_onFocus()',
         '(blur)': '_onBlur()',
-        '(mousedown)': '_onMousedown($event)',
+        '(click)': 'this["_onClick"] ? this["_onClick"]($event) : null', // Angular 5/6 support
+        '(mousedown)': 'this["_onMousedown"] ? this["_onMousedown"]($event) : null', // Angular 7 support
         '(keydown)': '_onKeydown($event)',
         '(keyup)': '_onKeyup()',
         '(mouseenter)': '_onMouseenter()',
