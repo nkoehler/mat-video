@@ -15,6 +15,8 @@ export class MatPlayButtonComponent implements AfterViewInit, OnDestroy {
 
   @Output() playChanged = new EventEmitter<boolean>();
 
+  @Input() keyboard: boolean = true;
+
   private events: EventHandler[];
 
   constructor(
@@ -55,8 +57,10 @@ export class MatPlayButtonComponent implements AfterViewInit, OnDestroy {
 
   @HostListener('document:keyup.space', ['$event'])
   onPlayKey(event: KeyboardEvent) {
-    this.toggleVideoPlayback();
-    event.preventDefault();
+    if (this.keyboard) {
+      this.toggleVideoPlayback();
+      event.preventDefault();
+    }
   }
 
 }

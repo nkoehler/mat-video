@@ -52,6 +52,11 @@
       </div>
 
       <div class="item-section">
+        <div class="item-margin">Keyboard:</div>
+        <mat-slide-toggle [(ngModel)]="keyboard" [color]="color"></mat-slide-toggle>
+      </div>
+
+      <div class="item-section">
         <div class="item-margin">Color:</div>
         <mat-radio-group [(ngModel)]="color">
           <mat-radio-button class="item-margin" value="primary" [color]="color">
@@ -131,8 +136,9 @@
     </mat-toolbar>
 
     <div class="content video">
-      <mat-video #vid [ngClass]="ngclass" [src]="src" [title]="title" [autoplay]="autoplay" [preload]="preload" [loop]="loop" [fullscreen]="fullscreen"
-        [download]="download" [quality]="quality" [color]="color" [spinner]="spinner" [poster]="poster">
+      <mat-video #vid [ngClass]="ngclass" [src]="src" [title]="title" [autoplay]="autoplay" [preload]="preload" [loop]="loop"
+        [fullscreen]="fullscreen" [download]="download" [quality]="quality" [keyboard]="keyboard" [color]="color"
+        [spinner]="spinner" [poster]="poster">
       </mat-video>
     </div>
 

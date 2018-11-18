@@ -22,6 +22,7 @@ export class SampleComponent {
   quality = true;
   download = true;
   fullscreen = true;
+  keyboard = true;
   color = 'primary';
   spinner = 'spin';
   poster = 'assets/NASA.jpg';

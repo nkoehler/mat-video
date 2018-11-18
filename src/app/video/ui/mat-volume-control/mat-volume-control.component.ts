@@ -21,6 +21,8 @@ export class MatVolumeControlComponent {
 
   @Output() mutedChanged = new EventEmitter<boolean>();
 
+  @Input() keyboard: boolean = true;
+
   constructor(private evt: EventService) { }
 
   setVolume(value: number): void {
@@ -49,8 +51,10 @@ export class MatVolumeControlComponent {
 
   @HostListener('document:keyup.m', ['$event'])
   onMuteKey(event: KeyboardEvent) {
-    this.toggleMuted();
-    event.preventDefault();
+    if (this.keyboard) {
+      this.toggleMuted();
+      event.preventDefault();
+    }
   }
 
 }

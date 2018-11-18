@@ -1,3 +1,12 @@
+# 2.5.0 (2018-11-18)
+
+### Features:
+
+- **keyboard:** can disable the keyboard shortcuts
+- **demo:** updated demo to show disabled keyboard shortcuts
+
+
+
 # 2.4.0 (2018-11-03)
 
 ### Features:

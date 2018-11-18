@@ -102,6 +102,7 @@ Attribute | Type | Description | Default
 *quality* | **boolean** | Whether the video will have a quality indicator | *true*
 *download* | **boolean** | Whether the video will have a download option | *false*
 *fullscreen* | **boolean** | Whether the video will have a fullscreen option | *true*
+*keyboard* | **boolean** | Whether the player will have keyboard shortcuts | *true*
 *color* | **ThemePalette** | Material theme color palette for the sliders | *primary*
 *spinner* | **string** | Use 'spin', 'dot', 'split-ring', 'hourglass', or pass your own buffering spinner class | *spin*
 *poster* | **string** | Path or URL to a poster image | *null*
