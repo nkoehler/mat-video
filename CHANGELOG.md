@@ -2,7 +2,7 @@
 
 ### Features:
 
-- **keyboard:** can disable the keyboard shortcuts
+- **keyboard:** can disable the keyboard shortcuts ([feature request](https://github.com/nkoehler/mat-video/issues/6))
 - **demo:** updated demo to show disabled keyboard shortcuts
 
 
