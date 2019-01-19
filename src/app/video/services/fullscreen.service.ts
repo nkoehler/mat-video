@@ -86,7 +86,7 @@ export class FullscreenService {
         if (/5\.1[.\d]* Safari/.test(navigator.userAgent)) {
             elem[request]();
         } else {
-            elem[request](this.keyboardAllowed && (Element as any).ALLOW_KEYBOARD_INPUT);
+            elem[request](this.keyboardAllowed ? (Element as any).ALLOW_KEYBOARD_INPUT : {});
         }
     }
 
