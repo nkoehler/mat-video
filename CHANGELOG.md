@@ -1,3 +1,14 @@
+# 2.5.1 (2019-01-19)
+
+### Bug Fixes:
+
+- **controls:** added gradient to header and button controls, fixes issue with white background videos ([bug](https://github.com/nkoehler/mat-video/issues/9))
+- **fullscreen:** fixed issue with Chrome 71+ not entering fullscreen properly ([bug](https://github.com/nkoehler/mat-video/issues/10))
+- **dependencies:** updated Angular to the latest version
+- **dependencies:** updated Angular Material to the latest version
+
+
+
 # 2.5.0 (2018-11-18)
 
 ### Features:
