@@ -1,3 +1,12 @@
+# 2.6.0 (2019-02-22)
+
+### Features:
+
+- **controls:** can force the state of the overlay/controls ([feature request](https://github.com/nkoehler/mat-video/issues/11))
+- **demo:** updated demo to allow overlay/controls state to be changed
+
+
+
 # 2.5.1 (2019-01-19)
 
 ### Bug Fixes:
