@@ -25,6 +25,7 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
     @Input() spinner: string = 'spin';
     @Input() poster: string = null;
     @Input() keyboard: boolean = true;
+    @Input() overlay: boolean = null;
 
     playing: boolean = false;
 
@@ -86,7 +87,11 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
     }
 
     getOverlayClass(activeClass: string, inactiveClass: string): any {
-        return (!this.playing || this.isMouseMoving) ? activeClass : inactiveClass;
+        if (this.overlay === null) {
+            return (!this.playing || this.isMouseMoving) ? activeClass : inactiveClass;
+        } else {
+            return this.overlay ? activeClass : inactiveClass;
+        }
     }
 
 }

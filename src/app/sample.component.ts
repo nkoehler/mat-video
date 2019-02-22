@@ -26,5 +26,5 @@ export class SampleComponent {
   color = 'primary';
   spinner = 'spin';
   poster = 'assets/NASA.jpg';
-
+  overlay = null;
 }
