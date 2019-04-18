@@ -26,6 +26,7 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
     @Input() poster: string = null;
     @Input() keyboard: boolean = true;
     @Input() overlay: boolean = null;
+    @Input() muted: boolean = null;
 
     playing: boolean = false;
 
