@@ -68,10 +68,14 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
             { element: this.player.nativeElement, name: 'mousemove', callback: event => this.evMouseMove(event), dispose: null }
         ];
 
+        this.video.nativeElement.onloadeddata = () => this.videoLoaded = true;
+
         this.evt.addEvents(this.renderer, this.events);
     }
 
     ngOnDestroy(): void {
+        this.video.nativeElement.onloadeddata = null;
+
         this.evt.removeEvents(this.events);
     }
 
