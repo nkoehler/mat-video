@@ -1,3 +1,12 @@
+# Untitled Next Release
+
+### Features:
+
+- **muted:** added the muted attribute which is bindable to user interactions similar to HTML5 video tag ([community contribution](https://github.com/nkoehler/mat-video/pull/17))
+- **demo:** updated demo with two-way binding on the muted attribute allowing the mute state to be changed
+
+
+
 # 2.6.0 (2019-02-22)
 
 ### Features:
