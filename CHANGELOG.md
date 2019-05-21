@@ -2,8 +2,12 @@
 
 ### Features:
 
-- **muted:** added the muted attribute which is bindable to user interactions similar to HTML5 video tag ([community contribution](https://github.com/nkoehler/mat-video/pull/17))
-- **demo:** updated demo with two-way binding on the muted attribute allowing the mute state to be changed
+- **muted:** added the muted attribute which is bindable to user interactions similar to HTML5 video tag attribute ([community contribution](https://github.com/nkoehler/mat-video/pull/17))
+- **demo:** updated demo with two-way binding on the muted attribute, which allows the mute state to be changed programmatically
+
+### Bug Fixes:
+
+- **loading:** fixed issue that prevented the loading indicator from hiding until clicking play on iOS devices ([bug](https://github.com/nkoehler/mat-video/issues/19))
 
 
 
