@@ -3,8 +3,9 @@
         {{title}}
     </div>
 
-    <video #video class="video" [attr.src]="src ? src : null" [attr.autoplay]="autoplay ? true : null" [preload]="preload ? 'auto' : 'metadata'"
-        [attr.poster]="poster ? poster : null" [attr.loop]="loop ? loop : null" [attr.muted]="muted ? muted : null">
+    <video #video class="video" [attr.src]="src ? src : null" [attr.autoplay]="autoplay ? true : null"
+        [preload]="preload ? 'auto' : 'metadata'" [attr.poster]="poster ? poster : null"
+        [attr.loop]="loop ? loop : null">
         <ng-content select="source"></ng-content>
         <ng-content select="track"></ng-content>
         This browser does not support HTML5 video.
@@ -17,9 +18,12 @@
 
         <div class="menu">
             <div class="left">
-                <mat-play-button (playChanged)="playing = $event" [video]="video" [keyboard]="keyboard"></mat-play-button>
+                <mat-play-button (playChanged)="playing = $event" [video]="video" [keyboard]="keyboard">
+                </mat-play-button>
 
-                <mat-volume-control [color]="color" [video]="video" [keyboard]="keyboard"></mat-volume-control>
+                <mat-volume-control [muted]="muted" (mutedChanged)="muted = $event; mutedChange.emit(muted);"
+                    [color]="color" [video]="video" [keyboard]="keyboard">
+                </mat-volume-control>
 
                 <mat-time-control [video]="video"></mat-time-control>
             </div>

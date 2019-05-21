@@ -17,7 +17,13 @@ export class MatVolumeControlComponent {
 
   @Output() volumeChanged = new EventEmitter<number>();
 
-  @Input() muted: boolean = false;
+  private _muted: boolean = false;
+  @Input()
+  get muted() { return this._muted; }
+  set muted(v: boolean) {
+    this._muted = v;
+    this.video.muted = this._muted;
+  }
 
   @Output() mutedChanged = new EventEmitter<boolean>();
 

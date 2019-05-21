@@ -1,4 +1,14 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy, Renderer2, ViewChild } from '@angular/core';
+import {
+    AfterViewInit,
+    Component,
+    ElementRef,
+    EventEmitter,
+    Input,
+    OnDestroy,
+    Output,
+    Renderer2,
+    ViewChild,
+} from '@angular/core';
 import { ThemePalette } from '@angular/material';
 
 import { EventHandler } from './interfaces/event-handler.interface';
@@ -26,7 +36,8 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
     @Input() poster: string = null;
     @Input() keyboard: boolean = true;
     @Input() overlay: boolean = null;
-    @Input() muted: boolean = null;
+    @Input() muted: boolean = false;
+    @Output() mutedChange = new EventEmitter<boolean>();
 
     playing: boolean = false;
 

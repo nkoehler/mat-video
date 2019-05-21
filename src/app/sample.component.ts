@@ -27,4 +27,5 @@ export class SampleComponent {
   spinner = 'spin';
   poster = 'assets/NASA.jpg';
   overlay = null;
+  muted = false;
 }
