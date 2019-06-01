@@ -22,6 +22,7 @@ export class SampleComponent {
   quality = true;
   download = true;
   fullscreen = true;
+  showFrameByFrame = false;
   keyboard = true;
   color = 'primary';
   spinner = 'spin';
