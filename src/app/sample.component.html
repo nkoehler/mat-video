@@ -7,7 +7,7 @@
     </mat-toolbar>
     <div class="content options">
       <mat-form-field class="item-margin" [color]="color">
-        <input matInput type="url" [(ngModel)]="src" placeholder="src">
+        <input matInput type="url" [(ngModel)]="src" placeholder="Source">
         <mat-hint align="end">Download button will only work for
           <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy" target="_blank">
             same-origin URLs
@@ -15,10 +15,14 @@
         </mat-hint>
       </mat-form-field>
       <mat-form-field class="item-margin" [color]="color">
-        <input matInput type="url" [(ngModel)]="poster" placeholder="poster">
+        <input matInput type="url" [(ngModel)]="poster" placeholder="Poster">
       </mat-form-field>
       <mat-form-field class="item-margin" [color]="color">
-        <input matInput type="text" [(ngModel)]="title" placeholder="title">
+        <input matInput type="text" [(ngModel)]="title" placeholder="Title">
+      </mat-form-field>
+
+      <mat-form-field class="item-margin" [color]="color">
+        <input matInput type="text" [(ngModel)]="currentTime" placeholder="Current Time">
       </mat-form-field>
 
       <div class="item-section">
@@ -165,7 +169,8 @@
     <div class="content video">
       <mat-video #vid [ngClass]="ngclass" [src]="src" [title]="title" [autoplay]="autoplay" [preload]="preload"
         [loop]="loop" [fullscreen]="fullscreen" [download]="download" [quality]="quality" [keyboard]="keyboard"
-        [color]="color" [spinner]="spinner" [poster]="poster" [overlay]="overlay" [(muted)]="muted" [showFrameByFrame]="showFrameByFrame">
+        [color]="color" [spinner]="spinner" [poster]="poster" [overlay]="overlay" [(muted)]="muted"
+        [showFrameByFrame]="showFrameByFrame" [(time)]="currentTime">
       </mat-video>
     </div>
 
