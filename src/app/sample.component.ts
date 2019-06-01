@@ -1,5 +1,5 @@
 import { Component, VERSION } from '@angular/core';
-import * as buildInfo from './../../package.json';
+import buildInfo from './../../package.json';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import * as buildInfo from './../../package.json';
 })
 export class SampleComponent {
   version = VERSION.full;
-  appversion: string = (<any>buildInfo)['version'];
+  appversion: string = buildInfo.version;
 
   ngclass = 'mat-video-responsive';
 

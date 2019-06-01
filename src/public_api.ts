@@ -1,1 +1,1 @@
-export * from './app/video/video.module'
+export * from './app/video/video.module';

@@ -1,11 +1,11 @@
-# mat-video for Angular 5/6/7+ and Material
+# mat-video for Angular 5/6/7/8+ and Material
 [![npm version](https://badge.fury.io/js/mat-video.svg)](https://badge.fury.io/js/mat-video)
 [![Build Status](https://travis-ci.org/nkoehler/mat-video.svg?branch=master)](https://travis-ci.org/nkoehler/mat-video)
 [![Maintainability](https://api.codeclimate.com/v1/badges/46fb1a751d60d0f8b316/maintainability)](https://codeclimate.com/github/nkoehler/mat-video/maintainability)
 
 **mat-video** is an Angular component for playing videos.  It has all the features you would expect from a standard video player, all in an extremely light package. The video player is designed to be flexible and easy to use; you can be up and running in less than 5 minutes!
 
-It was built for modern browsers using _TypeScript_, _CSS3_ and _HTML5_ with _Angular & Material 5/6/7+_.
+It was built for modern browsers using _TypeScript_, _CSS3_ and _HTML5_ with _Angular & Material 5/6/7/8+_.
 
 See the [changelog](https://github.com/nkoehler/mat-video/blob/master/CHANGELOG.md) for recent changes.  
 
@@ -130,7 +130,7 @@ In your TS file:
 
 ```typescript
 export class SampleComponent implements OnInit {
-  @ViewChild('video') matVideo: MatVideoComponent;
+  @ViewChild('video', { static: false }) matVideo: MatVideoComponent;
   video: HTMLVideoElement;
 
   constructor(private renderer: Renderer2) { }

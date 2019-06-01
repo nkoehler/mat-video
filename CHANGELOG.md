@@ -1,7 +1,8 @@
-# Untitled Next Release
+# 2.7.0 (2019-06-01)
 
 ### Features:
 
+- **angular:** added support for Angular 8
 - **muted:** added the muted attribute which is bindable to user interactions similar to HTML5 video tag attribute ([community contribution](https://github.com/nkoehler/mat-video/pull/17))
 - **frame-by-frame:** added the option to skip frames on the video ([community contribution](https://github.com/nkoehler/mat-video/pull/21))
 - **video:** added the option to get and set the current video time more easily ([community contribution](https://github.com/nkoehler/mat-video/pull/22))
