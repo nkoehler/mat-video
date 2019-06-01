@@ -16,6 +16,7 @@ export class SampleComponent {
   title = 'NASA Rocket Launch';
   width = 600;
   height = 337.5;
+  currentTime = 0;
   autoplay = false;
   preload = true;
   loop = false;
