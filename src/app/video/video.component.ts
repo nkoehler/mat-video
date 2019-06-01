@@ -39,12 +39,39 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
     @Input() muted: boolean = false;
     @Output() mutedChange = new EventEmitter<boolean>();
 
+
+    @Input()
+    get time() {
+        return this.getVideoTag().currentTime;
+    }
+
+    @Output() timeChange = new EventEmitter<number>();
+    set time(val) {
+        let video: HTMLVideoElement = this.getVideoTag();
+        if (video && val) {
+            if (val > video.duration) {
+                val = video.duration;
+            }
+            if (val !== video.currentTime) {
+                video.currentTime = val;
+            }
+            if (this.lastTime != video.currentTime) {
+                setTimeout( () => this.timeChange.emit(video.currentTime), 0);
+                this.lastTime = video.currentTime;
+            }
+        }
+    }
+
+
+
+
     playing: boolean = false;
 
     isFullscreen: boolean = false;
 
     videoWidth: number;
     videoHeight: number;
+    lastTime: number;
 
     videoLoaded = false;
 
@@ -65,6 +92,7 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
             { element: this.video.nativeElement, name: 'loadedmetadata', callback: event => this.evLoadedMetadata(event), dispose: null },
             { element: this.video.nativeElement, name: 'error', callback: event => console.error('Unhandled Video Error', event), dispose: null },
             { element: this.video.nativeElement, name: 'contextmenu', callback: event => event.preventDefault(), dispose: null },
+            { element: this.video.nativeElement, name: 'timeupdate', callback: event => this.evTimeUpdate(event), dispose: null },
             { element: this.player.nativeElement, name: 'mousemove', callback: event => this.evMouseMove(event), dispose: null }
         ];
 
@@ -100,6 +128,10 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
         this.isMouseMovingTimer = setTimeout(() => {
             this.isMouseMoving = false;
         }, this.isMouseMovingTimeout);
+    }
+
+    evTimeUpdate(event: any): void {
+        this.time = this.getVideoTag().currentTime;
     }
 
     getOverlayClass(activeClass: string, inactiveClass: string): any {
