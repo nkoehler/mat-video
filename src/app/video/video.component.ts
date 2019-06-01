@@ -46,24 +46,24 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
     }
 
     @Output() timeChange = new EventEmitter<number>();
-    set time(val) {
-        let video: HTMLVideoElement = this.getVideoTag();
+    set time(val: number) {
+        const video: HTMLVideoElement = this.getVideoTag();
         if (video && val) {
             if (val > video.duration) {
                 val = video.duration;
             }
+            if (val < 0) {
+                val = 0;
+            }
             if (val !== video.currentTime) {
                 video.currentTime = val;
             }
-            if (this.lastTime != video.currentTime) {
-                setTimeout( () => this.timeChange.emit(video.currentTime), 0);
+            if (this.lastTime !== video.currentTime) {
+                setTimeout(() => this.timeChange.emit(video.currentTime), 0);
                 this.lastTime = video.currentTime;
             }
         }
     }
-
-
-
 
     playing: boolean = false;
 
