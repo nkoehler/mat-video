@@ -57,6 +57,11 @@
       </div>
 
       <div class="item-section">
+        <div class="item-margin">Frame-by-Frame:</div>
+        <mat-slide-toggle [(ngModel)]="showFrameByFrame" [color]="color"></mat-slide-toggle>
+      </div>
+      
+      <div class="item-section">
         <div class="item-margin">Keyboard:</div>
         <mat-slide-toggle [(ngModel)]="keyboard" [color]="color"></mat-slide-toggle>
       </div>
@@ -160,7 +165,7 @@
     <div class="content video">
       <mat-video #vid [ngClass]="ngclass" [src]="src" [title]="title" [autoplay]="autoplay" [preload]="preload"
         [loop]="loop" [fullscreen]="fullscreen" [download]="download" [quality]="quality" [keyboard]="keyboard"
-        [color]="color" [spinner]="spinner" [poster]="poster" [overlay]="overlay" [(muted)]="muted">
+        [color]="color" [spinner]="spinner" [poster]="poster" [overlay]="overlay" [(muted)]="muted" [showFrameByFrame]="showFrameByFrame">
       </mat-video>
     </div>
 

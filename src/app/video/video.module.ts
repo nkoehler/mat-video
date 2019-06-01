@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatIconModule, MatSliderModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatSliderModule, MatTooltipModule } from '@angular/material';
 
 import { MatVideoSourceDirective } from './directives/mat-video-source.directive';
 import { MatVideoTrackDirective } from './directives/mat-video-track.directive';
@@ -17,6 +17,7 @@ import { MatTimeControlComponent } from './ui/mat-time-control/mat-time-control.
 import { MatVideoSpinnerComponent } from './ui/mat-video-spinner/mat-video-spinner.component';
 import { MatVolumeControlComponent } from './ui/mat-volume-control/mat-volume-control.component';
 import { MatVideoComponent } from './video.component';
+import { MatFrameByFrameControlComponent } from './ui/mat-frame-by-frame-control/mat-frame-by-frame-control.component';
 
 @NgModule({
     declarations: [
@@ -32,13 +33,15 @@ import { MatVideoComponent } from './video.component';
         MatVideoSpinnerComponent,
         MatSeekProgressControlComponent,
         MatVideoSourceDirective,
-        MatVideoTrackDirective
+        MatVideoTrackDirective,
+        MatFrameByFrameControlComponent
     ],
     imports: [
         CommonModule,
         MatIconModule,
         MatButtonModule,
-        MatSliderModule
+        MatSliderModule,
+        MatTooltipModule
     ],
     exports: [
         MatVideoComponent,

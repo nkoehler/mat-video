@@ -103,6 +103,7 @@ Attribute | Type | Description | Default
 *quality* | **boolean** | Whether the video will have a quality indicator | *true*
 *download* | **boolean** | Whether the video will have a download option | *false*
 *fullscreen* | **boolean** | Whether the video will have a fullscreen option | *true*
+*showFrameByFrame* | **boolean** | Whether the video will display frame-by-frame controls | *false*
 *keyboard* | **boolean** | Whether the player will have keyboard shortcuts | *true*
 *overlay* | **boolean** | Force the overlay/controls to be shown or hidden | *null*
 *color* | **ThemePalette** | Material theme color palette for the sliders | *primary*

@@ -21,6 +21,8 @@
                 <mat-play-button (playChanged)="playing = $event" [video]="video" [keyboard]="keyboard">
                 </mat-play-button>
 
+                <mat-frame-by-frame-control *ngIf="showFrameByFrame" [video]="video" [fps]="fps"></mat-frame-by-frame-control>
+
                 <mat-volume-control [muted]="muted" (mutedChanged)="muted = $event; mutedChange.emit(muted);"
                     [color]="color" [video]="video" [keyboard]="keyboard">
                 </mat-volume-control>
