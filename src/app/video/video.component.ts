@@ -9,7 +9,7 @@ import {
     Renderer2,
     ViewChild,
 } from '@angular/core';
-import { ThemePalette } from '@angular/material';
+import { ThemePalette } from '@angular/material/core';
 
 import { EventHandler } from './interfaces/event-handler.interface';
 import { EventService } from './services/event.service';
