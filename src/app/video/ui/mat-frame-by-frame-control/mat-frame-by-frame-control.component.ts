@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     selector: 'mat-frame-by-frame-control',
@@ -14,17 +14,14 @@ export class MatFrameByFrameControlComponent implements OnInit {
     ngOnInit() {
     }
 
-
     seekFrames(nbFrames: number) {
         if (!this.video.paused) {
             this.video.pause();
         }
 
-        let currentFrames = this.video.currentTime * this.fps;
-        let newPos = (currentFrames + nbFrames) / this.fps;
-        newPos += 0.00001; // To fix a safari issue
+        const currentFrames = this.video.currentTime * this.fps;
+        const newPos = ((currentFrames + nbFrames) / this.fps) + 0.00001;
         this.video.currentTime = newPos;
-
     }
 
 }

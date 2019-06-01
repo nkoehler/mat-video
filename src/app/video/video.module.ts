@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatIconModule, MatSliderModule, MatTooltipModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatSliderModule } from '@angular/material';
 
 import { MatVideoSourceDirective } from './directives/mat-video-source.directive';
 import { MatVideoTrackDirective } from './directives/mat-video-track.directive';
@@ -9,6 +9,7 @@ import { SecondsToTimePipe } from './pipes/seconds-to-time.pipe';
 import { EventService } from './services/event.service';
 import { FullscreenService } from './services/fullscreen.service';
 import { MatDownloadButtonComponent } from './ui/mat-download-button/mat-download-button.component';
+import { MatFrameByFrameControlComponent } from './ui/mat-frame-by-frame-control/mat-frame-by-frame-control.component';
 import { MatFullscreenButtonComponent } from './ui/mat-fullscreen-button/mat-fullscreen-button.component';
 import { MatPlayButtonComponent } from './ui/mat-play-button/mat-play-button.component';
 import { MatQualityControlComponent } from './ui/mat-quality-control/mat-quality-control.component';
@@ -17,7 +18,6 @@ import { MatTimeControlComponent } from './ui/mat-time-control/mat-time-control.
 import { MatVideoSpinnerComponent } from './ui/mat-video-spinner/mat-video-spinner.component';
 import { MatVolumeControlComponent } from './ui/mat-volume-control/mat-volume-control.component';
 import { MatVideoComponent } from './video.component';
-import { MatFrameByFrameControlComponent } from './ui/mat-frame-by-frame-control/mat-frame-by-frame-control.component';
 
 @NgModule({
     declarations: [
@@ -41,7 +41,6 @@ import { MatFrameByFrameControlComponent } from './ui/mat-frame-by-frame-control
         MatIconModule,
         MatButtonModule,
         MatSliderModule,
-        MatTooltipModule
     ],
     exports: [
         MatVideoComponent,
