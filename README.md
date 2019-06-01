@@ -99,7 +99,8 @@ Attribute | Type | Description | Default
 *autoplay* | **boolean** | Whether the video should autoplay | *false*
 *preload* | **boolean** | Whether the video should preload | *true*
 *loop* | **boolean** | Whether the video should loop | *false*
-*muted* | **boolean** (bindable) | Whether the video is muted (user can still change this) | *false*
+*time* | **number** (two-way bindable) | Get or set the timestamp of the video | *0*
+*muted* | **boolean** (two-way bindable) | Get or set whether the video is muted | *false*
 *quality* | **boolean** | Whether the video will have a quality indicator | *true*
 *download* | **boolean** | Whether the video will have a download option | *false*
 *fullscreen* | **boolean** | Whether the video will have a fullscreen option | *true*
