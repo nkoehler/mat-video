@@ -6,8 +6,14 @@
     "module": "es2015",
     "types": [
       "node"
-    ]
+    ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
   },
+  "include": [
+    "main.ts",
+    "polyfills.ts"
+  ],
   "exclude": [
     "test.ts",
     "**/*.spec.ts"

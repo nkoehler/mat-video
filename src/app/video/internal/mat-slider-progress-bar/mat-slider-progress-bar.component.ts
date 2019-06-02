@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ElementRef, ChangeDetectorRef, ViewEncapsulation, ChangeDetectionStrategy, Optional, Attribute } from '@angular/core';
-import { MatSlider, MAT_SLIDER_VALUE_ACCESSOR } from '@angular/material';
+import { MatSlider, MAT_SLIDER_VALUE_ACCESSOR } from '@angular/material/slider';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { Directionality } from '@angular/cdk/bidi';
 
