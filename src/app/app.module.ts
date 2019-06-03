@@ -34,6 +34,9 @@ import { MatVideoModule } from './video/video.module';
     MatRadioModule,
     MatVideoModule
   ],
+  exports: [
+    MatVideoModule,
+  ],
   providers: [],
   bootstrap: [SampleComponent]
 })

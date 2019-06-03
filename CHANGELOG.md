@@ -1,3 +1,11 @@
+# 2.7.1 (2019-06-03)
+
+### Bug Fixes:
+
+- **angular:** fixed bad deployment that was causing compatability issues with previous Angular versions
+
+
+
 # 2.7.0 (2019-06-01)
 
 ### Features:

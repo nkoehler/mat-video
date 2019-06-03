@@ -130,7 +130,7 @@ In your TS file:
 
 ```typescript
 export class SampleComponent implements OnInit {
-  @ViewChild('video', { static: false }) matVideo: MatVideoComponent;
+  @ViewChild('video', { static: true }) matVideo: MatVideoComponent;
   video: HTMLVideoElement;
 
   constructor(private renderer: Renderer2) { }
