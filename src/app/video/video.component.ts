@@ -20,8 +20,8 @@ import { EventService } from './services/event.service';
     styleUrls: ['./video.component.css', './styles/icons.css']
 })
 export class MatVideoComponent implements AfterViewInit, OnDestroy {
-    @ViewChild('player', { static: true }) private player: ElementRef;
-    @ViewChild('video', { static: true }) private video: ElementRef;
+    @ViewChild('player') private player: ElementRef;
+    @ViewChild('video') private video: ElementRef;
 
     @Input() src: string = null;
     @Input() title: string = null;

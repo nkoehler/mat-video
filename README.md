@@ -130,7 +130,7 @@ In your TS file:
 
 ```typescript
 export class SampleComponent implements OnInit {
-  @ViewChild('video', { static: true }) matVideo: MatVideoComponent;
+  @ViewChild('video') matVideo: MatVideoComponent;
   video: HTMLVideoElement;
 
   constructor(private renderer: Renderer2) { }
@@ -147,6 +147,9 @@ export class SampleComponent implements OnInit {
 ```
 
 This API feature is considered experimental, and is subject to change.
+
+## Angular Compatibility Depreciation Notice (2019-06-14)
+Angular is rapidly growing with every major release.  This has caused an increasing burden on the development of **mat-video** to support older versions of Angular.  Due to the vast amount of differences between modern Angular and previous Angular versions, **mat-video** will officially be dropping support for older Angular versions with the upcoming Angular 9 release scheduled for November 2019.  Existing releases will continue to function with older versions of Angular, however, no support will be provided for these versions.  Instead, **mat-video** will provide backwards compatibility in a similar way to how Angular supports this.  This notice is provided as an opportunity for developers to make necessary upgrades and plans for the future.  More details will be announced closer to the release of Angular 9.
 
 ## Credits
 **mat-video** is an open-source project developed by Nicholas Koehler.
