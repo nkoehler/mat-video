@@ -2,7 +2,7 @@
 
 ### Bug Fixes:
 
-- **angular:** improved compatability with previous Angular versions
+- **angular:** improved compatibility with previous Angular versions ([bug](https://github.com/nkoehler/mat-video/issues/24))
 
 
 
