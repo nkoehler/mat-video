@@ -1,0 +1,19 @@
+{
+  "name": "mat-video",
+  "description": "",
+  "version": "2.7.2",
+  "private": false,
+  "peerDependencies": {
+    "@angular/common": ">=8.0.0",
+    "@angular/compiler": ">=8.0.0",
+    "@angular/core": ">=8.0.0",
+    "@angular/platform-browser": ">=8.0.0",
+    "@angular/platform-browser-dynamic": ">=8.0.0",
+    "@angular/material": ">=8.0.0",
+    "@angular/cdk": ">=8.0.0",
+    "@angular/animations": ">=8.0.0",
+    "rxjs": ">=6.5.2",
+    "hammerjs": ">=2.0.8",
+    "core-js": ">=3.2.1"
+  }
+}

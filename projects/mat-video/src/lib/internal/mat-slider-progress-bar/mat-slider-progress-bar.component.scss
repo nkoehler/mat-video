@@ -1,0 +1,30 @@
+:host {
+  width: 100%;
+}
+
+.mat-slider-progress-background {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  fill: lightgrey;
+}
+
+.mat-slider-track-buffer {
+  background-color: lightgrey !important;
+}
+
+.mat-slider-thumb {
+  border-color: transparent !important;
+}
+
+.mat-slider-thumb {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.2s, opacity 0.2s linear;
+}
+
+:host:hover .mat-slider-thumb {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s linear;
+}

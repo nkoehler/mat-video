@@ -1,0 +1,9 @@
+<div class="volume-control">
+  <button mat-icon-button (click)="toggleMuted()">
+    <mat-icon *ngIf="muted || volume === 0">volume_off</mat-icon>
+    <mat-icon *ngIf="!muted && volume > 0 && volume < 0.25">volume_mute</mat-icon>
+    <mat-icon *ngIf="!muted && volume >= 0.25 && volume < 0.5">volume_down</mat-icon>
+    <mat-icon *ngIf="!muted && volume >= 0.5">volume_up</mat-icon>
+  </button>
+  <mat-slider class="volume-slider" [color]="color" min="0" max="1" step="0.01" value="1" (input)="setVolume($event.value)"> </mat-slider>
+</div>
