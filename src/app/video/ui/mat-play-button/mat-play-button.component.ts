@@ -6,7 +6,7 @@ import { EventService } from '../../services/event.service';
 @Component({
   selector: 'mat-play-button',
   templateUrl: './mat-play-button.component.html',
-  styleUrls: ['./mat-play-button.component.css']
+  styleUrls: ['./mat-play-button.component.scss']
 })
 export class MatPlayButtonComponent implements AfterViewInit, OnDestroy {
   @Input() video: HTMLVideoElement;

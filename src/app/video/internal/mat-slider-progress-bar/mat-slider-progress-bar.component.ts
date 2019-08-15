@@ -9,7 +9,7 @@ let sliderprogressbarId = 0;
 @Component({
     selector: 'mat-slider-progress-bar',
     templateUrl: './mat-slider-progress-bar.component.html',
-    styleUrls: ['./mat-slider-progress-bar.component.css'],
+    styleUrls: ['./mat-slider-progress-bar.component.scss'],
     providers: [MAT_SLIDER_VALUE_ACCESSOR],
     host: {
         '(focus)': '_onFocus()',

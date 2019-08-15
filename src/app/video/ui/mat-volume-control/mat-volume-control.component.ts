@@ -6,7 +6,7 @@ import { EventService } from '../../services/event.service';
 @Component({
   selector: 'mat-volume-control',
   templateUrl: './mat-volume-control.component.html',
-  styleUrls: ['./mat-volume-control.component.css']
+  styleUrls: ['./mat-volume-control.component.scss']
 })
 export class MatVolumeControlComponent {
   @Input() video: HTMLVideoElement = null;

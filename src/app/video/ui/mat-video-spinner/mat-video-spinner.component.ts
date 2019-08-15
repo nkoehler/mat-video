@@ -8,10 +8,10 @@ import { EventService } from '../../services/event.service';
   templateUrl: './mat-video-spinner.component.html',
   styleUrls: [
     './mat-video-spinner.component.scss',
-    './indicators/spin.css',
-    './indicators/dot.css',
-    './indicators/split-ring.css',
-    './indicators/hourglass.css'
+    './indicators/spin.scss',
+    './indicators/dot.scss',
+    './indicators/split-ring.scss',
+    './indicators/hourglass.scss'
   ]
 })
 export class MatVideoSpinnerComponent implements AfterViewInit, OnDestroy {

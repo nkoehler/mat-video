@@ -6,7 +6,7 @@ import { FullscreenService } from '../../services/fullscreen.service';
 @Component({
   selector: 'mat-fullscreen-button',
   templateUrl: './mat-fullscreen-button.component.html',
-  styleUrls: ['./mat-fullscreen-button.component.css']
+  styleUrls: ['./mat-fullscreen-button.component.scss']
 })
 export class MatFullscreenButtonComponent implements OnInit {
   canFullscreen: boolean = false;

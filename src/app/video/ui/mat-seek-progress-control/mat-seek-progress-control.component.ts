@@ -7,7 +7,7 @@ import { EventService } from '../../services/event.service';
 @Component({
   selector: 'mat-seek-progress-control',
   templateUrl: './mat-seek-progress-control.component.html',
-  styleUrls: ['./mat-seek-progress-control.component.css']
+  styleUrls: ['./mat-seek-progress-control.component.scss']
 })
 export class MatSeekProgressControlComponent implements AfterViewInit, OnDestroy {
   curTimePercent: number = 0;

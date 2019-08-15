@@ -4,7 +4,7 @@ import buildInfo from './../../package.json';
 @Component({
   selector: 'app-root',
   templateUrl: './sample.component.html',
-  styleUrls: ['./sample.component.css'],
+  styleUrls: ['./sample.component.scss'],
 })
 export class SampleComponent {
   version = VERSION.full;
