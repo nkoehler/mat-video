@@ -12,12 +12,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SampleComponent } from './sample.component';
+import { AppComponent } from './app.component';
 import { MatVideoModule } from './video/video.module';
 
 @NgModule({
   declarations: [
-    SampleComponent,
+    AppComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -38,6 +38,6 @@ import { MatVideoModule } from './video/video.module';
     MatVideoModule,
   ],
   providers: [],
-  bootstrap: [SampleComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

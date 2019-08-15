@@ -3,10 +3,10 @@ import buildInfo from './../../package.json';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './sample.component.html',
-  styleUrls: ['./sample.component.scss'],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
 })
-export class SampleComponent {
+export class AppComponent {
   version = VERSION.full;
   appversion: string = buildInfo.version;
 
