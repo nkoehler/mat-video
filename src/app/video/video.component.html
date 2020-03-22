@@ -5,7 +5,7 @@
 
     <video #video class="video" [attr.src]="src ? src : null" [attr.autoplay]="autoplay ? true : null"
         [preload]="preload ? 'auto' : 'metadata'" [attr.poster]="poster ? poster : null"
-        [attr.loop]="loop ? loop : null">
+        [attr.loop]="loop ? loop : null" [attr.playsinline]="playsinline ? true : null">
         <ng-content select="source"></ng-content>
         <ng-content select="track"></ng-content>
         This browser does not support HTML5 video.

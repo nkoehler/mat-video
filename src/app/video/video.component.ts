@@ -30,6 +30,7 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
     @Input() loop: boolean = false;
     @Input() quality: boolean = true;
     @Input() fullscreen: boolean = true;
+    @Input() playsinline: boolean = false;
     @Input() showFrameByFrame: boolean = false;
     @Input() fps: number = 29.97;
     @Input() download: boolean = false;

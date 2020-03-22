@@ -56,6 +56,11 @@
       </div>
 
       <div class="item-section">
+        <div class="item-margin">Playsinline:</div>
+        <mat-slide-toggle [(ngModel)]="playsinline" [color]="color"></mat-slide-toggle>
+      </div>
+
+      <div class="item-section">
         <div class="item-margin">Fullscreen:</div>
         <mat-slide-toggle [(ngModel)]="fullscreen" [color]="color"></mat-slide-toggle>
       </div>
@@ -170,7 +175,7 @@
       <mat-video #vid [ngClass]="ngclass" [src]="src" [title]="title" [autoplay]="autoplay" [preload]="preload"
         [loop]="loop" [fullscreen]="fullscreen" [download]="download" [quality]="quality" [keyboard]="keyboard"
         [color]="color" [spinner]="spinner" [poster]="poster" [overlay]="overlay" [(muted)]="muted"
-        [showFrameByFrame]="showFrameByFrame" [(time)]="currentTime">
+        [playsinline]="playsinline" [showFrameByFrame]="showFrameByFrame" [(time)]="currentTime">
       </mat-video>
     </div>
 

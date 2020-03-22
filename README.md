@@ -104,6 +104,7 @@ Attribute | Type | Description | Default
 *quality* | **boolean** | Whether the video will have a quality indicator | *true*
 *download* | **boolean** | Whether the video will have a download option | *false*
 *fullscreen* | **boolean** | Whether the video will have a fullscreen option | *true*
+*playsinline* | **boolean** | Whether the video should play inline | *false*
 *showFrameByFrame* | **boolean** | Whether the video will display frame-by-frame controls | *false*
 *keyboard* | **boolean** | Whether the player will have keyboard shortcuts | *true*
 *overlay* | **boolean** | Force the overlay/controls to be shown or hidden | *null*
