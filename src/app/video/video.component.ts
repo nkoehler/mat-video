@@ -4,9 +4,11 @@ import {
     ElementRef,
     EventEmitter,
     Input,
+    OnChanges,
     OnDestroy,
     Output,
     Renderer2,
+    SimpleChanges,
     ViewChild,
 } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
@@ -19,11 +21,11 @@ import { EventService } from './services/event.service';
     templateUrl: './video.component.html',
     styleUrls: ['./video.component.css', './styles/icons.css']
 })
-export class MatVideoComponent implements AfterViewInit, OnDestroy {
+export class MatVideoComponent implements AfterViewInit, OnChanges, OnDestroy {
     @ViewChild('player') private player: ElementRef;
     @ViewChild('video') private video: ElementRef;
 
-    @Input() src: string = null;
+    @Input() src: string|MediaStream|MediaSource|Blob = null;
     @Input() title: string = null;
     @Input() autoplay: boolean = false;
     @Input() preload: boolean = true;
@@ -83,6 +85,8 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
 
     private events: EventHandler[];
 
+    private srcObjectURL: string;
+
     constructor(
         private renderer: Renderer2,
         private evt: EventService
@@ -101,12 +105,20 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
         this.video.nativeElement.onloadeddata = () => this.videoLoaded = true;
 
         this.evt.addEvents(this.renderer, this.events);
+        this.setVideoSrc(this.src);
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes.src) {
+            this.setVideoSrc(this.src);
+        }
     }
 
     ngOnDestroy(): void {
         this.video.nativeElement.onloadeddata = null;
 
         this.evt.removeEvents(this.events);
+        this.setVideoSrc(null);
     }
 
     load(): void {
@@ -141,6 +153,31 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
             return (!this.playing || this.isMouseMoving) ? activeClass : inactiveClass;
         } else {
             return this.overlay ? activeClass : inactiveClass;
+        }
+    }
+
+    private setVideoSrc(src: string|MediaStream|MediaSource|Blob): void {
+        if (this.srcObjectURL) {
+            URL.revokeObjectURL(this.srcObjectURL);
+            this.srcObjectURL = null;
+        }
+
+        if (!this.video || !this.video.nativeElement) {
+            return;
+        }
+
+        if (!src) {
+            this.video.nativeElement.src = null;
+            if ('srcObject' in HTMLVideoElement.prototype) {
+                this.video.nativeElement.srcObject = new MediaStream();
+            }
+        } else if (typeof src === 'string') {
+            this.video.nativeElement.src = src;
+        } else if ('srcObject' in HTMLVideoElement.prototype) {
+            this.video.nativeElement.srcObject = src;
+        } else {
+            this.srcObjectURL = URL.createObjectURL(src);
+            this.video.nativeElement.src = this.srcObjectURL;
         }
     }
 

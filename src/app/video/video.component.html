@@ -3,7 +3,7 @@
         {{title}}
     </div>
 
-    <video #video class="video" [attr.src]="src ? src : null" [attr.autoplay]="autoplay ? true : null"
+    <video #video class="video" [attr.autoplay]="autoplay ? true : null"
         [preload]="preload ? 'auto' : 'metadata'" [attr.poster]="poster ? poster : null"
         [attr.loop]="loop ? loop : null">
         <ng-content select="source"></ng-content>

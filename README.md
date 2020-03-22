@@ -94,7 +94,7 @@ A slightly more customized example, in your HTML file:
 ## API
 Attribute | Type | Description | Default
 --- | --- | --- | ---
-*src* | **string** | Path or URL to a video | *null*
+*src* | **string|MediaStream|MediaSource|Blob** | Path, URL, or `srcObject` for a video | *null*
 *title* | **string** | Title for the video | *null*
 *autoplay* | **boolean** | Whether the video should autoplay | *false*
 *preload* | **boolean** | Whether the video should preload | *true*
