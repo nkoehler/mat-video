@@ -179,6 +179,8 @@ export class MatVideoComponent implements AfterViewInit, OnChanges, OnDestroy {
             this.srcObjectURL = URL.createObjectURL(src);
             this.video.nativeElement.src = this.srcObjectURL;
         }
+
+        this.video.nativeElement.muted = this.muted;
     }
 
 }
