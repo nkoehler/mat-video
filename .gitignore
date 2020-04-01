@@ -1,22 +1,38 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiled output
+# Compiled output
 /dist
-/dist-server
 /tmp
 /out-tsc
+# Only exists if Bazel was run
+/bazel-out
 
-# dependencies
+# Dependencies
 /node_modules
-/e2e
+
+# Profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# Cordova
+/www
+/plugins
+/platforms
+
+# Electron
+/dist.electron
+/electron.main.js
 
 # IDEs and editors
-/.idea
+.idea/*
+!.idea/runConfigurations/
+!.idea/codeStyleSettings.xml
 .project
 .classpath
 .c9/
 *.launch
 .settings/
+xcuserdata/
 *.sublime-workspace
 
 # IDE - VSCode
@@ -25,8 +41,13 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.history/*
 
-# misc
+# Maven
+/target
+/log
+
+# Misc
 /.sass-cache
 /connect.lock
 /coverage
@@ -35,12 +56,15 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-dist.tgz
-
-# e2e
-/e2e/*.js
-/e2e/*.map
+/reports
+/src/translations/template.*
+/src/environments/.env.*
 
 # System Files
 .DS_Store
 Thumbs.db
+.angulardoc.json
+
+# SonarQube
+.sonarlint
+.scannerwork

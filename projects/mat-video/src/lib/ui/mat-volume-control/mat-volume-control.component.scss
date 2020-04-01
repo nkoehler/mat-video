@@ -1,0 +1,32 @@
+.volume-control {
+  display: inline;
+}
+
+.volume-slider {
+  margin-left: -15px;
+}
+
+::ng-deep.mat-slider-thumb {
+  border-color: transparent !important;
+}
+
+::ng-deep.mat-slider-track-background {
+  background-color: lightgrey !important;
+  transform: translateX(0px) !important;
+}
+
+.volume-control .volume-slider {
+  visibility: hidden;
+  opacity: 0;
+  min-width: 0px;
+  width: 0px;
+  transition: visibility 0s 0.2s, opacity 0.2s linear, width 0.2s linear;
+}
+
+.volume-control:hover .volume-slider {
+  visibility: visible;
+  opacity: 1;
+  min-width: 90px;
+  width: 90px;
+  transition: opacity 0.2s linear, width 0.2s linear, min-width 0.2s linear;
+}

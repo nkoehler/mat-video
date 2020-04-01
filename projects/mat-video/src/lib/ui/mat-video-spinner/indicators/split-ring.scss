@@ -1,0 +1,36 @@
+.split-ring {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+}
+
+.split-ring:after {
+  content: " ";
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  -webkit-animation: split-ring 1.2s linear infinite;
+  animation: split-ring 1.2s linear infinite;
+}
+
+@-webkit-keyframes split-ring {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes split-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

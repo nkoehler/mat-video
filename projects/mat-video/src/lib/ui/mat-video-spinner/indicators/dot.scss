@@ -1,0 +1,31 @@
+.dot {
+  width: 64px;
+  height: 64px;
+  background-color: white;
+
+  border-radius: 100%;
+  -webkit-animation: dot 1s infinite ease-in-out;
+  animation: dot 1s infinite ease-in-out;
+}
+
+@-webkit-keyframes dot {
+  0% {
+    -webkit-transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes dot {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
