@@ -13,7 +13,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppComponent } from "./app.component";
-import { MatVideoModule } from "mat-video";
+import { MatVideoModule } from "projects/mat-video/src/public-api";
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +32,6 @@ import { MatVideoModule } from "mat-video";
     MatRadioModule,
     MatVideoModule
   ],
-  exports: [MatVideoModule],
   providers: [],
   bootstrap: [AppComponent]
 })

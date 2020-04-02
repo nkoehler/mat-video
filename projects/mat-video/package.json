@@ -1,8 +1,34 @@
 {
   "name": "mat-video",
-  "description": "",
   "version": "2.7.2",
+  "description": "mat-video is an Angular 8/9+ video player using Material",
+  "license": "MIT",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkoehler/mat-video.git"
+  },
+  "keywords": [
+    "angular",
+    "material",
+    "javascript",
+    "typescript",
+    "angular 8",
+    "angular 9",
+    "video",
+    "playback",
+    "mp4",
+    "mat",
+    "mat-video",
+    "material-video",
+    "player",
+    "html5"
+  ],
+  "author": "Nicholas Koehler",
+  "bugs": {
+    "url": "https://github.com/nkoehler/mat-video/issues"
+  },
+  "homepage": "https://github.com/nkoehler/mat-video",
   "peerDependencies": {
     "@angular/common": ">=8.0.0",
     "@angular/compiler": ">=8.0.0",

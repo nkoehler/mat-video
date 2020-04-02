@@ -1,46 +1,19 @@
 {
   "name": "mat-video-app",
   "version": "2.7.2",
-  "description": "mat-video is an Angular 5/6/7/8+ video player using Material",
-  "license": "MIT",
+  "description": "",
   "scripts": {
     "ng": "ng",
     "prettier": "prettier --write \"**/*.{scss,ts,component.html}\"",
-    "start": "ng serve mat-video && ng build",
-    "build": "ng build mat-video && ng build",
-    "build:lib": "ng build mat-video && cp README.md CHANGELOG.md LICENSE ./dist/mat-video/",
+    "start": "ng serve mat-video-app",
+    "build": "ng build mat-video-app",
+    "build:lib": "ng build mat-video",
     "test": "ng test mat-video --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "clean": "rm -rf dist"
   },
   "private": false,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nkoehler/mat-video.git"
-  },
-  "keywords": [
-    "angular",
-    "material",
-    "javascript",
-    "angular 5",
-    "angular 6",
-    "angular 7",
-    "angular 8",
-    "video",
-    "playback",
-    "mp4",
-    "mat",
-    "mat-video",
-    "material-video",
-    "player",
-    "html5"
-  ],
-  "author": "Nicholas Koehler",
-  "bugs": {
-    "url": "https://github.com/nkoehler/mat-video/issues"
-  },
-  "homepage": "https://github.com/nkoehler/mat-video",
   "dependencies": {
     "@angular/animations": "8.2.2",
     "@angular/cdk": "8.1.3",
