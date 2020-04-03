@@ -23,6 +23,7 @@ export class AppComponent {
   quality = true;
   download = true;
   fullscreen = true;
+  playsinline = false;
   showFrameByFrame = false;
   keyboard = true;
   color = "primary";

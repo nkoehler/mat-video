@@ -62,6 +62,11 @@
       </div>
 
       <div class="item-section">
+        <div class="item-margin">Plays Inline:</div>
+        <mat-slide-toggle [(ngModel)]="playsinline" [color]="color"></mat-slide-toggle>
+      </div>
+
+      <div class="item-section">
         <div class="item-margin">Frame-by-Frame:</div>
         <mat-slide-toggle [(ngModel)]="showFrameByFrame" [color]="color"></mat-slide-toggle>
       </div>
@@ -183,6 +188,7 @@
         [poster]="poster"
         [overlay]="overlay"
         [(muted)]="muted"
+        [playsinline]="playsinline"
         [showFrameByFrame]="showFrameByFrame"
         [(time)]="currentTime"
       >
