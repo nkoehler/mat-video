@@ -1,11 +1,11 @@
-# mat-video for Angular 5/6/7/8+ and Material
+# mat-video is an Angular 8/9+ video player using Material
 [![npm version](https://badge.fury.io/js/mat-video.svg)](https://badge.fury.io/js/mat-video)
 [![Build Status](https://travis-ci.org/nkoehler/mat-video.svg?branch=master)](https://travis-ci.org/nkoehler/mat-video)
 [![Maintainability](https://api.codeclimate.com/v1/badges/46fb1a751d60d0f8b316/maintainability)](https://codeclimate.com/github/nkoehler/mat-video/maintainability)
 
 **mat-video** is an Angular component for playing videos.  It has all the features you would expect from a standard video player, all in an extremely light package. The video player is designed to be flexible and easy to use; you can be up and running in less than 5 minutes!
 
-It was built for modern browsers using _TypeScript_, _CSS3_ and _HTML5_ with _Angular & Material 5/6/7/8+_.
+It was built for modern browsers using _TypeScript_, _CSS3_ and _HTML5_ with _Angular & Material 8/9+_.
 
 See the [changelog](https://github.com/nkoehler/mat-video/blob/master/CHANGELOG.md) for recent changes.  
 
@@ -34,16 +34,10 @@ If you wish to contribute, please fill out the [pull request template](https://g
 - Supports Chrome, Firefox, Safari, and Edge
 
 ## Installation
-**mat-video** requires [Angular Material](https://material.angular.io/guide/getting-started) as a peer dependency, including animations.
+**mat-video** requires [Angular Material](https://material.angular.io/guide/getting-started) as a peer dependency, including animations and a theme.
 
 ```
-npm install --save @angular/material @angular/cdk @angular/animations hammerjs
-```
-
-Add the following import to `src/polyfills.ts`:
-
-```typescript
-import 'hammerjs';
+ng add @angular/material
 ```
 
 To use **mat-video** in your project install it via [npm](https://www.npmjs.com/package/mat-video):
@@ -65,12 +59,6 @@ import { MatVideoModule } from 'mat-video';
   ],
 })
 export class AppModule { }
-```
-
-Finally, include an [Angular Material theme](https://material.angular.io/guide/theming) in `styles.css`, or via a `<link>` element in `index.html`.
-
-```css
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 ```
 
 ## Usage

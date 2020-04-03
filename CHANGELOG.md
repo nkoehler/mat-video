@@ -15,6 +15,7 @@
 - **angular:** officially dropping support for Angular 5, 6, and 7
 
 
+
 # 2.7.2 (2019-06-14)
 
 ### Bug Fixes:
