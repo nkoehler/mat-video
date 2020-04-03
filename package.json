@@ -7,7 +7,7 @@
     "prettier": "prettier --write \"**/*.{scss,ts,component.html}\"",
     "start": "ng serve mat-video-app",
     "build": "ng build mat-video-app",
-    "build:lib": "ng build mat-video",
+    "build:lib": "ng build mat-video && copy README.md .\\dist\\mat-video\\README.md && copy CHANGELOG.md .\\dist\\mat-video\\CHANGELOG.md && copy LICENSE .\\dist\\mat-video\\LICENSE",
     "test": "ng test mat-video --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
