@@ -152,3 +152,4 @@ mat-video Version | Angular Version
 Special thanks:
 - [mediapack-me](https://github.com/mediapack-me) for responsive assistance.
 - [buu700](https://github.com/buu700) for several features and fixes.
+- [fabiomartino](https://github.com/fabiomartino) for modernizing project structure.

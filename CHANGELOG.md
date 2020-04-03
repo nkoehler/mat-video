@@ -9,6 +9,9 @@
 ### Bug Fixes:
 
 - **video:** fixed an issue with muted throwing a console error ([community contribution](https://github.com/nkoehler/mat-video/pull/45))
+- **video:** fixed issue importing MatVideoComponent ([community contribution](https://github.com/nkoehler/mat-video/pull/33))
+- **dependencies:** updated Angular
+- **dependencies:** updated Angular Material
 
 ### Deprecated:
 
