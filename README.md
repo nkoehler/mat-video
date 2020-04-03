@@ -94,7 +94,7 @@ A slightly more customized example, in your HTML file:
 ## API
 Attribute | Type | Description | Default
 --- | --- | --- | ---
-*src* | **string|MediaStream|MediaSource|Blob** | Path, URL, or `srcObject` for a video | *null*
+*src* | **string, MediaStream, MediaSource, Blob** | Path, URL, or `srcObject` for a video | *null*
 *title* | **string** | Title for the video | *null*
 *autoplay* | **boolean** | Whether the video should autoplay | *false*
 *preload* | **boolean** | Whether the video should preload | *true*
@@ -149,10 +149,18 @@ export class SampleComponent implements OnInit {
 
 This API feature is considered experimental, and is subject to change.
 
-## Angular Compatibility Depreciation Notice (2019-06-14)
-Angular is rapidly growing with every major release.  This has caused an increasing burden on the development of **mat-video** to support older versions of Angular.  Due to the vast amount of differences between modern Angular and previous Angular versions, **mat-video** will officially be dropping support for older Angular versions with the upcoming Angular 9 release scheduled for November 2019.  Existing releases will continue to function with older versions of Angular, however, no support will be provided for these versions.  Instead, **mat-video** will provide backwards compatibility in a similar way to how Angular supports this.  This notice is provided as an opportunity for developers to make necessary upgrades and plans for the future.  More details will be announced closer to the release of Angular 9.
+## Compatibility
+**mat-video** supports the last two major Angular versions.  Previous versions of **mat-video** support older versions of Angular.
+
+mat-video Version | Angular Version
+--- | ---
+1.0.0 - 2.7.2 | Angular 5, 6, 7, 8
+2.8.0+ | Angular 8, 9
+
 
 ## Credits
 **mat-video** is an open-source project developed by Nicholas Koehler.
 
-Special thanks to [mediapack-me](https://github.com/mediapack-me) for responsive assistance.
+Special thanks:
+- [mediapack-me](https://github.com/mediapack-me) for responsive assistance.
+- [buu700](https://github.com/buu700) for several features and fixes.

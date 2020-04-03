@@ -1,3 +1,20 @@
+# 2.8.0 (2020-04-03)
+
+### Features:
+
+- **angular:** added support for Angular 9
+- **video:** added srcObject support ([community contribution](https://github.com/nkoehler/mat-video/pull/47))
+- **video:** added playsinline support ([community contribution](https://github.com/nkoehler/mat-video/pull/46))
+
+### Bug Fixes:
+
+- **video:** fixed an issue with muted throwing a console error ([community contribution](https://github.com/nkoehler/mat-video/pull/45))
+
+### Deprecated:
+
+- **angular:** officially dropping support for Angular 5, 6, and 7
+
+
 # 2.7.2 (2019-06-14)
 
 ### Bug Fixes:
