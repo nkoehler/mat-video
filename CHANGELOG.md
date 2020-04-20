@@ -1,3 +1,12 @@
+# 2.8.1 (2020-04-20)
+
+### Bug Fixes:
+
+- **video:** reduced skipping video in Safari ([community contribution](https://github.com/nkoehler/mat-video/pull/56))
+- **video:** fixed spinner displayed forever in Safari
+
+
+
 # 2.8.0 (2020-04-03)
 
 ### Features:
