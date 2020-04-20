@@ -18,7 +18,7 @@ export class MatVideoSpinnerComponent implements AfterViewInit, OnDestroy {
   @Input() video: HTMLVideoElement;
   @Input() spinner = "spin";
 
-  videoBuffering = true;
+  videoBuffering = false;
 
   private events: EventHandler[] = [];
 
@@ -33,10 +33,14 @@ export class MatVideoSpinnerComponent implements AfterViewInit, OnDestroy {
       { element: this.video, name: "durationchange", callback: event => (this.videoBuffering = true), dispose: null }
     ];
 
+    this.video.onloadeddata = () => (this.videoBuffering = false);
+
     this.evt.addEvents(this.renderer, this.events);
   }
 
   ngOnDestroy(): void {
+    this.video.onloadeddata = null;
+
     this.evt.removeEvents(this.events);
   }
 }
