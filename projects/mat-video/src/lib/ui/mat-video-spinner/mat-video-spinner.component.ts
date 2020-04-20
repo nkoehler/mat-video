@@ -18,8 +18,7 @@ export class MatVideoSpinnerComponent implements AfterViewInit, OnDestroy {
   @Input() video: HTMLVideoElement;
   @Input() spinner = "spin";
 
-  videoBuffering = false;
-  videoLoaded = false;
+  videoBuffering = true;
 
   private events: EventHandler[] = [];
 
@@ -27,21 +26,17 @@ export class MatVideoSpinnerComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.events = [
-      { element: this.video, name: "loadstart", callback: event => (this.videoLoaded = false), dispose: null },
-      { element: this.video, name: "loadedmetadata", callback: event => (this.videoLoaded = true), dispose: null },
-      { element: this.video, name: "canplay", callback: event => (this.videoBuffering = false), dispose: null },
+      { element: this.video, name: "loadstart", callback: event => (this.videoBuffering = true), dispose: null },
+      { element: this.video, name: "loadedmetadata", callback: event => (this.videoBuffering = false), dispose: null },
+      { element: this.video, name: "playing", callback: event => (this.videoBuffering = false), dispose: null },
       { element: this.video, name: "waiting", callback: event => (this.videoBuffering = true), dispose: null },
       { element: this.video, name: "durationchange", callback: event => (this.videoBuffering = true), dispose: null }
     ];
-
-    this.video.onloadeddata = () => (this.videoLoaded = true);
 
     this.evt.addEvents(this.renderer, this.events);
   }
 
   ngOnDestroy(): void {
-    this.video.onloadeddata = null;
-
     this.evt.removeEvents(this.events);
   }
 }
