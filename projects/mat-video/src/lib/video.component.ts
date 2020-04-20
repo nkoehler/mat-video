@@ -60,10 +60,10 @@ export class MatVideoComponent implements AfterViewInit, OnChanges, OnDestroy {
       if (val < 0) {
         val = 0;
       }
-      if (val !== video.currentTime) {
+      if (Math.abs(val - video.currentTime) > 0.0001) {
         video.currentTime = val;
       }
-      if (this.lastTime !== video.currentTime) {
+      if (Math.abs(this.lastTime - video.currentTime) > 0.0001) {
         setTimeout(() => this.timeChange.emit(video.currentTime), 0);
         this.lastTime = video.currentTime;
       }
