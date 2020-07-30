@@ -1,3 +1,5 @@
+**July 2020 - This project is no longer maintained**
+
 # mat-video is an Angular 8/9+ video player using Material
 [![npm version](https://badge.fury.io/js/mat-video.svg)](https://badge.fury.io/js/mat-video)
 [![Build Status](https://travis-ci.org/nkoehler/mat-video.svg?branch=master)](https://travis-ci.org/nkoehler/mat-video)
